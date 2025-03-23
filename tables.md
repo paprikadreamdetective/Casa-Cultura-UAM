@@ -182,5 +182,19 @@ HORAB contiene los horarios de la Sucursal 2 (Monterrey).
 
 HORAC agrupa los horarios de la Sucursal 3 (Guadalajara).
 
+# DIAHORA
+
+| idDiaHora | dia_idDia | diaHora_idHoraInicio | diaHora_idHoraFin |
+|------------|-----------|----------------------|--------------------|
+| 101        | 1         | 08:00                | 10:00              |
+| 102        | 2         | 10:00                | 12:00              |
+| 103        | 3         | 12:00                | 14:00              |
+| 104        | 4         | 14:00                | 16:00              |
+| 105        | 5         | 16:00                | 18:00              |
+| 106        | 6         | 18:00                | 20:00              |
+| 107        | 1         | 08:00                | 10:00              |
+| 108        | 2         | 10:00                | 12:00              |
+| 109        | 3         | 12:00                | 14:00              |
+| 110        | 4         | 14:00                | 16:00              |
 
 
