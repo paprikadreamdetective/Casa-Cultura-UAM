@@ -238,3 +238,11 @@ Fragmento DHB contiene los horarios de la Sucursal 2 (Monterrey).
 
 Fragmento DHC incluye los registros de horarios de la Sucursal 3 (Guadalajara).
 
+# TIPOPAGO
+
+| idTipoPago | tipoPagoNombre | tipoPagoDescripcion         |
+|-------------|----------------|-----------------------------|
+| 1           | Efectivo       | Pago realizado en efectivo  |
+| 2           | Tarjeta        | Pago con tarjeta bancaria   |
+
+
