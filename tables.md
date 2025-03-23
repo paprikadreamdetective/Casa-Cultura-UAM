@@ -124,3 +124,60 @@ Cada fragmento (FA1, FA2, FA3, FA4, FA5) contiene los alumnos pertenecientes a l
 | 9              | 2024-03-07       | 1                    | 7               | 1009      | 3                   |
 | 10             | 2024-03-14       | 3                    | 10              | 1010      | 3                   |
 
+# TABLA HORARIO
+
+| idHorario | tipoHorario_idtipoHorario | diaHora_idDiaHora | sucursal_idSucursal |
+|------------|---------------------------|--------------------|---------------------|
+| 1          | 1                         | 101                | 1                   |
+| 2          | 2                         | 102                | 1                   |
+| 3          | 3                         | 103                | 1                   |
+| 4          | 1                         | 104                | 1                   |
+| 5          | 2                         | 105                | 2                   |
+| 6          | 3                         | 106                | 2                   |
+| 7          | 1                         | 107                | 2                   |
+| 8          | 2                         | 108                | 3                   |
+| 9          | 3                         | 109                | 3                   |
+| 10         | 1                         | 110                | 3                   |
+
+
+🧑‍🎓 Fragmentación Horizontal Derivada
+Se genera la fragmentación horizontal derivada en base a los fragmentos de alumnos (FA1, FA2, FA3).
+La notación es:
+
+HORAA = Horario ⋉ FA1
+
+HORAB = Horario ⋉ FA2
+
+HORAC = Horario ⋉ FA3
+
+✅ Fragmento HORAA = Horario ⋉ FA1
+
+| idHorario | tipoHorario_idtipoHorario | diaHora_idDiaHora | sucursal_idSucursal |
+|------------|---------------------------|--------------------|---------------------|
+| 1          | 1                         | 101                | 1                   |
+| 2          | 2                         | 102                | 1                   |
+| 3          | 3                         | 103                | 1                   |
+| 4          | 1                         | 104                | 1                   |
+✅ Fragmento HORAB = Horario ⋉ FA2
+
+| idHorario | tipoHorario_idtipoHorario | diaHora_idDiaHora | sucursal_idSucursal |
+|------------|---------------------------|--------------------|---------------------|
+| 5          | 2                         | 105                | 2                   |
+| 6          | 3                         | 106                | 2                   |
+| 7          | 1                         | 107                | 2                   |
+✅ Fragmento HORAC = Horario ⋉ FA3
+
+| idHorario | tipoHorario_idtipoHorario | diaHora_idDiaHora | sucursal_idSucursal |
+|------------|---------------------------|--------------------|---------------------|
+| 8          | 2                         | 108                | 3                   |
+| 9          | 3                         | 109                | 3                   |
+| 10         | 1                         | 110                | 3                   |
+🔎 Conclusiones
+HORAA contiene los horarios correspondientes a la Sucursal 1 (CDMX).
+
+HORAB contiene los horarios de la Sucursal 2 (Monterrey).
+
+HORAC agrupa los horarios de la Sucursal 3 (Guadalajara).
+
+
+
