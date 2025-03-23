@@ -244,6 +244,7 @@ Fragmento DHC incluye los registros de horarios de la Sucursal 3 (Guadalajara).
 |-------------|----------------|-----------------------------|
 | 1           | Efectivo       | Pago realizado en efectivo  |
 | 2           | Tarjeta        | Pago con tarjeta bancaria   |
+| 3           | Transferencia        | Pago mediante transferencia   |
 
 ✅ Fragmento TPA = TipoPago ⋉ PAGA
 
