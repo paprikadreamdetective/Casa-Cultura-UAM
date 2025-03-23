@@ -245,4 +245,36 @@ Fragmento DHC incluye los registros de horarios de la Sucursal 3 (Guadalajara).
 | 1           | Efectivo       | Pago realizado en efectivo  |
 | 2           | Tarjeta        | Pago con tarjeta bancaria   |
 
+✅ Fragmento TPA = TipoPago ⋉ PAGA
+
+| idTipoPago | tipoPagoNombre | tipoPagoDescripcion         |
+|-------------|----------------|-----------------------------|
+| 1           | Efectivo       | Pago realizado en efectivo  |
+| 2           | Tarjeta        | Pago con tarjeta bancaria   |
+
+TPA incluye los tipos de pago asociados a los pagos de la Sucursal 1 (CDMX).
+
+En este fragmento, hay registros de pagos en Efectivo y Tarjeta.
+
+✅ Fragmento TPB = TipoPago ⋉ PAGB
+
+| idTipoPago | tipoPagoNombre  | tipoPagoDescripcion           |
+|-------------|-----------------|------------------------------|
+| 1           | Efectivo        | Pago realizado en efectivo   |
+| 3           | Transferencia   | Pago mediante transferencia  |
+
+TPB incluye los tipos de pago asociados a los pagos de la Sucursal 2 (Monterrey).
+
+Aquí se registran pagos en Efectivo y por Transferencia.
+
+✅ Fragmento TPC = TipoPago ⋉ PAGC
+
+| idTipoPago | tipoPagoNombre   | tipoPagoDescripcion           |
+|-------------|------------------|------------------------------|
+| 2           | Tarjeta           | Pago con tarjeta bancaria    |
+| 3           | Transferencia     | Pago mediante transferencia  |
+
+TPC contiene los tipos de pago relacionados con los pagos de la Sucursal 3 (Guadalajara).
+
+Los registros de esta sucursal incluyen pagos con Tarjeta y Transferencia.
 
