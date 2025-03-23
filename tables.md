@@ -84,4 +84,43 @@ Cada fragmento (FA1, FA2, FA3, FA4, FA5) contiene los alumnos pertenecientes a l
 | 7          | Carlos       | Martínez        | Herrera         | 5578901234     | carlos.martinez@yahoo.com  | 2004-08-10      | 107                    | 207                    | 2023-04-01              | 2                        | 3                        | 3                   |
 | 10         | Sofia        | Aguilar         | Torres          | 5501234567     | sofia.aguilar@gmail.com    | 2002-10-03      | 110                    | 210                    | 2022-12-01              | 2                        | 3                        | 3                   |
 
+# Fragmentacion Horizontal derivada
+
+| idMensualidad | mensualidadFecha | tipoPago_idtipoPago | alumno_idAlumno | numRecibo | sucursal_idSucursal |
+|----------------|------------------|----------------------|-----------------|-----------|---------------------|
+| 1              | 2024-03-01       | 1                    | 1               | 1001      | 1                   |
+| 2              | 2024-03-05       | 2                    | 2               | 1002      | 1                   |
+| 3              | 2024-03-10       | 1                    | 4               | 1003      | 1                   |
+| 4              | 2024-03-15       | 2                    | 8               | 1004      | 1                   |
+| 5              | 2024-03-02       | 1                    | 3               | 1005      | 2                   |
+| 6              | 2024-03-08       | 3                    | 6               | 1006      | 2                   |
+| 7              | 2024-03-12       | 1                    | 9               | 1007      | 2                   |
+| 8              | 2024-03-03       | 2                    | 5               | 1008      | 3                   |
+| 9              | 2024-03-07       | 1                    | 7               | 1009      | 3                   |
+| 10             | 2024-03-14       | 3                    | 10              | 1010      | 3                   |
+
+# ✅ Fragmento PAGA = Pago ⋉ FA1
+
+| idMensualidad | mensualidadFecha | tipoPago_idtipoPago | alumno_idAlumno | numRecibo | sucursal_idSucursal |
+|----------------|------------------|----------------------|-----------------|-----------|---------------------|
+| 1              | 2024-03-01       | 1                    | 1               | 1001      | 1                   |
+| 2              | 2024-03-05       | 2                    | 2               | 1002      | 1                   |
+| 3              | 2024-03-10       | 1                    | 4               | 1003      | 1                   |
+| 4              | 2024-03-15       | 2                    | 8               | 1004      | 1                   |
+
+# ✅ Fragmento PAGB = Pago ⋉ FA2
+
+| idMensualidad | mensualidadFecha | tipoPago_idtipoPago | alumno_idAlumno | numRecibo | sucursal_idSucursal |
+|----------------|------------------|----------------------|-----------------|-----------|---------------------|
+| 5              | 2024-03-02       | 1                    | 3               | 1005      | 2                   |
+| 6              | 2024-03-08       | 3                    | 6               | 1006      | 2                   |
+| 7              | 2024-03-12       | 1                    | 9               | 1007      | 2                   |
+
+# ✅ Fragmento PAGC = Pago ⋉ FA3
+
+| idMensualidad | mensualidadFecha | tipoPago_idtipoPago | alumno_idAlumno | numRecibo | sucursal_idSucursal |
+|----------------|------------------|----------------------|-----------------|-----------|---------------------|
+| 8              | 2024-03-03       | 2                    | 5               | 1008      | 3                   |
+| 9              | 2024-03-07       | 1                    | 7               | 1009      | 3                   |
+| 10             | 2024-03-14       | 3                    | 10              | 1010      | 3                   |
 
