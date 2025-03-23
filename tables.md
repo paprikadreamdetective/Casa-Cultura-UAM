@@ -158,6 +158,7 @@ HORAC = Horario ⋉ FA3
 | 2          | 2                         | 102                | 1                   |
 | 3          | 3                         | 103                | 1                   |
 | 4          | 1                         | 104                | 1                   |
+
 ✅ Fragmento HORAB = Horario ⋉ FA2
 
 | idHorario | tipoHorario_idtipoHorario | diaHora_idDiaHora | sucursal_idSucursal |
@@ -165,6 +166,7 @@ HORAC = Horario ⋉ FA3
 | 5          | 2                         | 105                | 2                   |
 | 6          | 3                         | 106                | 2                   |
 | 7          | 1                         | 107                | 2                   |
+
 ✅ Fragmento HORAC = Horario ⋉ FA3
 
 | idHorario | tipoHorario_idtipoHorario | diaHora_idDiaHora | sucursal_idSucursal |
@@ -172,6 +174,7 @@ HORAC = Horario ⋉ FA3
 | 8          | 2                         | 108                | 3                   |
 | 9          | 3                         | 109                | 3                   |
 | 10         | 1                         | 110                | 3                   |
+
 🔎 Conclusiones
 HORAA contiene los horarios correspondientes a la Sucursal 1 (CDMX).
 
