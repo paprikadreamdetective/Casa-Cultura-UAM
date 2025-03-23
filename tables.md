@@ -46,3 +46,40 @@
 | 8          | 2021-08-15              | 3                        | 2                        | 1                   |
 | 9          | 2020-09-30              | 1                        | 1                        | 2                   |
 | 10         | 2022-12-01              | 2                        | 3                        | 3                   |
+
+## Fragmentacion Horizontal
+
+| idSucursal | sucursalNombre          | sucursalDireccion                    | sucursalTelefono |
+|-------------|--------------------------|-------------------------------------|-------------------|
+| 1           | Centro Acuático CDMX     | Av. Insurgentes Sur 123, CDMX       | 5551234567        |
+| 2           | Centro Deportivo Monterrey | Calle Constitución 456, Monterrey   | 8189876543        |
+| 3           | Centro Recreativo Guadalajara | Av. Vallarta 789, Guadalajara     | 3331239876        |
+| 4           | Centro Olímpico Mérida   | Calle 50 Norte 123, Mérida          | 9994567890        |
+| 5           | Centro Acuático Tijuana  | Blvd. Agua Caliente 567, Tijuana    | 6647891234        |
+
+🧑‍🎓 Fragmentación Horizontal Primaria de la Tabla Alumno
+Cada fragmento (FA1, FA2, FA3, FA4, FA5) contiene los alumnos pertenecientes a la sucursal correspondiente.
+
+| idAlumno | alumnoNombre | alumnoApellidop | alumnoApellidom | sucursal_idSucursal |
+|------------|--------------|-----------------|-----------------|---------------------|
+| 1          | Juan         | Pérez           | Gómez           | 1                   |
+| 2          | Maria        | Rodríguez       | López           | 1                   |
+| 4          | Karla        | Jiménez         | Ruiz            | 1                   |
+| 8          | Daniela      | López           | Cruz            | 1                   |
+
+
+
+| idAlumno | alumnoNombre | alumnoApellidop | alumnoApellidom | sucursal_idSucursal |
+|------------|--------------|-----------------|-----------------|---------------------|
+| 3          | Pedro        | Sánchez         | Morales         | 2                   |
+| 6          | Fernanda     | Castro          | Gómez           | 2                   |
+| 9          | Jorge        | Ramírez         | Chávez          | 2                   |
+
+
+| idAlumno | alumnoNombre | alumnoApellidop | alumnoApellidom | sucursal_idSucursal |
+|------------|--------------|-----------------|-----------------|---------------------|
+| 5          | Luis         | Torres          | García          | 3                   |
+| 7          | Carlos       | Martínez        | Herrera         | 3                   |
+| 10         | Sofia        | Aguilar         | Torres          | 3                   |
+
+
