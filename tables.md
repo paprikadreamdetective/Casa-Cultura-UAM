@@ -279,3 +279,44 @@ TPC contiene los tipos de pago relacionados con los pagos de la Sucursal 3 (Guad
 
 Los registros de esta sucursal incluyen pagos con Tarjeta y Transferencia.
 
+ ***a) Recolectar los datos iniciales***
+
+Los datos fueron recolectados del siguiente enlace: https://www.stratosphereips.org/datasets-ctu13
+
+## CTU-13 Dataset: Tipos de Archivos y Descarga
+
+### 📂 **Tipos de Archivos**
+Cada escenario del conjunto de datos CTU-13 incluye diferentes tipos de archivos procesados. Por razones de privacidad, no está disponible el archivo completo `.pcap` con todos los datos de tráfico. Sin embargo, se dispone de otros archivos útiles para el análisis:
+
+- **Archivos .parquet**: Capturan exclusivamente el tráfico de botnets.
+- **Archivos .binetflow**: Archivos NetFlow bidireccionales, generados con **Argus**, que contienen información del tráfico, incluyendo etiquetas, direcciones IP fuente y destino, así como los puertos asociados, tipo de botnet y tambien si es trafico malicioso o no.
+- **Archivo Ejecutable Original**: Disponible para ciertos escenarios, útil para análisis adicionales.
+
+---
+
+### 📥 **Descarga del Conjunto de Datos**
+
+- **Descarga Completa:** Puedes descargar todo el conjunto de datos como un archivo comprimido.
+  - [CTU-13-Dataset.tar.bz2 (1.9GB)](URL_DE_DESCARGA_COMPLETA)
+
+- **Descarga por Escenario:** También puedes descargar cada captura de manera individual. Los archivos `.binetflow` se encuentran en la carpeta `detailed-bidirectional-flow-labels`.
+
+  - [CTU-Malware-Capture-Botnet-42](URL_42)
+  - [CTU-Malware-Capture-Botnet-43](URL_43)
+  - [CTU-Malware-Capture-Botnet-44](URL_44)
+  - [CTU-Malware-Capture-Botnet-45](URL_45)
+  - [CTU-Malware-Capture-Botnet-46](URL_46)
+  - [CTU-Malware-Capture-Botnet-47](URL_47)
+  - [CTU-Malware-Capture-Botnet-48](URL_48)
+  - [CTU-Malware-Capture-Botnet-49](URL_49)
+  - [CTU-Malware-Capture-Botnet-50](URL_50)
+  - [CTU-Malware-Capture-Botnet-51](URL_51)
+  - [CTU-Malware-Capture-Botnet-52](URL_52)
+  - [CTU-Malware-Capture-Botnet-53](URL_53)
+  - [CTU-Malware-Capture-Botnet-54](URL_54)
+
+---
+
+Para cualquier análisis adicional o consulta sobre los archivos `.binetflow`, asegurarse de verificar las etiquetas de flujo bidireccional disponibles en cada escenario.
+
+# ***b) Descripcion de los datos***
