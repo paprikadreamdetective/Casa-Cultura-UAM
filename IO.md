@@ -44,7 +44,15 @@ Base inicial: $s_1, a_1, a_2$
 ## Paso 3: Tabla Simplex Inicial No Básica Matricial
 
 **Matriz $A$:**  
-
+$$
+\begin{equation}
+  \begin{bmatrix}
+    1 & 2 \\
+    3 & 4 
+  \end{bmatrix}
+  \label{eq:aeqn}
+\end{equation}
+$$
 $A = 
 \begin{equation}
 \begin{pmatrix} 
