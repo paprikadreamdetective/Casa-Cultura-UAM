@@ -43,6 +43,18 @@ Base inicial: $s_1, a_1, a_2$
 
 ## Paso 3: Tabla Simplex Inicial No Básica Matricial
 
+
+```latex
+\[
+A = \begin{bmatrix} 
+2 & 1 & 2 & 1 & 0 & 0 & 0 \\ 
+1 & 2 & 1 & 0 & 0 & 1 & 0 \\ 
+1 & 1 & 2 & 0 & -1 & 0 & 1 
+\end{bmatrix}
+\]
+```
+
+
 **Matriz $A$:**  
 
 A = 
