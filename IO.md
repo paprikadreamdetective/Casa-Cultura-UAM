@@ -13,7 +13,7 @@
 
 ## Paso 1: Forma Estándar
 
-Introducimos variables de holgura (\(s_1\)), exceso (\(s_3\)) y artificiales (\(a_1, a_2\)):  
+Introducimos variables de holgura $s_1$, exceso $s_3$ y artificiales $a_1, a_2$:  
 1. \( 2x_1 + x_2 + 2x_3 + s_1 = 30 \)  
 2. \( x_1 + 2x_2 + x_3 + a_1 = 20 \)  
 3. \( x_1 + x_2 + 2x_3 - s_3 + a_2 = 15 \)  
