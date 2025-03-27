@@ -2,12 +2,12 @@
 
 ## Problema Planteado
 
-**Función objetivo:** Maximizar \( Z = 10x_1 + 15x_2 + 20x_3 \)  
+**Función objetivo:** Maximizar $Z = 10x_1 + 15x_2 + 20x_3$  
 **Restricciones:**  
-1. \( 2x_1 + x_2 + 2x_3 \leq 30 \) (Madera)  
-2. \( x_1 + 2x_2 + x_3 = 20 \) (Mano de obra)  
-3. \( x_1 + x_2 + 2x_3 \geq 15 \) (Pintura)  
-**No negatividad:** \( x_1, x_2, x_3 \geq 0 \)
+1. $2x_1 + x_2 + 2x_3 \leq 30$ (Madera)  
+2. $x_1 + 2x_2 + x_3 = 20$ (Mano de obra)  
+3. $x_1 + x_2 + 2x_3 \geq 15$ (Pintura)  
+**No negatividad:** $x_1, x_2, x_3 \geq 0$
 
 ---
 
