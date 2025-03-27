@@ -45,7 +45,15 @@ Base inicial: $s_1, a_1, a_2$
 
 **Matriz $A$:**  
 
-$A = \begin{array} 2 & 1 & 2 & 1 & 0 & 0 & 0 \\ 1 & 2 & 1 & 0 & 0 & 1 & 0 \\ 1 & 1 & 2 & 0 & -1 & 0 & 1 \end{array}$
+$A = 
+\begin{equation}
+\begin{pmatrix} 
+2 & 1 & 2 & 1 & 0 & 0 & 0 \\ 
+1 & 2 & 1 & 0 & 0 & 1 & 0 \\ 
+1 & 1 & 2 & 0 & -1 & 0 & 1 
+\end{pmatrix}
+\end{equation}
+$
 
 **Vector $b$:**  
 $$
