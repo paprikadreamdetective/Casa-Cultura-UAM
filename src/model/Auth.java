@@ -4,10 +4,22 @@
  */
 package model;
 
+
 /**
  *
  * @author p4prika
  */
+
+import persistence.UserDAO;
+
 public class Auth {
-    
+    private UserDAO usuarioDAO;
+
+    public Auth() {
+        usuarioDAO = new UserDAO();
+    }
+
+    public boolean login(String username, String password) {
+        return usuarioDAO.verificarUsuario(username, password);
+    }
 }
