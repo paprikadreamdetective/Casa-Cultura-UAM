@@ -10,6 +10,7 @@ package forms;
  */
 
 import model.Auth;
+import forms.Dashboard;
 
 public class LoginForm extends javax.swing.JFrame {
 
@@ -31,7 +32,9 @@ public class LoginForm extends javax.swing.JFrame {
                     javax.swing.JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Bienvenido", javax.swing.JOptionPane.INFORMATION_MESSAGE);
                     // Aquí podrías abrir la siguiente ventana del sistema:
                     // new VentanaPrincipal().setVisible(true);
+                    new Dashboard().setVisible(true);
                     // dispose(); // Cierra el LoginForm
+                    dispose();
                 } else {
                     javax.swing.JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Error de autenticación", javax.swing.JOptionPane.ERROR_MESSAGE);
                 }
