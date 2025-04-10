@@ -10,9 +10,12 @@ package forms;
  */
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
-
+import java.awt.event.MouseListener;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 public class Dashboard extends javax.swing.JFrame {
 
@@ -161,7 +164,18 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel_container.add(jPanel_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 690));
 
-        jPanel2_users.setBackground(new java.awt.Color(204, 204, 255));
+        javax.swing.GroupLayout jPanel1_dashboardLayout = new javax.swing.GroupLayout(jPanel1_dashboard);
+        jPanel1_dashboard.setLayout(jPanel1_dashboardLayout);
+        jPanel1_dashboardLayout.setHorizontalGroup(
+            jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1020, Short.MAX_VALUE)
+        );
+        jPanel1_dashboardLayout.setVerticalGroup(
+            jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+
+        jPanel_container.add(jPanel1_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 1020, 630));
 
         javax.swing.GroupLayout jPanel2_usersLayout = new javax.swing.GroupLayout(jPanel2_users);
         jPanel2_users.setLayout(jPanel2_usersLayout);
@@ -174,18 +188,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGap(0, 630, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1_dashboardLayout = new javax.swing.GroupLayout(jPanel1_dashboard);
-        jPanel1_dashboard.setLayout(jPanel1_dashboardLayout);
-        jPanel1_dashboardLayout.setHorizontalGroup(
-            jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2_users, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1_dashboardLayout.setVerticalGroup(
-            jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2_users, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jPanel_container.add(jPanel1_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 1020, 630));
+        jPanel_container.add(jPanel2_users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

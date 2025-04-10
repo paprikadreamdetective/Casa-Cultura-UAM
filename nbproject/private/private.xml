@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/p4prika/NetBeansProjects/CasaCulturaApp/src/forms/LoginForm.java</file>
-            <file>file:/home/p4prika/NetBeansProjects/CasaCulturaApp/assets/casa_cultura_uam.png</file>
+            <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/forms/LoginForm.java</file>
+            <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/model/Auth.java</file>
+            <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/persistence/UserDAO.java</file>
+            <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/forms/Dashboard.java</file>
         </group>
     </open-files>
 </project-private>
