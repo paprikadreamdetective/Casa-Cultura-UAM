@@ -22,8 +22,25 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
+    // default border for the menu items
+    Border default_border = BorderFactory.createMatteBorder(1, 0, 1, 0, new Color(46,49,49));
+        
+    // yellow border for the menu items
+    Border yellow_border = BorderFactory.createMatteBorder(1, 0, 1, 0, Color.YELLOW);
+    
     public Dashboard() {
         initComponents();
+        // center this form
+        this.setLocationRelativeTo(null);
+        
+        // set borders
+        // panel logo border
+        Border panelBorder = BorderFactory.createMatteBorder(0, 0, 2, 0, Color.lightGray);
+        jPanel_logoANDname.setBorder(panelBorder);
+        // panel container border
+        Border containerBorder = BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(46,49,49));
+        jPanel_container.setBorder(containerBorder);
+        
         // create an array of jlabels
         menuLabels = new javax.swing.JLabel[6];
         // Populate the menuLabels array
@@ -45,7 +62,7 @@ public class Dashboard extends javax.swing.JFrame {
         panels[5] = jPanel_calendar;
         panels[6] = jPanel_test;*/
         // Oculta todos los paneles menos el dashboard al iniciar
-        showPanel(jPanel1_dashboard);
+        //showPanel(jPanel1_dashboard);
 
         // Agrega los listeners para hacer clic en los labels
         addActionToMenuLabels();
@@ -204,6 +221,8 @@ public class Dashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    // create a function to set the label background color
+    
     
     private void jLabel_closeMouseClicked(java.awt.event.MouseEvent evt) {                                          
         this.dispose();
@@ -256,10 +275,10 @@ public class Dashboard extends javax.swing.JFrame {
                     @Override public void mousePressed(MouseEvent e) {}
                     @Override public void mouseReleased(MouseEvent e) {}
                     @Override public void mouseEntered(MouseEvent e) {
-                        //label.setBorder(yellow_border);
+                        label.setBorder(yellow_border);
                     }
                     @Override public void mouseExited(MouseEvent e) {
-                        //label.setBorder(default_border);
+                        label.setBorder(default_border);
                     }
                 });
             }
