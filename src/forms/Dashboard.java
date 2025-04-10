@@ -60,19 +60,21 @@ public class Dashboard extends javax.swing.JFrame {
             }
         }*/
         
-        panels = new javax.swing.JPanel[2];
+        panels = new javax.swing.JPanel[6];
         
         // Populate the panels array
         panels[0] = jPanel1_dashboard;
         panels[1] = jPanel2_users;
-        /*panels[2] = jPanel_products;
-        panels[3] = jPanel_settings;
-        panels[4] = jPanel_contact;
-        panels[5] = jPanel_calendar;
-        panels[6] = jPanel_test;*/
+        panels[2] = jPanel3_registro_asistentes;
+        panels[3] = jPanel4_inscripcion_asistentes;
+        panels[4] = jPanel5_info;
+        panels[5] = jPanel6_exportar;
+        
         // Oculta todos los paneles menos el dashboard al iniciar
         //showPanel(jPanel1_dashboard);
+        
 
+        
         // Agrega los listeners para hacer clic en los labels
         addActionToMenuLabels();
     }
@@ -101,6 +103,14 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2_users = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel4_inscripcion_asistentes = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel3_registro_asistentes = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel5_info = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel6_exportar = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -150,7 +160,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         Label_menuItem3.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_menuItem3.setText("Registo de asistentes");
+        Label_menuItem3.setText("Registro de asistentes");
 
         Label_menuItem4.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -158,7 +168,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         Label_menuItem5.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_menuItem5.setText("Información de los asistentes");
+        Label_menuItem5.setText("Informacion de los asistentes");
 
         Label_menuItem6.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -201,17 +211,17 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1_dashboard.setLayout(jPanel1_dashboardLayout);
         jPanel1_dashboardLayout.setHorizontalGroup(
             jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1_dashboardLayout.createSequentialGroup()
-                .addGap(461, 461, 461)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_dashboardLayout.createSequentialGroup()
+                .addContainerGap(492, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(473, Short.MAX_VALUE))
+                .addGap(442, 442, 442))
         );
         jPanel1_dashboardLayout.setVerticalGroup(
             jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1_dashboardLayout.createSequentialGroup()
-                .addGap(273, 273, 273)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_dashboardLayout.createSequentialGroup()
+                .addContainerGap(317, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(338, Short.MAX_VALUE))
+                .addGap(294, 294, 294))
         );
 
         jPanel_container.add(jPanel1_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 1020, 630));
@@ -236,6 +246,96 @@ public class Dashboard extends javax.swing.JFrame {
         );
 
         jPanel_container.add(jPanel2_users, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 1020, 630));
+
+        jLabel5.setText("INSCRIPCION DE ASISTENTES");
+
+        javax.swing.GroupLayout jPanel4_inscripcion_asistentesLayout = new javax.swing.GroupLayout(jPanel4_inscripcion_asistentes);
+        jPanel4_inscripcion_asistentes.setLayout(jPanel4_inscripcion_asistentesLayout);
+        jPanel4_inscripcion_asistentesLayout.setHorizontalGroup(
+            jPanel4_inscripcion_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4_inscripcion_asistentesLayout.createSequentialGroup()
+                .addGap(453, 453, 453)
+                .addComponent(jLabel5)
+                .addContainerGap(371, Short.MAX_VALUE))
+        );
+        jPanel4_inscripcion_asistentesLayout.setVerticalGroup(
+            jPanel4_inscripcion_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4_inscripcion_asistentesLayout.createSequentialGroup()
+                .addGap(298, 298, 298)
+                .addComponent(jLabel5)
+                .addContainerGap(313, Short.MAX_VALUE))
+        );
+
+        jPanel_container.add(jPanel4_inscripcion_asistentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 62, 1020, 630));
+
+        jLabel4.setText("REGISTRO DE ASISTENTES");
+
+        javax.swing.GroupLayout jPanel3_registro_asistentesLayout = new javax.swing.GroupLayout(jPanel3_registro_asistentes);
+        jPanel3_registro_asistentes.setLayout(jPanel3_registro_asistentesLayout);
+        jPanel3_registro_asistentesLayout.setHorizontalGroup(
+            jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
+                .addGap(411, 411, 411)
+                .addComponent(jLabel4)
+                .addContainerGap(434, Short.MAX_VALUE))
+        );
+        jPanel3_registro_asistentesLayout.setVerticalGroup(
+            jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
+                .addGap(278, 278, 278)
+                .addComponent(jLabel4)
+                .addContainerGap(333, Short.MAX_VALUE))
+        );
+
+        jPanel_container.add(jPanel3_registro_asistentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 61, 1020, 630));
+
+        jPanel5_info.setPreferredSize(new java.awt.Dimension(1020, 630));
+
+        jLabel6.setText("INFORMACION DE ASISTENTES");
+
+        javax.swing.GroupLayout jPanel5_infoLayout = new javax.swing.GroupLayout(jPanel5_info);
+        jPanel5_info.setLayout(jPanel5_infoLayout);
+        jPanel5_infoLayout.setHorizontalGroup(
+            jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5_infoLayout.createSequentialGroup()
+                .addContainerGap(394, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(419, 419, 419))
+        );
+        jPanel5_infoLayout.setVerticalGroup(
+            jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5_infoLayout.createSequentialGroup()
+                .addGap(286, 286, 286)
+                .addComponent(jLabel6)
+                .addContainerGap(325, Short.MAX_VALUE))
+        );
+
+        jPanel_container.add(jPanel5_info, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 1020, -1));
+
+        jLabel7.setText("EXPORTAR");
+
+        javax.swing.GroupLayout jPanel6_exportarLayout = new javax.swing.GroupLayout(jPanel6_exportar);
+        jPanel6_exportar.setLayout(jPanel6_exportarLayout);
+        jPanel6_exportarLayout.setHorizontalGroup(
+            jPanel6_exportarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1020, Short.MAX_VALUE)
+            .addGroup(jPanel6_exportarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6_exportarLayout.createSequentialGroup()
+                    .addGap(473, 473, 473)
+                    .addComponent(jLabel7)
+                    .addContainerGap(474, Short.MAX_VALUE)))
+        );
+        jPanel6_exportarLayout.setVerticalGroup(
+            jPanel6_exportarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+            .addGroup(jPanel6_exportarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6_exportarLayout.createSequentialGroup()
+                    .addGap(305, 305, 305)
+                    .addComponent(jLabel7)
+                    .addContainerGap(306, Short.MAX_VALUE)))
+        );
+
+        jPanel_container.add(jPanel6_exportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 1020, 630));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -298,6 +398,10 @@ public class Dashboard extends javax.swing.JFrame {
                         switch (label.getText().trim()) {
                             case "Dashboard" -> showPanel(jPanel1_dashboard);
                             case "Usuarios" -> showPanel(jPanel2_users);
+                            case "Registro de asistentes" -> showPanel(jPanel3_registro_asistentes);
+                            case "Inscripcion de asistentes" -> showPanel(jPanel4_inscripcion_asistentes);
+                            case "Informacion de los asistentes" -> showPanel(jPanel5_info);
+                            case "Exportar" -> showPanel(jPanel6_exportar);
                             /*case "Products":
                             showPanel(jPanel_products); break;
                             case "Settings":
@@ -377,9 +481,17 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel_appLogo;
     private javax.swing.JPanel jPanel1_dashboard;
     private javax.swing.JPanel jPanel2_users;
+    private javax.swing.JPanel jPanel3_registro_asistentes;
+    private javax.swing.JPanel jPanel4_inscripcion_asistentes;
+    private javax.swing.JPanel jPanel5_info;
+    private javax.swing.JPanel jPanel6_exportar;
     private javax.swing.JPanel jPanel_container;
     private javax.swing.JPanel jPanel_logoANDname;
     private javax.swing.JPanel jPanel_menu;
