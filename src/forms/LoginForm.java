@@ -76,7 +76,6 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/casa_cultura_uam-removebg-preview.png")); // NOI18N
         jLabel3.setInheritsPopupMenu(false);
         jLabel3.setMaximumSize(new java.awt.Dimension(100, 100));
-        jLabel3.setMinimumSize(new java.awt.Dimension(225, 225));
         jLabel3.setPreferredSize(new java.awt.Dimension(100, 100));
 
         jLabel1.setFont(new java.awt.Font("Cantarell", 0, 25)); // NOI18N
@@ -89,7 +88,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel2.setText("Contraseña:");
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Iniciar Sesion");
 
