@@ -235,7 +235,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(325, Short.MAX_VALUE))
         );
 
-        jPanel_container.add(jPanel2_users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel_container.add(jPanel2_users, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 1020, 630));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -297,7 +297,7 @@ public class Dashboard extends javax.swing.JFrame {
                         setLabelBackround(label);
                         switch (label.getText().trim()) {
                             case "Dashboard" -> showPanel(jPanel1_dashboard);
-                            case "Users" -> showPanel(jPanel2_users);
+                            case "Usuarios" -> showPanel(jPanel2_users);
                             /*case "Products":
                             showPanel(jPanel_products); break;
                             case "Settings":
