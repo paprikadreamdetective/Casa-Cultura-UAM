@@ -71,7 +71,7 @@ public class Dashboard extends javax.swing.JFrame {
         panels[5] = jPanel6_exportar;
         
         // Oculta todos los paneles menos el dashboard al iniciar
-        //showPanel(jPanel1_dashboard);
+        showPanel(jPanel1_dashboard);
         
 
         
@@ -107,6 +107,23 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel3_registro_asistentes = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jTextField1_nombre_registro = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField1_1er_apellido = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField1_2do_apellido = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField1_edad = new javax.swing.JTextField();
+        jComboBox1_genero = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField1_tel_contacto = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField1_direccion = new javax.swing.JTextField();
+        jTextField1_tel_emergencia = new javax.swing.JTextField();
+        jButton1_registrar_usuario = new javax.swing.JButton();
         jPanel5_info = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel6_exportar = new javax.swing.JPanel();
@@ -149,27 +166,33 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel_menu.setBackground(new java.awt.Color(51, 51, 51));
 
+        Label_menuItem1.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         Label_menuItem1.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Label_menuItem1.setText("Dashboard");
         Label_menuItem1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        Label_menuItem2.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         Label_menuItem2.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Label_menuItem2.setText("Usuarios");
 
+        Label_menuItem3.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         Label_menuItem3.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Label_menuItem3.setText("Registro de asistentes");
 
+        Label_menuItem4.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         Label_menuItem4.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Label_menuItem4.setText("Inscripcion de asistentes");
 
+        Label_menuItem5.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         Label_menuItem5.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Label_menuItem5.setText("Informacion de los asistentes");
 
+        Label_menuItem6.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         Label_menuItem6.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Label_menuItem6.setText("Exportar");
@@ -182,7 +205,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(Label_menuItem2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Label_menuItem3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Label_menuItem4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Label_menuItem5, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+            .addComponent(Label_menuItem5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Label_menuItem6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel_menuLayout.setVerticalGroup(
@@ -270,21 +293,129 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel4.setText("REGISTRO DE ASISTENTES");
 
+        jLabel8.setText("Nombre(s)");
+
+        jLabel9.setText("Primer Apellido");
+
+        jLabel10.setText("Segundo Apellido");
+
+        jTextField1_2do_apellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1_2do_apellidoActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Edad");
+
+        jComboBox1_genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel12.setText("Genero");
+
+        jLabel13.setText("Telefono de contacto");
+
+        jLabel14.setText("Direccion");
+
+        jLabel15.setText("Telefono de emergencia");
+
+        jTextField1_direccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1_direccionActionPerformed(evt);
+            }
+        });
+
+        jButton1_registrar_usuario.setText("Registrar");
+        jButton1_registrar_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_registrar_usuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3_registro_asistentesLayout = new javax.swing.GroupLayout(jPanel3_registro_asistentes);
         jPanel3_registro_asistentes.setLayout(jPanel3_registro_asistentesLayout);
         jPanel3_registro_asistentesLayout.setHorizontalGroup(
             jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
-                .addGap(411, 411, 411)
+                .addGap(476, 476, 476)
+                .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
+                            .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel11)
+                                .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBox1_genero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3_registro_asistentesLayout.createSequentialGroup()
+                                        .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel9))
+                                        .addGap(102, 102, 102))
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jTextField1_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField1_tel_contacto)
+                                .addComponent(jLabel15)
+                                .addComponent(jTextField1_tel_emergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel13)))
+                        .addComponent(jTextField1_nombre_registro)
+                        .addComponent(jTextField1_1er_apellido)
+                        .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
+                            .addComponent(jLabel10)
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jTextField1_2do_apellido))
+                    .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
+                        .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton1_registrar_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4)))
+                .addGap(34, 34, 34))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3_registro_asistentesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(434, Short.MAX_VALUE))
+                .addGap(193, 193, 193))
         );
         jPanel3_registro_asistentesLayout.setVerticalGroup(
             jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
-                .addGap(278, 278, 278)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3_registro_asistentesLayout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1_nombre_registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1_1er_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1_2do_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1_tel_contacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1_tel_emergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1_genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jButton1_registrar_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         jPanel_container.add(jPanel3_registro_asistentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 61, 1020, 630));
@@ -350,6 +481,18 @@ public class Dashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1_direccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_direccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1_direccionActionPerformed
+
+    private void jButton1_registrar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_registrar_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1_registrar_usuarioActionPerformed
+
+    private void jTextField1_2do_apellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_2do_apellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1_2do_apellidoActionPerformed
     
     // create a function to set the label background color
     
@@ -374,7 +517,7 @@ public class Dashboard extends javax.swing.JFrame {
         menuItem.setForeground(Color.WHITE); 
     }
     label.setOpaque(true);
-    label.setBackground(Color.WHITE); // Fondo cuando está seleccionado
+    label.setBackground(Color.WHITE); 
     label.setForeground(Color.BLUE);  // Texto azul
 }
     
@@ -478,13 +621,23 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel Label_menuItem4;
     private javax.swing.JLabel Label_menuItem5;
     private javax.swing.JLabel Label_menuItem6;
+    private javax.swing.JButton jButton1_registrar_usuario;
+    private javax.swing.JComboBox<String> jComboBox1_genero;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_appLogo;
     private javax.swing.JPanel jPanel1_dashboard;
     private javax.swing.JPanel jPanel2_users;
@@ -495,6 +648,13 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_container;
     private javax.swing.JPanel jPanel_logoANDname;
     private javax.swing.JPanel jPanel_menu;
+    private javax.swing.JTextField jTextField1_1er_apellido;
+    private javax.swing.JTextField jTextField1_2do_apellido;
+    private javax.swing.JTextField jTextField1_direccion;
+    private javax.swing.JTextField jTextField1_edad;
+    private javax.swing.JTextField jTextField1_nombre_registro;
+    private javax.swing.JTextField jTextField1_tel_contacto;
+    private javax.swing.JTextField jTextField1_tel_emergencia;
     // End of variables declaration//GEN-END:variables
     
 }
