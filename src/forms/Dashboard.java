@@ -594,9 +594,24 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton1_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_logoutActionPerformed
         // TODO add your handling code here:
-        javax.swing.JOptionPane.showMessageDialog(null, "¿Estas seguro que deseas salir?", "Cerrar Sesion", javax.swing.JOptionPane.QUESTION_MESSAGE);
-        new LoginForm().setVisible(true);
-        this.dispose();
+        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(
+                null,
+                "¿Estás seguro de que deseas cerrar sesión?",
+                "Cerrar Sesión",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+        if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
+            System.out.println("Sesión cerrada. Redirigiendo al login...");
+            new LoginForm().setVisible(true);
+            this.dispose();
+            // Aquí puedes llamar a tu método para cerrar sesión o abrir la pantalla de login
+        } else {
+            System.out.println("Operación cancelada.");
+        }
+        
+         
+        
         
     }//GEN-LAST:event_jButton1_logoutActionPerformed
     
