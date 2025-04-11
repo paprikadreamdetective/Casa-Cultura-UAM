@@ -17,6 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import forms.LoginForm;
+
 public class Dashboard extends javax.swing.JFrame {
 
     /**
@@ -91,7 +93,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel_container = new javax.swing.JPanel();
         jPanel_logoANDname = new javax.swing.JPanel();
         jLabel_appLogo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jButton1_logout = new javax.swing.JButton();
         jPanel_menu = new javax.swing.JPanel();
         Label_menuItem1 = new javax.swing.JLabel();
         Label_menuItem2 = new javax.swing.JLabel();
@@ -143,7 +145,12 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel_appLogo.setText("LOGO");
 
-        jLabel1.setText("X");
+        jButton1_logout.setText("Cerrar Sesion");
+        jButton1_logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_logoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_logoANDnameLayout = new javax.swing.GroupLayout(jPanel_logoANDname);
         jPanel_logoANDname.setLayout(jPanel_logoANDnameLayout);
@@ -152,18 +159,18 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel_logoANDnameLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel_appLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 912, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(30, 30, 30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 826, Short.MAX_VALUE)
+                .addComponent(jButton1_logout)
+                .addContainerGap())
         );
         jPanel_logoANDnameLayout.setVerticalGroup(
             jPanel_logoANDnameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_logoANDnameLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel_logoANDnameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_appLogo)
-                    .addComponent(jLabel1))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(jButton1_logout))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jPanel_container.add(jPanel_logoANDname, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1020, 60));
@@ -304,7 +311,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1_dashboardLayout.setHorizontalGroup(
             jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1_dashboardLayout.createSequentialGroup()
-                .addGap(17, 64, Short.MAX_VALUE)
+                .addGap(23, 23, Short.MAX_VALUE)
                 .addGroup(jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1_dashboardLayout.createSequentialGroup()
                         .addComponent(jPanel1_teatro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,7 +323,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(jPanel1_dibujo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel1_readaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52))
+                .addGap(35, 35, 35))
         );
         jPanel1_dashboardLayout.setVerticalGroup(
             jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -584,13 +591,19 @@ public class Dashboard extends javax.swing.JFrame {
     private void jTextField1_2do_apellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_2do_apellidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1_2do_apellidoActionPerformed
+
+    private void jButton1_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_logoutActionPerformed
+        // TODO add your handling code here:
+        javax.swing.JOptionPane.showMessageDialog(null, "¿Estas seguro que deseas salir?", "Cerrar Sesion", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        new LoginForm().setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton1_logoutActionPerformed
     
     // create a function to set the label background color
     
     
-    private void jLabel_closeMouseClicked(java.awt.event.MouseEvent evt) {                                          
-        this.dispose();
-    }                                         
+                                        
 
     /*public void setLabelBackround(javax.swing.JLabel label) {
         for (javax.swing.JLabel menuItem : menuLabels) {
@@ -712,9 +725,9 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel Label_menuItem4;
     private javax.swing.JLabel Label_menuItem5;
     private javax.swing.JLabel Label_menuItem6;
+    private javax.swing.JButton jButton1_logout;
     private javax.swing.JButton jButton1_registrar_usuario;
     private javax.swing.JComboBox<String> jComboBox1_genero;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
