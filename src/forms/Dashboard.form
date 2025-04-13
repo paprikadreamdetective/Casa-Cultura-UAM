@@ -465,7 +465,7 @@
                       <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
                       <Component id="jButton3_actualizar_asistente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="153" max="32767" attributes="0"/>
-                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton3_eliminar_asistente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -476,7 +476,7 @@
                       <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton3_actualizar_asistente" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="jButton3_eliminar_asistente" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
                           <Component id="jButton3_registrar_asistente" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="392" max="32767" attributes="0"/>
@@ -501,10 +501,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3_actualizar_asistenteActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="jButton3_eliminar_asistente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar un asistente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3_eliminar_asistenteActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

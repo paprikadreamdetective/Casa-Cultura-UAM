@@ -20,6 +20,7 @@ import javax.swing.border.Border;
 import forms.LoginForm;
 import forms.AnadirAsistente;
 import forms.ActualizarAsistente;
+import forms.EliminarAsistente;
 
 public class Dashboard extends javax.swing.JFrame {
 
@@ -114,7 +115,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3_registro_asistentes = new javax.swing.JPanel();
         jButton3_registrar_asistente = new javax.swing.JButton();
         jButton3_actualizar_asistente = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButton3_eliminar_asistente = new javax.swing.JButton();
         jPanel5_info = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel6_exportar = new javax.swing.JPanel();
@@ -385,7 +386,12 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Eliminar un asistente");
+        jButton3_eliminar_asistente.setText("Eliminar un asistente");
+        jButton3_eliminar_asistente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3_eliminar_asistenteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3_registro_asistentesLayout = new javax.swing.GroupLayout(jPanel3_registro_asistentes);
         jPanel3_registro_asistentes.setLayout(jPanel3_registro_asistentesLayout);
@@ -397,7 +403,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(131, 131, 131)
                 .addComponent(jButton3_actualizar_asistente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(jButton3_eliminar_asistente)
                 .addGap(104, 104, 104))
         );
         jPanel3_registro_asistentesLayout.setVerticalGroup(
@@ -406,7 +412,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(158, 158, 158)
                 .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3_actualizar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3_eliminar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3_registrar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(392, Short.MAX_VALUE))
         );
@@ -532,6 +538,25 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_jButton3_actualizar_asistenteActionPerformed
+
+    private void jButton3_eliminar_asistenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_eliminar_asistenteActionPerformed
+        // TODO add your handling code here:
+        // Deshabilitar el botón para que no puedan volver a presionarlo.
+        jButton3_eliminar_asistente.setEnabled(false);
+
+        //AnadirAsistente ventana = new AnadirAsistente();
+        EliminarAsistente ventana = new EliminarAsistente();
+        // Configurar para que NO cierre la aplicación cuando se cierre esta ventana.
+        ventana.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+        ventana.setVisible(true);
+
+        ventana.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                jButton3_eliminar_asistente.setEnabled(true);
+            }
+        });
+    }//GEN-LAST:event_jButton3_eliminar_asistenteActionPerformed
 
     // create a function to set the label background color
     /*private void addListeners() {
@@ -696,8 +721,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel Label_menuItem5;
     private javax.swing.JLabel Label_menuItem6;
     private javax.swing.JButton jButton1_logout;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton3_actualizar_asistente;
+    private javax.swing.JButton jButton3_eliminar_asistente;
     private javax.swing.JButton jButton3_registrar_asistente;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
