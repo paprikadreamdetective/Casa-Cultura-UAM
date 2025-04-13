@@ -15,6 +15,7 @@ public class ActualizarAsistente extends javax.swing.JFrame {
      */
     public ActualizarAsistente() {
         initComponents();
+        this.setLocationRelativeTo(null);
         cargarAsistentesEnTabla();
     }
     
@@ -125,6 +126,7 @@ public class ActualizarAsistente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1100, 645));
+        setResizable(false);
 
         jTable3_actualizar_asistentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
