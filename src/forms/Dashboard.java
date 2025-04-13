@@ -19,6 +19,7 @@ import javax.swing.border.Border;
 
 import forms.LoginForm;
 import forms.AnadirAsistente;
+import forms.ActualizarAsistente;
 
 public class Dashboard extends javax.swing.JFrame {
 
@@ -112,7 +113,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel3_registro_asistentes = new javax.swing.JPanel();
         jButton3_registrar_asistente = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton3_actualizar_asistente = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jPanel5_info = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -377,7 +378,12 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Actualizar informacion");
+        jButton3_actualizar_asistente.setText("Actualizar informacion");
+        jButton3_actualizar_asistente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3_actualizar_asistenteActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Eliminar un asistente");
 
@@ -389,7 +395,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(113, 113, 113)
                 .addComponent(jButton3_registrar_asistente)
                 .addGap(131, 131, 131)
-                .addComponent(jButton2)
+                .addComponent(jButton3_actualizar_asistente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(104, 104, 104))
@@ -399,7 +405,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
                 .addGap(158, 158, 158)
                 .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3_actualizar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3_registrar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(392, Short.MAX_VALUE))
@@ -507,6 +513,25 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_jButton3_registrar_asistenteActionPerformed
+
+    private void jButton3_actualizar_asistenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_actualizar_asistenteActionPerformed
+        // TODO add your handling code here:
+        // Deshabilitar el botón para que no puedan volver a presionarlo.
+        jButton3_actualizar_asistente.setEnabled(false);
+
+        //AnadirAsistente ventana = new AnadirAsistente();
+        ActualizarAsistente ventana = new ActualizarAsistente();
+        // Configurar para que NO cierre la aplicación cuando se cierre esta ventana.
+        ventana.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+        ventana.setVisible(true);
+
+        ventana.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                jButton3_actualizar_asistente.setEnabled(true);
+            }
+        });
+    }//GEN-LAST:event_jButton3_actualizar_asistenteActionPerformed
 
     // create a function to set the label background color
     /*private void addListeners() {
@@ -671,8 +696,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel Label_menuItem5;
     private javax.swing.JLabel Label_menuItem6;
     private javax.swing.JButton jButton1_logout;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton3_actualizar_asistente;
     private javax.swing.JButton jButton3_registrar_asistente;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

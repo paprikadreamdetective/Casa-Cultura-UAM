@@ -18,7 +18,7 @@ public class AnadirAsistente extends javax.swing.JFrame {
         // Evitar que al presionar la X se cierre
         this.setLocationRelativeTo(null);
 
-        this.setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         // Opcional: agregar un WindowListener para controlar el cierre
         this.addWindowListener(new java.awt.event.WindowAdapter() {
