@@ -20,14 +20,32 @@ public class ActualizarAsistente extends javax.swing.JFrame {
     
     public void cargarAsistentesEnTabla() {
     javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel();
-    modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Apellido", "Teléfono", "Correo"});
+    modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Segundo Apellido", "Edad", "Genero", "Teléfono", "Telefono de Emergencia", "Direccion"});
 
     // Ejemplo de registros simulados
     String[][] baseDatos = {
-        {"A001", "Juan", "Pérez", "5551234", "juanp@gmail.com"},
-        {"A002", "María", "López", "5555678", "maria.lopez@gmail.com"},
-        {"A003", "Carlos", "Ramírez", "5559999", "carlos.ramirez@gmail.com"}
-    };
+    {"A001", "Juan", "Pérez", "Gómez", "21", "Masculino", "5551234", "5554321", "Av. Reforma 100"},
+    {"A002", "María", "López", "Martínez", "22", "Femenino", "5555678", "5558765", "Calle Hidalgo 45"},
+    {"A003", "Carlos", "Ramírez", "Ortiz", "20", "Masculino", "5559999", "5558888", "Av. Juárez 200"},
+    {"A004", "Ana", "Hernández", "Santos", "23", "Femenino", "5553333", "5554444", "Calle Morelos 58"},
+    {"A005", "Luis", "García", "Mendoza", "24", "Masculino", "5555555", "5556666", "Col. Centro 78"},
+    {"A006", "Lucía", "Martínez", "Núñez", "22", "Femenino", "5551212", "5553434", "Calle Zaragoza 300"},
+    {"A007", "Jorge", "Sánchez", "Vega", "25", "Masculino", "5556543", "5557654", "Av. Universidad 10"},
+    {"A008", "Elena", "Castillo", "Rojas", "21", "Femenino", "5558881", "5551888", "Calle Pino Suárez 12"},
+    {"A009", "Diego", "Flores", "Silva", "23", "Masculino", "5552345", "5553456", "Col. Roma 47"},
+    {"A010", "Patricia", "Reyes", "Morales", "22", "Femenino", "5558765", "5556543", "Av. Patriotismo 55"},
+    {"A011", "Ricardo", "Vargas", "Campos", "24", "Masculino", "5551122", "5552211", "Calle Independencia 33"},
+    {"A012", "Fernanda", "Jiménez", "Paredes", "20", "Femenino", "5555566", "5556677", "Av. Insurgentes 150"},
+    {"A013", "Miguel", "Ortega", "Luna", "23", "Masculino", "5559988", "5558877", "Calle Niños Héroes 60"},
+    {"A014", "Alejandra", "Ramos", "Hidalgo", "21", "Femenino", "5553344", "5554433", "Col. Del Valle 88"},
+    {"A015", "Roberto", "Delgado", "Fuentes", "25", "Masculino", "5556678", "5557766", "Av. Coyoacán 44"},
+    {"A016", "Sofía", "Moreno", "Zapata", "22", "Femenino", "5554455", "5555544", "Calle Miguel Ángel 3"},
+    {"A017", "Andrés", "Peña", "Navarro", "23", "Masculino", "5557788", "5558877", "Col. Doctores 90"},
+    {"A018", "Gabriela", "Luna", "Márquez", "24", "Femenino", "5551233", "5553321", "Av. Tlalpan 120"},
+    {"A019", "Eduardo", "Campos", "Vera", "21", "Masculino", "5559992", "5552929", "Col. Condesa 66"},
+    {"A020", "Valeria", "Torres", "Salinas", "20", "Femenino", "5556767", "5557676", "Calle Londres 50"}
+};
+
 
     for (String[] asistente : baseDatos) {
         modelo.addRow(asistente);
@@ -38,8 +56,8 @@ public class ActualizarAsistente extends javax.swing.JFrame {
     
     public void busquedaDeAsistente(String matricula) {
     javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel();
-    modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Apellido", "Teléfono", "Correo"});
-
+    //modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Apellido", "Teléfono", "Correo"});
+    modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Segundo Apellido", "Edad", "Genero", "Teléfono", "Telefono de Emergencia", "Direccion"});
     // Simulación de búsqueda en base de datos (deberías conectar aquí tu consulta real)
     boolean encontrado = false;
 
@@ -84,6 +102,26 @@ public class ActualizarAsistente extends javax.swing.JFrame {
         jTextField3_actualizar_busqueda = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton3_actualizar_buscar = new javax.swing.JButton();
+        jTextField3_update_nombre = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField3_update_1erapellido = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField3_update_2doapellido = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField3_update_edad = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField3_update_telcontacto = new javax.swing.JTextField();
+        jTextField3_update_telemergencia = new javax.swing.JTextField();
+        jRadioButton3_update_masculino = new javax.swing.JRadioButton();
+        jRadioButton3_update_femenino = new javax.swing.JRadioButton();
+        jRadioButton3_update_otro = new javax.swing.JRadioButton();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField3_update_direccion = new javax.swing.JTextField();
+        jButton3_update_actualizar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1100, 645));
@@ -101,9 +139,12 @@ public class ActualizarAsistente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable3_actualizar_asistentes);
 
-        jLabel2.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jLabel2.setText("Actualizar informacion de asistente");
+        jLabel2.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        jLabel2.setText("Introduzca la matricula del asistente:");
 
+        jButton3_actualizar_buscar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton3_actualizar_buscar.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton3_actualizar_buscar.setForeground(new java.awt.Color(255, 255, 255));
         jButton3_actualizar_buscar.setText("Buscar");
         jButton3_actualizar_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,34 +152,138 @@ public class ActualizarAsistente extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Nombre(s)");
+
+        jLabel3.setText("Primer Apellido");
+
+        jLabel4.setText("Segundo Apellido");
+
+        jLabel5.setText("Edad");
+
+        jLabel6.setText("Telefono de contacto");
+
+        jLabel7.setText("Telefono de emergencia");
+
+        jLabel8.setText("Direccion");
+
+        jRadioButton3_update_masculino.setText("Masculino");
+
+        jRadioButton3_update_femenino.setText("Femenino");
+
+        jRadioButton3_update_otro.setText("Otro");
+
+        jLabel9.setText("Genero");
+
+        jButton3_update_actualizar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton3_update_actualizar.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton3_update_actualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3_update_actualizar.setText("Actualizar");
+
+        jButton1.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Cancelar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jTextField3_update_direccion, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextField3_update_telcontacto, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField3_update_nombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(jLabel1))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextField3_update_telemergencia, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField3_update_1erapellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel3))
+                            .addGap(22, 22, 22)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jRadioButton3_update_masculino)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jRadioButton3_update_femenino)
+                                            .addGap(3, 3, 3))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jTextField3_update_2doapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel4))
+                                            .addGap(30, 30, 30)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jTextField3_update_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(77, 77, 77)
+                                            .addComponent(jRadioButton3_update_otro))))
+                                .addComponent(jLabel9))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField3_actualizar_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3_actualizar_buscar)))))
-                .addContainerGap(251, Short.MAX_VALUE))
+                        .addComponent(jButton3_update_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField3_actualizar_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3_actualizar_buscar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1063, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addContainerGap(85, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
                     .addComponent(jTextField3_actualizar_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3_actualizar_buscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3_update_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3_update_1erapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3_update_2doapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3_update_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel9))
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3_update_telcontacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3_update_telemergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButton3_update_masculino)
+                    .addComponent(jRadioButton3_update_femenino)
+                    .addComponent(jRadioButton3_update_otro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField3_update_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton3_update_actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -195,10 +340,30 @@ public class ActualizarAsistente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3_actualizar_buscar;
+    private javax.swing.JButton jButton3_update_actualizar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JRadioButton jRadioButton3_update_femenino;
+    private javax.swing.JRadioButton jRadioButton3_update_masculino;
+    private javax.swing.JRadioButton jRadioButton3_update_otro;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable3_actualizar_asistentes;
     private javax.swing.JTextField jTextField3_actualizar_busqueda;
+    private javax.swing.JTextField jTextField3_update_1erapellido;
+    private javax.swing.JTextField jTextField3_update_2doapellido;
+    private javax.swing.JTextField jTextField3_update_direccion;
+    private javax.swing.JTextField jTextField3_update_edad;
+    private javax.swing.JTextField jTextField3_update_nombre;
+    private javax.swing.JTextField jTextField3_update_telcontacto;
+    private javax.swing.JTextField jTextField3_update_telemergencia;
     // End of variables declaration//GEN-END:variables
 }
