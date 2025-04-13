@@ -79,6 +79,7 @@ public class Dashboard extends javax.swing.JFrame {
         
         // Agrega los listeners para hacer clic en los labels
         addActionToMenuLabels();
+        addListeners();
     }
 
     /**
@@ -134,9 +135,9 @@ public class Dashboard extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jRadioButton1_registro_anadir = new javax.swing.JRadioButton();
+        jRadioButton1_registro_actualizar = new javax.swing.JRadioButton();
+        jRadioButton1_registro_eliminar = new javax.swing.JRadioButton();
         jPanel5_info = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel6_exportar = new javax.swing.JPanel();
@@ -449,16 +450,16 @@ public class Dashboard extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Registrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButton1_registro_anadir.setText("Añadir");
+
+        jRadioButton1_registro_actualizar.setText("Actualizar");
+        jRadioButton1_registro_actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jRadioButton1_registro_actualizarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Actualizar");
-
-        jButton3.setText("Eliminar");
+        jRadioButton1_registro_eliminar.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel3_registro_asistentesLayout = new javax.swing.GroupLayout(jPanel3_registro_asistentes);
         jPanel3_registro_asistentes.setLayout(jPanel3_registro_asistentesLayout);
@@ -467,14 +468,16 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))
+                    .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
+                        .addComponent(jRadioButton1_registro_anadir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28)
+                        .addComponent(jRadioButton1_registro_actualizar)
+                        .addGap(86, 86, 86)
+                        .addComponent(jRadioButton1_registro_eliminar)
+                        .addGap(38, 38, 38)))
                 .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -513,12 +516,12 @@ public class Dashboard extends javax.swing.JFrame {
             jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3_registro_asistentesLayout.createSequentialGroup()
                 .addContainerGap(95, Short.MAX_VALUE)
-                .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton3)
-                        .addComponent(jButton2)
-                        .addComponent(jButton1)))
+                        .addComponent(jRadioButton1_registro_anadir)
+                        .addComponent(jRadioButton1_registro_actualizar)
+                        .addComponent(jRadioButton1_registro_eliminar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
@@ -662,14 +665,33 @@ public class Dashboard extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1_logoutActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jRadioButton1_registro_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1_registro_actualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jRadioButton1_registro_actualizarActionPerformed
     
     // create a function to set the label background color
     
-    
-                                        
+    private void addListeners() {
+        javax.swing.ButtonGroup group = new javax.swing.ButtonGroup();
+        group.add(jRadioButton1_registro_anadir);
+        group.add(jRadioButton1_registro_actualizar);
+        group.add(jRadioButton1_registro_eliminar);
+
+         java.awt.event.ActionListener radioListener = new  java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed( java.awt.event.ActionEvent e) {
+                
+                //convertTemperature();
+                //updateVisibility();
+            }
+        };
+
+        jRadioButton1_registro_anadir.addActionListener(radioListener);
+        jRadioButton1_registro_actualizar.addActionListener(radioListener);
+        jRadioButton1_registro_eliminar.addActionListener(radioListener);
+
+        //spnrTemperatura.addChangeListener(e -> convertTemperature());
+    }                         
 
     /*public void setLabelBackround(javax.swing.JLabel label) {
         for (javax.swing.JLabel menuItem : menuLabels) {
@@ -679,6 +701,8 @@ public class Dashboard extends javax.swing.JFrame {
         label.setBackground(Color.white);
         label.setForeground(Color.blue);
     }*/
+    
+    
     
     public void setLabelBackround(javax.swing.JLabel label) {
     for (javax.swing.JLabel menuItem : menuLabels) {
@@ -791,11 +815,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel Label_menuItem4;
     private javax.swing.JLabel Label_menuItem5;
     private javax.swing.JLabel Label_menuItem6;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_logout;
     private javax.swing.JButton jButton1_registrar_usuario;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1_genero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -826,6 +847,9 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_container;
     private javax.swing.JPanel jPanel_logoANDname;
     private javax.swing.JPanel jPanel_menu;
+    private javax.swing.JRadioButton jRadioButton1_registro_actualizar;
+    private javax.swing.JRadioButton jRadioButton1_registro_anadir;
+    private javax.swing.JRadioButton jRadioButton1_registro_eliminar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
