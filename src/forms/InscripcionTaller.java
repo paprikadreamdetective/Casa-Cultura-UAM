@@ -13,9 +13,18 @@ public class InscripcionTaller extends javax.swing.JFrame {
     /**
      * Creates new form InscripcionTaller
      */
+    private float costoTotal = 0;
+    private final float costoDanza = 500;
+    private final float costoTeatro = 600;
+    private final float costoDibujo = 40;
+    private final float costoRedaccion = 350;
+    private final float costoLectura = 300;
+    private final float costoMaterialExtra = 100;
+
     public InscripcionTaller() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jTextField4_costo_total.setEnabled(false);
         toggleHorarios("danza", false);
         toggleHorarios("teatro", false);
         toggleHorarios("dibujo", false);
@@ -50,7 +59,43 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jRadioButton4_taller_dibujo.addActionListener(e -> toggleHorarios("dibujo", jRadioButton4_taller_dibujo.isSelected()));
         jRadioButton4_taller_redaccion.addActionListener(e -> toggleHorarios("redaccion", jRadioButton4_taller_redaccion.isSelected()));
         jRadioButton4_taller_lectura.addActionListener(e -> toggleHorarios("lectura", jRadioButton4_taller_lectura.isSelected()));
+        
+        jRadioButton4_taller_danza.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_danza, costoDanza));
+        jRadioButton4_taller_teatro.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_teatro, costoTeatro));
+        jRadioButton4_taller_dibujo.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_dibujo, costoDibujo));
+        jRadioButton4_taller_redaccion.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_redaccion, costoRedaccion));
+        jRadioButton4_taller_lectura.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_lectura, costoLectura));
+    
+        jCheckBox4_material_danza.addActionListener(e -> actualizarCostoMaterial(jCheckBox4_material_danza, costoMaterialExtra));
+        jCheckBox4_material_teatro.addActionListener(e -> actualizarCostoMaterial(jCheckBox4_material_teatro, costoMaterialExtra));
+        jCheckBox4_material_dibujo.addActionListener(e -> actualizarCostoMaterial(jCheckBox4_material_dibujo, costoMaterialExtra));
+        jCheckBox4_material_redaccion.addActionListener(e -> actualizarCostoMaterial(jCheckBox4_material_redaccion, costoMaterialExtra));
+        jCheckBox4_material_lectura.addActionListener(e -> actualizarCostoMaterial(jCheckBox4_material_lectura, costoMaterialExtra));
     }
+    
+        private void actualizarCostoTaller(javax.swing.JRadioButton taller, float costo_taller) {
+            if (taller.isSelected()) {
+                costoTotal += costo_taller;
+            } else {
+                costoTotal -= costo_taller;
+            }
+            actualizarCampoCosto();
+        }
+    
+        private void actualizarCostoMaterial(javax.swing.JCheckBox material, float costo_material) {
+            if (material.isSelected()) {
+                costoTotal += costo_material;
+            } else {
+                costoTotal -= costo_material; 
+            }
+            actualizarCampoCosto();
+        }
+    
+    private void actualizarCampoCosto() {
+        jTextField4_costo_total.setText("$" + costoTotal);
+    }
+
+
     
     private void toggleHorarios(String taller, boolean visible) {
         switch(taller) {
@@ -78,11 +123,8 @@ public class InscripcionTaller extends javax.swing.JFrame {
                 jCheckBox4_material_lectura.setVisible(visible);
                 break;
         }
-}
-
+    }
     
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
