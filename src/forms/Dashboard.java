@@ -40,6 +40,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     public Dashboard() {
         initComponents();
+        cargarAsistentesEnTabla();
         // center this form
         this.setLocationRelativeTo(null);
 
@@ -128,7 +129,12 @@ public class Dashboard extends javax.swing.JFrame {
         jButton3_eliminar_asistente = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel5_info = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable5_informacion_asistentes = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel6_exportar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -570,23 +576,74 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel5_info.setPreferredSize(new java.awt.Dimension(1020, 630));
 
-        jLabel6.setText("INFORMACION DE ASISTENTES");
+        jTable5_informacion_asistentes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable5_informacion_asistentes);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 998, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 242, Short.MAX_VALUE)
+        );
+
+        jLabel5.setText("Introduzca la matricula del asistente a buscar");
+
+        jButton1.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5_infoLayout = new javax.swing.GroupLayout(jPanel5_info);
         jPanel5_info.setLayout(jPanel5_infoLayout);
         jPanel5_infoLayout.setHorizontalGroup(
             jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5_infoLayout.createSequentialGroup()
-                .addContainerGap(394, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(419, 419, 419))
+            .addGroup(jPanel5_infoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 998, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5_infoLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel5_infoLayout.setVerticalGroup(
             jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5_infoLayout.createSequentialGroup()
-                .addGap(286, 286, 286)
-                .addComponent(jLabel6)
-                .addContainerGap(325, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5_infoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(34, 34, 34)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         jPanel_container.add(jPanel5_info, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 1020, -1));
@@ -744,6 +801,48 @@ public class Dashboard extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jButton4_inscribir_tallerActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    
+    public void cargarAsistentesEnTabla() {
+    javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel();
+    modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Segundo Apellido", "Edad", "Genero", "Teléfono", "Telefono de Emergencia", "Direccion"});
+
+    // Ejemplo de registros simulados
+    String[][] baseDatos = {
+    {"A001", "Juan", "Pérez", "Gómez", "21", "Masculino", "5551234", "5554321", "Av. Reforma 100"},
+    {"A002", "María", "López", "Martínez", "22", "Femenino", "5555678", "5558765", "Calle Hidalgo 45"},
+    {"A003", "Carlos", "Ramírez", "Ortiz", "20", "Masculino", "5559999", "5558888", "Av. Juárez 200"},
+    {"A004", "Ana", "Hernández", "Santos", "23", "Femenino", "5553333", "5554444", "Calle Morelos 58"},
+    {"A005", "Luis", "García", "Mendoza", "24", "Masculino", "5555555", "5556666", "Col. Centro 78"},
+    {"A006", "Lucía", "Martínez", "Núñez", "22", "Femenino", "5551212", "5553434", "Calle Zaragoza 300"},
+    {"A007", "Jorge", "Sánchez", "Vega", "25", "Masculino", "5556543", "5557654", "Av. Universidad 10"},
+    {"A008", "Elena", "Castillo", "Rojas", "21", "Femenino", "5558881", "5551888", "Calle Pino Suárez 12"},
+    {"A009", "Diego", "Flores", "Silva", "23", "Masculino", "5552345", "5553456", "Col. Roma 47"},
+    {"A010", "Patricia", "Reyes", "Morales", "22", "Femenino", "5558765", "5556543", "Av. Patriotismo 55"},
+    {"A011", "Ricardo", "Vargas", "Campos", "24", "Masculino", "5551122", "5552211", "Calle Independencia 33"},
+    {"A012", "Fernanda", "Jiménez", "Paredes", "20", "Femenino", "5555566", "5556677", "Av. Insurgentes 150"},
+    {"A013", "Miguel", "Ortega", "Luna", "23", "Masculino", "5559988", "5558877", "Calle Niños Héroes 60"},
+    {"A014", "Alejandra", "Ramos", "Hidalgo", "21", "Femenino", "5553344", "5554433", "Col. Del Valle 88"},
+    {"A015", "Roberto", "Delgado", "Fuentes", "25", "Masculino", "5556678", "5557766", "Av. Coyoacán 44"},
+    {"A016", "Sofía", "Moreno", "Zapata", "22", "Femenino", "5554455", "5555544", "Calle Miguel Ángel 3"},
+    {"A017", "Andrés", "Peña", "Navarro", "23", "Masculino", "5557788", "5558877", "Col. Doctores 90"},
+    {"A018", "Gabriela", "Luna", "Márquez", "24", "Femenino", "5551233", "5553321", "Av. Tlalpan 120"},
+    {"A019", "Eduardo", "Campos", "Vera", "21", "Masculino", "5559992", "5552929", "Col. Condesa 66"},
+    {"A020", "Valeria", "Torres", "Salinas", "20", "Femenino", "5556767", "5557676", "Calle Londres 50"}
+};
+
+
+    for (String[] asistente : baseDatos) {
+        modelo.addRow(asistente);
+    }
+
+    jTable5_informacion_asistentes.setModel(modelo);
+}
+    
+    
     // create a function to set the label background color
     /*private void addListeners() {
         javax.swing.ButtonGroup group = new javax.swing.ButtonGroup();
@@ -906,6 +1005,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel Label_menuItem4;
     private javax.swing.JLabel Label_menuItem5;
     private javax.swing.JLabel Label_menuItem6;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_logout;
     private javax.swing.JButton jButton3_actualizar_asistente;
     private javax.swing.JButton jButton3_eliminar_asistente;
@@ -916,7 +1016,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel_appLogo;
     private javax.swing.JPanel jPanel1;
@@ -934,10 +1034,14 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4_inscripcion_asistentes;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel5_info;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel6_exportar;
     private javax.swing.JPanel jPanel_container;
     private javax.swing.JPanel jPanel_logoANDname;
     private javax.swing.JPanel jPanel_menu;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable5_informacion_asistentes;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
 }
