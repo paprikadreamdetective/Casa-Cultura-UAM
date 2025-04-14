@@ -29,10 +29,10 @@ public class UserDAO {
         String sql = "SELECT * FROM usuario WHERE username = ? AND password = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, username);
-            stmt.setString(2, password); // OJO: aquí iría hasheado idealmente
+            stmt.setString(2, password); 
 
             ResultSet rs = stmt.executeQuery();
-            return rs.next(); // si hay una fila, el user es válido
+            return rs.next(); 
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

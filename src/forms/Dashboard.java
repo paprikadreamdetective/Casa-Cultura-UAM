@@ -21,6 +21,8 @@ import forms.LoginForm;
 import forms.AnadirAsistente;
 import forms.ActualizarAsistente;
 import forms.EliminarAsistente;
+import forms.InscripcionTaller;
+import forms.CancelarInscripcionTaller;
 
 public class Dashboard extends javax.swing.JFrame {
 
@@ -364,6 +366,11 @@ public class Dashboard extends javax.swing.JFrame {
         jButton4_inscribir_taller.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jButton4_inscribir_taller.setForeground(new java.awt.Color(255, 255, 255));
         jButton4_inscribir_taller.setText("Inscripcion a taller");
+        jButton4_inscribir_taller.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4_inscribir_tallerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -702,7 +709,40 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton4_cancelar_inscripcion_tallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_cancelar_inscripcion_tallerActionPerformed
         // TODO add your handling code here:
+        // Deshabilitar el botón para que no puedan volver a presionarlo.
+        jButton4_cancelar_inscripcion_taller.setEnabled(false);
+
+        //AnadirAsistente ventana = new AnadirAsistente();
+        CancelarInscripcionTaller ventana = new CancelarInscripcionTaller();
+        // Configurar para que NO cierre la aplicación cuando se cierre esta ventana.
+        ventana.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+        ventana.setVisible(true);
+
+        ventana.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                jButton4_cancelar_inscripcion_taller.setEnabled(true);
+            }
+        });
     }//GEN-LAST:event_jButton4_cancelar_inscripcion_tallerActionPerformed
+
+    private void jButton4_inscribir_tallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_inscribir_tallerActionPerformed
+        // TODO add your handling code here:
+        jButton4_inscribir_taller.setEnabled(false);
+
+        //AnadirAsistente ventana = new AnadirAsistente();
+        InscripcionTaller ventana = new InscripcionTaller();
+        // Configurar para que NO cierre la aplicación cuando se cierre esta ventana.
+        ventana.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+        ventana.setVisible(true);
+
+        ventana.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                jButton4_inscribir_taller.setEnabled(true);
+            }
+        });
+    }//GEN-LAST:event_jButton4_inscribir_tallerActionPerformed
 
     // create a function to set the label background color
     /*private void addListeners() {
