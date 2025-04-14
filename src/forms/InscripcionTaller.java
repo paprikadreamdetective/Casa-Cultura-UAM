@@ -73,23 +73,23 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jCheckBox4_material_lectura.addActionListener(e -> actualizarCostoMaterial(jCheckBox4_material_lectura, costoMaterialExtra));
     }
     
-        private void actualizarCostoTaller(javax.swing.JRadioButton taller, float costo_taller) {
-            if (taller.isSelected()) {
-                costoTotal += costo_taller;
-            } else {
-                costoTotal -= costo_taller;
-            }
-            actualizarCampoCosto();
+    private void actualizarCostoTaller(javax.swing.JRadioButton taller, float costo_taller) {
+        if (taller.isSelected()) {
+            costoTotal += costo_taller;
+        } else {
+            costoTotal -= costo_taller;
         }
-    
-        private void actualizarCostoMaterial(javax.swing.JCheckBox material, float costo_material) {
-            if (material.isSelected()) {
-                costoTotal += costo_material;
-            } else {
-                costoTotal -= costo_material; 
-            }
-            actualizarCampoCosto();
+        actualizarCampoCosto();
+    }
+
+    private void actualizarCostoMaterial(javax.swing.JCheckBox material, float costo_material) {
+        if (material.isSelected()) {
+            costoTotal += costo_material;
+        } else {
+            costoTotal -= costo_material; 
         }
+        actualizarCampoCosto();
+    }
     
     private void actualizarCampoCosto() {
         jTextField4_costo_total.setText("$" + costoTotal);
