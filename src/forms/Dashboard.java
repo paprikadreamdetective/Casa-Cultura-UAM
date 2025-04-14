@@ -183,12 +183,12 @@ public class Dashboard extends javax.swing.JFrame {
         Label_menuItem3.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         Label_menuItem3.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_menuItem3.setText("Registro de asistentes");
+        Label_menuItem3.setText("Gestion de asistentes");
 
         Label_menuItem4.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         Label_menuItem4.setForeground(new java.awt.Color(255, 255, 255));
         Label_menuItem4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_menuItem4.setText("Inscripcion de asistentes");
+        Label_menuItem4.setText("Gestion de inscripciones");
 
         Label_menuItem5.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         Label_menuItem5.setForeground(new java.awt.Color(255, 255, 255));
@@ -710,9 +710,9 @@ public class Dashboard extends javax.swing.JFrame {
                                 showPanel(jPanel1_dashboard);
                             case "Usuarios" ->
                                 showPanel(jPanel2_users);
-                            case "Registro de asistentes" ->
+                            case "Gestion de asistentes" ->
                                 showPanel(jPanel3_registro_asistentes);
-                            case "Inscripcion de asistentes" ->
+                            case "Gestion de inscripciones" ->
                                 showPanel(jPanel4_inscripcion_asistentes);
                             case "Informacion de los asistentes" ->
                                 showPanel(jPanel5_info);

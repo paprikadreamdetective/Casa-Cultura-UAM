@@ -176,7 +176,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Registro de asistentes"/>
+                <Property name="text" type="java.lang.String" value="Gestion de asistentes"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="Label_menuItem4">
@@ -188,7 +188,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Inscripcion de asistentes"/>
+                <Property name="text" type="java.lang.String" value="Gestion de inscripciones"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="Label_menuItem5">
