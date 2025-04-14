@@ -113,9 +113,15 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel4_inscripcion_asistentes = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel3_registro_asistentes = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jButton3_registrar_asistente = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jButton3_actualizar_asistente = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jButton3_eliminar_asistente = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jPanel5_info = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel6_exportar = new javax.swing.JPanel();
@@ -372,6 +378,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel3_registro_asistentes.setPreferredSize(new java.awt.Dimension(1020, 630));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton3_registrar_asistente.setBackground(new java.awt.Color(255, 51, 51));
+        jButton3_registrar_asistente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton3_registrar_asistente.setForeground(new java.awt.Color(255, 255, 255));
         jButton3_registrar_asistente.setText("Registrar un asistente");
         jButton3_registrar_asistente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -379,6 +390,32 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/create_logoRedim.png")); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton3_registrar_asistente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jButton3_registrar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(0, 41, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton3_actualizar_asistente.setBackground(new java.awt.Color(255, 51, 51));
+        jButton3_actualizar_asistente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton3_actualizar_asistente.setForeground(new java.awt.Color(255, 255, 255));
         jButton3_actualizar_asistente.setText("Actualizar informacion");
         jButton3_actualizar_asistente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -386,6 +423,32 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/update_logoRedim.png")); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton3_actualizar_asistente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jButton3_actualizar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton3_eliminar_asistente.setBackground(new java.awt.Color(255, 51, 51));
+        jButton3_eliminar_asistente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton3_eliminar_asistente.setForeground(new java.awt.Color(255, 255, 255));
         jButton3_eliminar_asistente.setText("Eliminar un asistente");
         jButton3_eliminar_asistente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -393,28 +456,49 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/delete_logoRedim.png")); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton3_eliminar_asistente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel4)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jButton3_eliminar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel3_registro_asistentesLayout = new javax.swing.GroupLayout(jPanel3_registro_asistentes);
         jPanel3_registro_asistentes.setLayout(jPanel3_registro_asistentesLayout);
         jPanel3_registro_asistentesLayout.setHorizontalGroup(
             jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(jButton3_registrar_asistente)
-                .addGap(131, 131, 131)
-                .addComponent(jButton3_actualizar_asistente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
-                .addComponent(jButton3_eliminar_asistente)
-                .addGap(104, 104, 104))
+                .addGap(41, 41, 41)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(104, 104, 104)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel3_registro_asistentesLayout.setVerticalGroup(
             jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3_registro_asistentesLayout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3_actualizar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3_eliminar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3_registrar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(392, Short.MAX_VALUE))
+                .addGap(146, 146, 146)
+                .addGroup(jPanel3_registro_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         jPanel_container.add(jPanel3_registro_asistentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 61, 1020, 630));
@@ -724,18 +808,24 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton3_actualizar_asistente;
     private javax.swing.JButton jButton3_eliminar_asistente;
     private javax.swing.JButton jButton3_registrar_asistente;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel_appLogo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1_danza;
     private javax.swing.JPanel jPanel1_dashboard;
     private javax.swing.JPanel jPanel1_dibujo;
     private javax.swing.JPanel jPanel1_lectura;
     private javax.swing.JPanel jPanel1_readaccion;
     private javax.swing.JPanel jPanel1_teatro;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel2_users;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel3_registro_asistentes;
     private javax.swing.JPanel jPanel4_inscripcion_asistentes;
     private javax.swing.JPanel jPanel5_info;
