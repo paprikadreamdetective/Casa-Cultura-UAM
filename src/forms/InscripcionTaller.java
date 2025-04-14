@@ -16,7 +16,64 @@ public class InscripcionTaller extends javax.swing.JFrame {
     public InscripcionTaller() {
         initComponents();
         this.setLocationRelativeTo(null);
+        toggleHorarios("danza", false);
+        toggleHorarios("teatro", false);
+        toggleHorarios("dibujo", false);
+        toggleHorarios("redaccion", false);
+        toggleHorarios("lectura", false);
+
+        // Agrupar horarios por taller
+        javax.swing.ButtonGroup grupoDanza = new javax.swing.ButtonGroup();
+        grupoDanza.add(jRadioButton4_horario1_taller_danza);
+        grupoDanza.add(jRadioButton4_horario2_taller_danza);
+
+        javax.swing.ButtonGroup grupoTeatro = new javax.swing.ButtonGroup();
+        grupoTeatro.add(jRadioButton4_horario1_taller_teatro);
+        grupoTeatro.add(jRadioButton4_horario2_taller_teatro);
+
+        javax.swing.ButtonGroup grupoDibujo = new javax.swing.ButtonGroup();
+        grupoDibujo.add(jRadioButton4_horario1_taller_dibujo);
+        grupoDibujo.add(jRadioButton4_horario2_taller_dibujo);
+
+        javax.swing.ButtonGroup grupoRedaccion = new javax.swing.ButtonGroup();
+        grupoRedaccion.add(jRadioButton4_horario1_taller_redaccion);
+
+        javax.swing.ButtonGroup grupoLectura = new javax.swing.ButtonGroup();
+        grupoLectura.add(jRadioButton4_horario1_taller_lectura);
+        
+        // Mostrar horarios solo si el taller se selecciona
+        jRadioButton4_taller_danza.addActionListener(e -> toggleHorarios("danza", jRadioButton4_taller_danza.isSelected()));
+        jRadioButton4_taller_teatro.addActionListener(e -> toggleHorarios("teatro", jRadioButton4_taller_teatro.isSelected()));
+        jRadioButton4_taller_dibujo.addActionListener(e -> toggleHorarios("dibujo", jRadioButton4_taller_dibujo.isSelected()));
+        jRadioButton4_taller_redaccion.addActionListener(e -> toggleHorarios("redaccion", jRadioButton4_taller_redaccion.isSelected()));
+        jRadioButton4_taller_lectura.addActionListener(e -> toggleHorarios("lectura", jRadioButton4_taller_lectura.isSelected()));
     }
+    
+    private void toggleHorarios(String taller, boolean visible) {
+        switch(taller) {
+            case "danza":
+                jRadioButton4_horario1_taller_danza.setVisible(visible);
+                jRadioButton4_horario2_taller_danza.setVisible(visible);
+                break;
+            case "teatro":
+                jRadioButton4_horario1_taller_teatro.setVisible(visible);
+                jRadioButton4_horario2_taller_teatro.setVisible(visible);
+                break;
+            case "dibujo":
+                jRadioButton4_horario1_taller_dibujo.setVisible(visible);
+                jRadioButton4_horario2_taller_dibujo.setVisible(visible);
+                break;
+            case "redaccion":
+                jRadioButton4_horario1_taller_redaccion.setVisible(visible);
+                break;
+            case "lectura":
+                jRadioButton4_horario1_taller_lectura.setVisible(visible);
+                break;
+        }
+}
+
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
