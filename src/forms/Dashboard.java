@@ -111,7 +111,10 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel2_users = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel4_inscripcion_asistentes = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jButton4_inscribir_taller = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jButton4_cancelar_inscripcion_taller = new javax.swing.JButton();
         jPanel3_registro_asistentes = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jButton3_registrar_asistente = new javax.swing.JButton();
@@ -355,23 +358,78 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel_container.add(jPanel2_users, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 1020, 630));
 
-        jLabel5.setText("INSCRIPCION DE ASISTENTES");
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton4_inscribir_taller.setBackground(new java.awt.Color(255, 51, 51));
+        jButton4_inscribir_taller.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton4_inscribir_taller.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4_inscribir_taller.setText("Inscripcion a taller");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton4_inscribir_taller, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                .addGap(11, 11, 11))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton4_inscribir_taller)
+                .addContainerGap(247, Short.MAX_VALUE))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton4_cancelar_inscripcion_taller.setBackground(new java.awt.Color(255, 51, 51));
+        jButton4_cancelar_inscripcion_taller.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton4_cancelar_inscripcion_taller.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4_cancelar_inscripcion_taller.setText("Cancelar inscripcion a taller");
+        jButton4_cancelar_inscripcion_taller.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4_cancelar_inscripcion_tallerActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton4_cancelar_inscripcion_taller, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton4_cancelar_inscripcion_taller)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel4_inscripcion_asistentesLayout = new javax.swing.GroupLayout(jPanel4_inscripcion_asistentes);
         jPanel4_inscripcion_asistentes.setLayout(jPanel4_inscripcion_asistentesLayout);
         jPanel4_inscripcion_asistentesLayout.setHorizontalGroup(
             jPanel4_inscripcion_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4_inscripcion_asistentesLayout.createSequentialGroup()
-                .addGap(453, 453, 453)
-                .addComponent(jLabel5)
-                .addContainerGap(371, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4_inscripcion_asistentesLayout.createSequentialGroup()
+                .addContainerGap(183, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(202, 202, 202))
         );
         jPanel4_inscripcion_asistentesLayout.setVerticalGroup(
             jPanel4_inscripcion_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4_inscripcion_asistentesLayout.createSequentialGroup()
-                .addGap(298, 298, 298)
-                .addComponent(jLabel5)
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addGap(192, 192, 192)
+                .addGroup(jPanel4_inscripcion_asistentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         jPanel_container.add(jPanel4_inscripcion_asistentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 62, 1020, 630));
@@ -642,6 +700,10 @@ public class Dashboard extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jButton3_eliminar_asistenteActionPerformed
 
+    private void jButton4_cancelar_inscripcion_tallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_cancelar_inscripcion_tallerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4_cancelar_inscripcion_tallerActionPerformed
+
     // create a function to set the label background color
     /*private void addListeners() {
         javax.swing.ButtonGroup group = new javax.swing.ButtonGroup();
@@ -808,11 +870,12 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton3_actualizar_asistente;
     private javax.swing.JButton jButton3_eliminar_asistente;
     private javax.swing.JButton jButton3_registrar_asistente;
+    private javax.swing.JButton jButton4_cancelar_inscripcion_taller;
+    private javax.swing.JButton jButton4_inscribir_taller;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel_appLogo;
@@ -827,7 +890,9 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2_users;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel3_registro_asistentes;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel4_inscripcion_asistentes;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel5_info;
     private javax.swing.JPanel jPanel6_exportar;
     private javax.swing.JPanel jPanel_container;
