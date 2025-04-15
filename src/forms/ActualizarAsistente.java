@@ -337,7 +337,7 @@ public class ActualizarAsistente extends javax.swing.JFrame {
 
     private void jButton3_update_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_update_actualizarActionPerformed
         // TODO add your handling code here:
-        javax.swing.JOptionPane.showMessageDialog(null, "¡Usuario actualizado correctamente!", 
+        javax.swing.JOptionPane.showMessageDialog(null, "¡Asistente actualizado correctamente!", 
                                   "Actualizacion exitosa", 
                                   javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton3_update_actualizarActionPerformed
