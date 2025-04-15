@@ -180,11 +180,21 @@ public class ActualizarAsistente extends javax.swing.JFrame {
         jButton3_update_actualizar.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jButton3_update_actualizar.setForeground(new java.awt.Color(255, 255, 255));
         jButton3_update_actualizar.setText("Actualizar");
+        jButton3_update_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3_update_actualizarActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -305,6 +315,32 @@ public class ActualizarAsistente extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton3_actualizar_buscarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(
+                null,
+                "¿Estás seguro de que deseas cancelar la operacion?",
+                "Cancelar",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+        if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
+            System.out.println("Registro cancelado. Redirigiendo al dashboard...");
+            //new LoginForm().setVisible(true);
+            this.dispose();
+            // Aquí puedes llamar a tu método para cerrar sesión o abrir la pantalla de login
+        } else {
+            System.out.println("Operación cancelada.");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3_update_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_update_actualizarActionPerformed
+        // TODO add your handling code here:
+        javax.swing.JOptionPane.showMessageDialog(null, "¡Usuario actualizado correctamente!", 
+                                  "Actualizacion exitosa", 
+                                  javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton3_update_actualizarActionPerformed
 
     /**
      * @param args the command line arguments
