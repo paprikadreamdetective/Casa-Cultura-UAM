@@ -70,6 +70,11 @@ public class EliminarAsistente extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 51, 51));
         jButton3.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
@@ -127,10 +132,7 @@ public class EliminarAsistente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        javax.swing.JOptionPane.showMessageDialog(null, "¡El asistente se ha eliminado!", 
-                                  "Eliminado con exito", 
-                                  javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -152,6 +154,14 @@ public class EliminarAsistente extends javax.swing.JFrame {
             System.out.println("Operación cancelada.");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        javax.swing.JOptionPane.showMessageDialog(null, "¡El asistente se ha eliminado!", 
+                                  "Eliminado con exito", 
+                                  javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

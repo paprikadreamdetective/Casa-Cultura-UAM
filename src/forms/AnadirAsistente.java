@@ -282,16 +282,17 @@ public class AnadirAsistente extends javax.swing.JFrame {
 
     private void jButton1_registrar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_registrar_usuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1_registrar_usuarioActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
+           // TODO add your handling code here:
         // Aquí iría tu lógica de registro
     // Suponiendo que ya registraste al usuario correctamente...
 
         javax.swing.JOptionPane.showMessageDialog(null, "¡Usuario registrado correctamente!", 
                                   "Registro Exitoso", 
                                   javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton1_registrar_usuarioActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+     
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButton3_registro_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_registro_cancelarActionPerformed
