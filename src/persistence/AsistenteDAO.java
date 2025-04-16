@@ -5,6 +5,8 @@
 package persistence;
 import java.sql.*;
 import model.Asistente;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author p4prika
@@ -26,6 +28,56 @@ public class AsistenteDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public Asistente buscarAsistentePorMatricula(String matricula) {
+        String sql = "SELECT * FROM alumno WHERE matricula = ?";
+        try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
+            stmt.setString(1, matricula);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new Asistente(
+                    rs.getString("matricula"),
+                    rs.getString("nombre"),
+                    rs.getString("primer_apellido"),
+                    rs.getString("segundo_apellido"),
+                    rs.getInt("edad"),
+                    rs.getString("genero"),
+                    rs.getString("direccion"),
+                    rs.getString("telefono_contacto"),
+                    rs.getString("telefono_emergencia")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;  // No encontrado
+    }
+
+    public List<Asistente> obtenerTodosLosAsistentes() {
+        List<Asistente> lista = new ArrayList<>();
+        String sql = "SELECT * FROM alumno";
+        try (PreparedStatement stmt = conexion.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Asistente asistente = new Asistente(
+                    rs.getString("matricula"),
+                    rs.getString("nombre"),
+                    rs.getString("primer_apellido"),
+                    rs.getString("segundo_apellido"),
+                    rs.getInt("edad"),
+                    rs.getString("genero"),
+                    rs.getString("direccion"),
+                    rs.getString("telefono_contacto"),
+                    rs.getString("telefono_emergencia")
+                );
+                lista.add(asistente);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
     }
 
     public boolean insertar(Asistente asistente) {
