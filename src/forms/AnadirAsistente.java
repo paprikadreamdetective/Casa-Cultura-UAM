@@ -14,8 +14,14 @@ public class AnadirAsistente extends javax.swing.JFrame {
     /**
      * Creates new form AnadirAsistente
      */
+    private javax.swing.ButtonGroup generoRadioButtonGroup;
     public AnadirAsistente() {
         initComponents();
+        
+        generoRadioButtonGroup = new javax.swing.ButtonGroup();
+        generoRadioButtonGroup.add(jRadioButton1);
+        generoRadioButtonGroup.add(jRadioButton2);
+        generoRadioButtonGroup.add(jRadioButton3);
         // Evitar que al presionar la X se cierre
         this.setLocationRelativeTo(null);
 
@@ -282,77 +288,77 @@ public class AnadirAsistente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1_direccionActionPerformed
 
     private void jButton1_registrar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_registrar_usuarioActionPerformed
-        // TODO add your handling code here:
-           // TODO add your handling code here:
-        // Aquí iría tu lógica de registro
-    // Suponiendo que ya registraste al usuario correctamente...
 
-        /*javax.swing.JOptionPane.showMessageDialog(null, "¡Asistente registrado correctamente!", 
-                                  "Registro Exitoso", 
-                                  javax.swing.JOptionPane.INFORMATION_MESSAGE);*/
         try {
-        // Recolectar los datos del formulario
-        String nombre = jTextField1_nombre_registro.getText().trim();
-        String primerApellido = jTextField1_1er_apellido.getText().trim();
-        String segundoApellido = jTextField1_2do_apellido.getText().trim();
-        String matricula = jTextField1.getText().trim();
-        int edad = Integer.parseInt(jTextField1_edad.getText().trim());
-        String telefonoContacto = jTextField1_tel_contacto.getText().trim();
-        String telefonoEmergencia = jTextField1_tel_emergencia.getText().trim();
-        String direccion = jTextField1_direccion.getText().trim();
+            // Recolectar los datos del formulario
+            String nombre = jTextField1_nombre_registro.getText().trim();
+            String primerApellido = jTextField1_1er_apellido.getText().trim();
+            String segundoApellido = jTextField1_2do_apellido.getText().trim();
+            String matricula = jTextField1.getText().trim();
+            int edad = Integer.parseInt(jTextField1_edad.getText().trim());
+            String telefonoContacto = jTextField1_tel_contacto.getText().trim();
+            String telefonoEmergencia = jTextField1_tel_emergencia.getText().trim();
+            String direccion = jTextField1_direccion.getText().trim();
+            String genero = "";
+            if (jRadioButton1.isSelected()) {
+                genero = "Masculino";
+            } else if (jRadioButton2.isSelected()) {
+                genero = "Femenino";
+            } else if (jRadioButton3.isSelected()) {
+                genero = "Otro";
+            }
 
-        String genero = "";
-        if (jRadioButton1.isSelected()) {
-            genero = "Masculino";
-        } else if (jRadioButton2.isSelected()) {
-            genero = "Femenino";
-        } else if (jRadioButton3.isSelected()) {
-            genero = "Otro";
-        }
-
-        // Crear el objeto Asistente
-        Asistente nuevoAsistente = new Asistente(
-            matricula,
-            nombre,
-            primerApellido,
-            segundoApellido,
-            edad,
-            genero,
-            direccion,
-            telefonoContacto,
-            telefonoEmergencia
-        );
+            Asistente nuevoAsistente = new Asistente(
+                matricula,
+                nombre,
+                primerApellido,
+                segundoApellido,
+                edad,
+                genero,
+                direccion,
+                telefonoContacto,
+                telefonoEmergencia
+            );
         
-        System.out.println("Teléfono contacto: '" + telefonoContacto + "' longitud: " + telefonoContacto.length());
-        System.out.println("Teléfono emergencia: '" + telefonoEmergencia + "' longitud: " + telefonoEmergencia.length());
+            System.out.println("Teléfono contacto: '" + telefonoContacto + "' longitud: " + telefonoContacto.length());
+            System.out.println("Teléfono emergencia: '" + telefonoEmergencia + "' longitud: " + telefonoEmergencia.length());
 
 
-        // Llamar al DAO para insertar en la base de datos
-        AsistenteDAO asistenteDAO = new AsistenteDAO();
-        boolean resultado = asistenteDAO.insertar(nuevoAsistente);
+            AsistenteDAO asistenteDAO = new AsistenteDAO();
+            boolean resultado = asistenteDAO.insertar(nuevoAsistente);
 
-        if (resultado) {
+            if (resultado) {
+                javax.swing.JOptionPane.showMessageDialog(this, 
+                        "¡Asistente registrado correctamente!", 
+                        "Registro Exitoso", 
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                jTextField1_nombre_registro.setText("");
+                jTextField1_1er_apellido.setText("");
+                jTextField1_2do_apellido.setText("");
+                jTextField1.setText("");
+                jTextField1_edad.setText("");
+                jTextField1_tel_contacto.setText("");
+                jTextField1_tel_emergencia.setText("");
+                jTextField1_direccion.setText("");
+                generoRadioButtonGroup.clearSelection();
+                
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, 
+                        "Error al registrar asistente. Verifica los datos.", 
+                        "Error de Registro", 
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
             javax.swing.JOptionPane.showMessageDialog(this, 
-                    "¡Asistente registrado correctamente!", 
-                    "Registro Exitoso", 
-                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        } else {
+                    "Edad inválida. Por favor, ingrese un número.", 
+                    "Error de Registro", 
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, 
-                    "Error al registrar asistente. Verifica los datos.", 
+                    "Error al registrar asistente: " + e.getMessage(), 
                     "Error de Registro", 
                     javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-    } catch (NumberFormatException e) {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-                "Edad inválida. Por favor, ingrese un número.", 
-                "Error de Registro", 
-                javax.swing.JOptionPane.ERROR_MESSAGE);
-    } catch (Exception e) {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-                "Error al registrar asistente: " + e.getMessage(), 
-                "Error de Registro", 
-                javax.swing.JOptionPane.ERROR_MESSAGE);
-    }
     }//GEN-LAST:event_jButton1_registrar_usuarioActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
