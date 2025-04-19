@@ -4,6 +4,12 @@
  */
 package forms;
 
+import persistence.AsistenteDAO;
+import model.Asistente;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author p4prika
@@ -20,39 +26,28 @@ public class ActualizarAsistente extends javax.swing.JFrame {
     }
     
     public void cargarAsistentesEnTabla() {
-    javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel();
-    modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Segundo Apellido", "Edad", "Genero", "Teléfono", "Telefono de Emergencia", "Direccion"});
+        javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel();
+        modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Segundo Apellido", "Edad", "Genero", "Teléfono", "Telefono de Emergencia", "Direccion"});
+        
+        List<Asistente> listaAsistentes = new ArrayList<>();
+        listaAsistentes = new AsistenteDAO().obtenerTodosLosAsistentes();
 
-    // Ejemplo de registros simulados
-    String[][] baseDatos = {
-    {"A001", "Juan", "Pérez", "Gómez", "21", "Masculino", "5551234", "5554321", "Av. Reforma 100"},
-    {"A002", "María", "López", "Martínez", "22", "Femenino", "5555678", "5558765", "Calle Hidalgo 45"},
-    {"A003", "Carlos", "Ramírez", "Ortiz", "20", "Masculino", "5559999", "5558888", "Av. Juárez 200"},
-    {"A004", "Ana", "Hernández", "Santos", "23", "Femenino", "5553333", "5554444", "Calle Morelos 58"},
-    {"A005", "Luis", "García", "Mendoza", "24", "Masculino", "5555555", "5556666", "Col. Centro 78"},
-    {"A006", "Lucía", "Martínez", "Núñez", "22", "Femenino", "5551212", "5553434", "Calle Zaragoza 300"},
-    {"A007", "Jorge", "Sánchez", "Vega", "25", "Masculino", "5556543", "5557654", "Av. Universidad 10"},
-    {"A008", "Elena", "Castillo", "Rojas", "21", "Femenino", "5558881", "5551888", "Calle Pino Suárez 12"},
-    {"A009", "Diego", "Flores", "Silva", "23", "Masculino", "5552345", "5553456", "Col. Roma 47"},
-    {"A010", "Patricia", "Reyes", "Morales", "22", "Femenino", "5558765", "5556543", "Av. Patriotismo 55"},
-    {"A011", "Ricardo", "Vargas", "Campos", "24", "Masculino", "5551122", "5552211", "Calle Independencia 33"},
-    {"A012", "Fernanda", "Jiménez", "Paredes", "20", "Femenino", "5555566", "5556677", "Av. Insurgentes 150"},
-    {"A013", "Miguel", "Ortega", "Luna", "23", "Masculino", "5559988", "5558877", "Calle Niños Héroes 60"},
-    {"A014", "Alejandra", "Ramos", "Hidalgo", "21", "Femenino", "5553344", "5554433", "Col. Del Valle 88"},
-    {"A015", "Roberto", "Delgado", "Fuentes", "25", "Masculino", "5556678", "5557766", "Av. Coyoacán 44"},
-    {"A016", "Sofía", "Moreno", "Zapata", "22", "Femenino", "5554455", "5555544", "Calle Miguel Ángel 3"},
-    {"A017", "Andrés", "Peña", "Navarro", "23", "Masculino", "5557788", "5558877", "Col. Doctores 90"},
-    {"A018", "Gabriela", "Luna", "Márquez", "24", "Femenino", "5551233", "5553321", "Av. Tlalpan 120"},
-    {"A019", "Eduardo", "Campos", "Vera", "21", "Masculino", "5559992", "5552929", "Col. Condesa 66"},
-    {"A020", "Valeria", "Torres", "Salinas", "20", "Femenino", "5556767", "5557676", "Calle Londres 50"}
-};
+        // Iterar sobre la lista de asistentes y añadir cada uno como una fila en la tabla
+        for (Asistente asistente : listaAsistentes) {
+            modelo.addRow(new Object[]{
+                asistente.getMatricula(),
+                asistente.getNombre(),
+                asistente.getPrimerApellido(),
+                asistente.getSegundoApellido(),
+                asistente.getEdad(),
+                asistente.getGenero(),
+                asistente.getTelefonoContacto(),
+                asistente.getTelefonoEmergencia(),
+                asistente.getDireccion()
+            });
+        }
 
-
-    for (String[] asistente : baseDatos) {
-        modelo.addRow(asistente);
-    }
-
-    jTable3_actualizar_asistentes.setModel(modelo);
+        jTable3_actualizar_asistentes.setModel(modelo);
 }
     
     public void busquedaDeAsistente(String matricula) {
