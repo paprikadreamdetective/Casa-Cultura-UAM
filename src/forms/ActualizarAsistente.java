@@ -19,10 +19,17 @@ public class ActualizarAsistente extends javax.swing.JFrame {
     /**
      * Creates new form ActualizarAsistente
      */
+    private javax.swing.ButtonGroup generoButtonGroup;
     public ActualizarAsistente() {
         initComponents();
         this.setLocationRelativeTo(null);
         cargarAsistentesEnTabla();
+        deshabilitarTextFields();
+        // Configurar el ButtonGroup para los botones de radio
+        generoButtonGroup = new javax.swing.ButtonGroup();
+        generoButtonGroup.add(jRadioButton3_update_femenino);
+        generoButtonGroup.add(jRadioButton3_update_masculino);
+        generoButtonGroup.add(jRadioButton3_update_otro);
     }
     
     public void cargarAsistentesEnTabla() {
@@ -51,37 +58,83 @@ public class ActualizarAsistente extends javax.swing.JFrame {
 }
     
     public void busquedaDeAsistente(String matricula) {
-    javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel();
-    //modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Apellido", "Teléfono", "Correo"});
-    modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Segundo Apellido", "Edad", "Genero", "Teléfono", "Telefono de Emergencia", "Direccion"});
-    // Simulación de búsqueda en base de datos (deberías conectar aquí tu consulta real)
-    boolean encontrado = false;
+        javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel();
+        //modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Apellido", "Teléfono", "Correo"});
+        modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Segundo Apellido", "Edad", "Genero", "Teléfono", "Telefono de Emergencia", "Direccion"});
+        
+        Asistente asistente = new Asistente();
+        asistente = new AsistenteDAO().buscarAsistentePorMatricula(matricula);
+        boolean encontrado = asistente != null;
 
-    // Ejemplo de registros simulados
-    String[][] baseDatos = {
-        {"A001", "Juan", "Pérez", "5551234", "juanp@gmail.com"},
-        {"A002", "María", "López", "5555678", "maria.lopez@gmail.com"},
-        {"A003", "Carlos", "Ramírez", "5559999", "carlos.ramirez@gmail.com"}
-    };
+        if (encontrado) {
+            modelo.addRow(new Object[]{
+                asistente.getMatricula(),
+                asistente.getNombre(),
+                asistente.getPrimerApellido(),
+                asistente.getSegundoApellido(),
+                asistente.getEdad(),
+                asistente.getGenero(),
+                asistente.getTelefonoContacto(),
+                asistente.getTelefonoEmergencia(),
+                asistente.getDireccion()
+            });
+        }
 
-    for (String[] asistente : baseDatos) {
-        if (asistente[0].equalsIgnoreCase(matricula)) {
-            modelo.addRow(asistente);
-            encontrado = true;
-            break;
+        jTable3_actualizar_asistentes.setModel(modelo);
+
+        if (!encontrado) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró el registro.", "Búsqueda", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            deshabilitarTextFields();
+        } else {
+            habilitarTextFields();
+            llenarTextFields(modelo.getDataVector().elementAt(0));
         }
     }
-
-    jTable3_actualizar_asistentes.setModel(modelo);
-
-    if (!encontrado) {
-        javax.swing.JOptionPane.showMessageDialog(this, "No se encontró el registro.", "Búsqueda", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        //deshabilitarTextFields();
-    } else {
-        //habilitarTextFields();
-        //llenarTextFields(modelo.getDataVector().elementAt(0));
+    
+    public void deshabilitarTextFields() {
+        jTextField3_update_nombre.setEnabled(false);
+        jTextField3_update_1erapellido.setEnabled(false);
+        jTextField3_update_2doapellido.setEnabled(false);
+        jTextField3_update_edad.setEnabled(false);
+        jTextField3_update_direccion.setEnabled(false);
+        jTextField3_update_telcontacto.setEnabled(false);
+        jTextField3_update_telemergencia.setEnabled(false);
+        jRadioButton3_update_femenino.setEnabled(false);
+        jRadioButton3_update_masculino.setEnabled(false);
+        jRadioButton3_update_otro.setEnabled(false);
     }
-}
+    
+    public void habilitarTextFields() {
+        jTextField3_update_nombre.setEnabled(true);
+        jTextField3_update_1erapellido.setEnabled(true);
+        jTextField3_update_2doapellido.setEnabled(true);
+        jTextField3_update_edad.setEnabled(true);
+        jTextField3_update_direccion.setEnabled(true);
+        jTextField3_update_telcontacto.setEnabled(true);
+        jTextField3_update_telemergencia.setEnabled(true);
+        jRadioButton3_update_femenino.setEnabled(true);
+        jRadioButton3_update_masculino.setEnabled(true);
+        jRadioButton3_update_otro.setEnabled(true);
+    }
+    
+    public void llenarTextFields(java.util.Vector datos) {
+        jTextField3_update_nombre.setText(datos.get(1).toString()); // Nombre
+        jTextField3_update_1erapellido.setText(datos.get(2).toString()); // Primer Apellido
+        jTextField3_update_2doapellido.setText(datos.get(3).toString()); // Segundo Apellido
+        jTextField3_update_edad.setText(datos.get(4).toString()); // Edad
+        // Género
+        String genero = datos.get(5).toString();
+        if (genero.equalsIgnoreCase("Femenino")) {
+            jRadioButton3_update_femenino.setSelected(true);
+        } else if (genero.equalsIgnoreCase("Masculino")) {
+            jRadioButton3_update_masculino.setSelected(true);
+        } else {
+            jRadioButton3_update_otro.setSelected(true);
+        }
+        jTextField3_update_telcontacto.setText(datos.get(6).toString()); // Teléfono
+        jTextField3_update_telemergencia.setText(datos.get(7).toString()); // Teléfono de Emergencia
+        jTextField3_update_direccion.setText(datos.get(8).toString()); // Dirección
+    }
 
 
     /**
@@ -337,9 +390,60 @@ public class ActualizarAsistente extends javax.swing.JFrame {
 
     private void jButton3_update_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_update_actualizarActionPerformed
         // TODO add your handling code here:
-        javax.swing.JOptionPane.showMessageDialog(null, "¡Asistente actualizado correctamente!", 
-                                  "Actualizacion exitosa", 
-                                  javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        String matricula = jTextField3_actualizar_busqueda.getText().trim(); 
+        String nombre = jTextField3_update_nombre.getText().trim();
+        String primerApellido = jTextField3_update_1erapellido.getText().trim();
+        String segundoApellido = jTextField3_update_2doapellido.getText().trim();
+        String edadStr = jTextField3_update_edad.getText().trim();
+        String direccion = jTextField3_update_direccion.getText().trim();
+        String telefonoContacto = jTextField3_update_telcontacto.getText().trim();
+        String telefonoEmergencia = jTextField3_update_telemergencia.getText().trim();
+        String genero = "";
+        if (jRadioButton3_update_femenino.isSelected()) {
+            genero = "Femenino";
+        } else if (jRadioButton3_update_masculino.isSelected()) {
+            genero = "Masculino";
+        } else if (jRadioButton3_update_otro.isSelected()) {
+            genero = "Otro";
+        }
+
+        if (nombre.isEmpty() || primerApellido.isEmpty() || segundoApellido.isEmpty() || edadStr.isEmpty() || 
+            direccion.isEmpty() || telefonoContacto.isEmpty() || telefonoEmergencia.isEmpty() || genero.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Todos los campos deben estar llenos.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        int edad;
+        try {
+            edad = Integer.parseInt(edadStr);
+            if (edad <= 0) {
+                javax.swing.JOptionPane.showMessageDialog(this, "La edad debe ser un número positivo.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "La edad debe ser un número válido.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Crear un objeto Asistente con los datos actualizados
+        Asistente asistente = new Asistente(matricula, nombre, primerApellido, segundoApellido, edad, genero, 
+                                            direccion, telefonoContacto, telefonoEmergencia);
+
+        // Actualizar en la base de datos
+        AsistenteDAO asistenteDAO = new AsistenteDAO();
+        boolean actualizado = asistenteDAO.actualizar(asistente);
+
+        if (actualizado) {
+            javax.swing.JOptionPane.showMessageDialog(this, "¡Asistente actualizado correctamente!", 
+                                                      "Actualización exitosa", 
+                                                      javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            // Refrescar la tabla
+            busquedaDeAsistente(matricula); // Volver a buscar para actualizar la tabla
+            // Opcionalmente, puedes recargar toda la tabla con cargarAsistentesEnTabla();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al actualizar el asistente.", 
+                                                      "Error", 
+                                                      javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton3_update_actualizarActionPerformed
 
     /**
