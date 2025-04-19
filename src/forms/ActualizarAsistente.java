@@ -412,6 +412,8 @@ public class ActualizarAsistente extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Todos los campos deben estar llenos.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
+        
         int edad;
         try {
             edad = Integer.parseInt(edadStr);
@@ -427,18 +429,35 @@ public class ActualizarAsistente extends javax.swing.JFrame {
         // Crear un objeto Asistente con los datos actualizados
         Asistente asistente = new Asistente(matricula, nombre, primerApellido, segundoApellido, edad, genero, 
                                             direccion, telefonoContacto, telefonoEmergencia);
-
+        
+        
         // Actualizar en la base de datos
         AsistenteDAO asistenteDAO = new AsistenteDAO();
         boolean actualizado = asistenteDAO.actualizar(asistente);
-
+        
+        
         if (actualizado) {
             javax.swing.JOptionPane.showMessageDialog(this, "¡Asistente actualizado correctamente!", 
                                                       "Actualización exitosa", 
                                                       javax.swing.JOptionPane.INFORMATION_MESSAGE);
             // Refrescar la tabla
-            busquedaDeAsistente(matricula); // Volver a buscar para actualizar la tabla
+            //busquedaDeAsistente(matricula); // Volver a buscar para actualizar la tabla
             // Opcionalmente, puedes recargar toda la tabla con cargarAsistentesEnTabla();
+            jButton3_actualizar_buscar.setText("");
+            jTextField3_update_nombre.setText("");
+            jTextField3_update_1erapellido.setText("");
+            jTextField3_update_2doapellido.setText("");
+            jTextField3_update_edad.setText("");
+            jTextField3_update_direccion.setText("");
+            jTextField3_update_telcontacto.setText("");
+            jTextField3_update_telemergencia.setText("");
+            /*jRadioButton3_update_femenino.setText("");
+            jRadioButton3_update_masculino.setEnabled(true);
+            jRadioButton3_update_otro.setEnabled(true);*/
+            generoButtonGroup.clearSelection();
+            deshabilitarTextFields();
+            cargarAsistentesEnTabla();
+            
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Error al actualizar el asistente.", 
                                                       "Error", 
