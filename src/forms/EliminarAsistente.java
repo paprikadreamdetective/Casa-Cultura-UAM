@@ -17,6 +17,14 @@ public class EliminarAsistente extends javax.swing.JFrame {
     public EliminarAsistente() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jTextField_1er_apellido.setEnabled(false);
+        jTextField_2do_apellido.setEnabled(false);
+        jTextField_direccion.setEnabled(false);
+        jTextField_edad.setEnabled(false);
+        jTextField_genero.setEnabled(false);
+        jTextField_nombre.setEnabled(false);
+        jTextField_tel_contacto.setEnabled(false);
+        jTextField_tel_emergencia.setEnabled(false);
     }
 
     /**
@@ -49,8 +57,8 @@ public class EliminarAsistente extends javax.swing.JFrame {
         jTextField_genero = new javax.swing.JTextField();
         jLabel_direccion = new javax.swing.JLabel();
         jTextField_direccion = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButton_eliminar = new javax.swing.JButton();
+        jButton_cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -167,23 +175,23 @@ public class EliminarAsistente extends javax.swing.JFrame {
                 .addContainerGap(157, Short.MAX_VALUE))
         );
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 51));
-        jButton2.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton_eliminar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_eliminar.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton_eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_eliminar.setText("Eliminar");
+        jButton_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton_eliminarActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 51, 51));
-        jButton3.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Cancelar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton_cancelar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_cancelar.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton_cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_cancelar.setText("Cancelar");
+        jButton_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton_cancelarActionPerformed(evt);
             }
         });
 
@@ -204,9 +212,9 @@ public class EliminarAsistente extends javax.swing.JFrame {
                                 .addComponent(jButton3_busqueda_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(232, 232, 232))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -225,8 +233,8 @@ public class EliminarAsistente extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
         );
 
@@ -234,7 +242,12 @@ public class EliminarAsistente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3_busqueda_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_busqueda_eliminarActionPerformed
-       
+        String matricula = jTextField3_delete_busqueda.getText().trim();
+        if (!matricula.isEmpty()) {
+            busquedaDeAsistente(matricula);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Introduce una matrícula.", "Atención", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButton3_busqueda_eliminarActionPerformed
     
     public void busquedaDeAsistente(String matricula) {
@@ -247,6 +260,14 @@ public class EliminarAsistente extends javax.swing.JFrame {
         boolean encontrado = asistente != null;
 
         if (encontrado) {
+            jTextField_1er_apellido.setText(asistente.getPrimerApellido()); 
+            jTextField_2do_apellido.setText(asistente.getSegundoApellido());
+            jTextField_direccion.setText(asistente.getDireccion());
+            jTextField_edad.setText(Integer.toString(asistente.getEdad()));
+            jTextField_genero.setText(asistente.getGenero());
+            jTextField_nombre.setText(asistente.getNombre());
+            jTextField_tel_contacto.setText(asistente.getTelefonoContacto());
+            jTextField_tel_emergencia.setText(asistente.getTelefonoEmergencia());
             /*modelo.addRow(new Object[]{
                 asistente.getMatricula(),
                 asistente.getNombre(),
@@ -272,7 +293,7 @@ public class EliminarAsistente extends javax.swing.JFrame {
     }
     
     
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelarActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
         int confirmacion = javax.swing.JOptionPane.showConfirmDialog(
@@ -290,15 +311,24 @@ public class EliminarAsistente extends javax.swing.JFrame {
         } else {
             System.out.println("Operación cancelada.");
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton_cancelarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminarActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
-        javax.swing.JOptionPane.showMessageDialog(null, "¡El asistente se ha eliminado!", 
+        AsistenteDAO asistenteDAO = new AsistenteDAO();
+        boolean eliminado = asistenteDAO.eliminar(jTextField3_delete_busqueda.getText().trim());
+        
+        if (eliminado) {
+            javax.swing.JOptionPane.showMessageDialog(null, "¡El asistente se ha eliminado!", 
                                   "Eliminado con exito", 
                                   javax.swing.JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(null, "¡Error al eliminar asistente!", 
+                                  "Error", 
+                                  javax.swing.JOptionPane.ERROR_MESSAGE );
+        }
+    }//GEN-LAST:event_jButton_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -336,9 +366,9 @@ public class EliminarAsistente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton3_busqueda_eliminar;
+    private javax.swing.JButton jButton_cancelar;
+    private javax.swing.JButton jButton_eliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel_1er_apellido;
