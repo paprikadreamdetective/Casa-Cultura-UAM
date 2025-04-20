@@ -317,17 +317,39 @@ public class EliminarAsistente extends javax.swing.JFrame {
         // TODO add your handling code here:
         // TODO add your handling code here:
         AsistenteDAO asistenteDAO = new AsistenteDAO();
-        boolean eliminado = asistenteDAO.eliminar(jTextField3_delete_busqueda.getText().trim());
         
-        if (eliminado) {
-            javax.swing.JOptionPane.showMessageDialog(null, "¡El asistente se ha eliminado!", 
-                                  "Eliminado con exito", 
-                                  javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(
+                null,
+                "¿Eliminar el asistente elegido?",
+                "Eliminar asistente",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+        
+        if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
+            boolean eliminado = asistenteDAO.eliminar(jTextField3_delete_busqueda.getText().trim());
+            if (eliminado) {
+                javax.swing.JOptionPane.showMessageDialog(null, "¡El asistente se ha eliminado!", 
+                                      "Eliminado con exito", 
+                                      javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(null, "¡Error al eliminar asistente!", 
+                                      "Error", 
+                                      javax.swing.JOptionPane.ERROR_MESSAGE );
+            }
+            jTextField_1er_apellido.setText("");
+            jTextField_2do_apellido.setText("");
+            jTextField_direccion.setText("");
+            jTextField_edad.setText("");
+            jTextField_genero.setText("");
+            jTextField_nombre.setText("");
+            jTextField_tel_contacto.setText("");
+            jTextField_tel_emergencia.setText("");
         } else {
-            javax.swing.JOptionPane.showMessageDialog(null, "¡Error al eliminar asistente!", 
-                                  "Error", 
-                                  javax.swing.JOptionPane.ERROR_MESSAGE );
+            System.out.println("Operación cancelada.");
         }
+        
+        
     }//GEN-LAST:event_jButton_eliminarActionPerformed
 
     /**
