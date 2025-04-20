@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package forms;
-
+import persistence.AsistenteDAO;
+import model.Asistente;
 /**
  *
  * @author p4prika
@@ -30,8 +31,24 @@ public class EliminarAsistente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextField3_delete_busqueda = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton3_busqueda_eliminar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jTextField_nombre = new javax.swing.JTextField();
+        jLabel_nombre = new javax.swing.JLabel();
+        jLabel_1er_apellido = new javax.swing.JLabel();
+        jTextField_1er_apellido = new javax.swing.JTextField();
+        jLabel_2do_apellido = new javax.swing.JLabel();
+        jTextField_2do_apellido = new javax.swing.JTextField();
+        jLabel_edad = new javax.swing.JLabel();
+        jTextField_edad = new javax.swing.JTextField();
+        jLabel_tel_contacto = new javax.swing.JLabel();
+        jTextField_tel_contacto = new javax.swing.JTextField();
+        jLabel_tel_emergencia = new javax.swing.JLabel();
+        jTextField_tel_emergencia = new javax.swing.JTextField();
+        jLabel_genero = new javax.swing.JLabel();
+        jTextField_genero = new javax.swing.JTextField();
+        jLabel_direccion = new javax.swing.JLabel();
+        jTextField_direccion = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
@@ -43,27 +60,111 @@ public class EliminarAsistente extends javax.swing.JFrame {
 
         jLabel2.setText("Introduzca la matricula del asistente");
 
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton3_busqueda_eliminar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton3_busqueda_eliminar.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton3_busqueda_eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3_busqueda_eliminar.setText("Buscar");
+        jButton3_busqueda_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton3_busqueda_eliminarActionPerformed(evt);
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel_nombre.setText("Nombre(s):");
+
+        jLabel_1er_apellido.setText("Primer Apellido:");
+
+        jLabel_2do_apellido.setText("Segundo Apellido:");
+
+        jLabel_edad.setText("Edad:");
+
+        jLabel_tel_contacto.setText("Telefono de contacto:");
+
+        jLabel_tel_emergencia.setText("Telefono de emergencia:");
+
+        jLabel_genero.setText("Genero:");
+
+        jLabel_direccion.setText("Direccion:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel_2do_apellido)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField_2do_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel_genero)
+                            .addComponent(jLabel_tel_contacto)
+                            .addComponent(jLabel_edad)
+                            .addComponent(jLabel_tel_emergencia))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField_tel_contacto)
+                            .addComponent(jTextField_tel_emergencia)
+                            .addComponent(jTextField_edad)
+                            .addComponent(jTextField_genero, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel_1er_apellido)
+                                    .addComponent(jLabel_nombre, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel_direccion)
+                                .addGap(18, 18, 18)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_1er_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_nombre)
+                    .addComponent(jLabel_edad)
+                    .addComponent(jTextField_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel_tel_contacto)
+                            .addComponent(jTextField_tel_contacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel_1er_apellido)
+                            .addComponent(jTextField_1er_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(3, 3, 3)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_tel_emergencia)
+                    .addComponent(jTextField_tel_emergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel_2do_apellido)
+                        .addComponent(jTextField_2do_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel_genero)
+                        .addComponent(jTextField_genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_direccion)
+                    .addComponent(jTextField_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         jButton2.setBackground(new java.awt.Color(255, 51, 51));
@@ -92,33 +193,34 @@ public class EliminarAsistente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField3_delete_busqueda)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButton3_busqueda_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(232, 232, 232))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3_delete_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton3_busqueda_eliminar))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -131,10 +233,45 @@ public class EliminarAsistente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton3_busqueda_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_busqueda_eliminarActionPerformed
+       
+    }//GEN-LAST:event_jButton3_busqueda_eliminarActionPerformed
+    
+    public void busquedaDeAsistente(String matricula) {
+        //javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel();
+        //modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Apellido", "Teléfono", "Correo"});
+        //modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Segundo Apellido", "Edad", "Genero", "Teléfono", "Telefono de Emergencia", "Direccion"});
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        Asistente asistente = new Asistente();
+        asistente = new AsistenteDAO().buscarAsistentePorMatricula(matricula);
+        boolean encontrado = asistente != null;
 
+        if (encontrado) {
+            /*modelo.addRow(new Object[]{
+                asistente.getMatricula(),
+                asistente.getNombre(),
+                asistente.getPrimerApellido(),
+                asistente.getSegundoApellido(),
+                asistente.getEdad(),
+                asistente.getGenero(),
+                asistente.getTelefonoContacto(),
+                asistente.getTelefonoEmergencia(),
+                asistente.getDireccion()
+            });*/
+        }
+
+        //jTable3_actualizar_asistentes.setModel(modelo);
+
+        if (!encontrado) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró el registro.", "Búsqueda", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            //deshabilitarTextFields();
+        } else {
+            //habilitarTextFields();
+            //llenarTextFields(modelo.getDataVector().elementAt(0));
+        }
+    }
+    
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
@@ -199,12 +336,28 @@ public class EliminarAsistente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton3_busqueda_eliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel_1er_apellido;
+    private javax.swing.JLabel jLabel_2do_apellido;
+    private javax.swing.JLabel jLabel_direccion;
+    private javax.swing.JLabel jLabel_edad;
+    private javax.swing.JLabel jLabel_genero;
+    private javax.swing.JLabel jLabel_nombre;
+    private javax.swing.JLabel jLabel_tel_contacto;
+    private javax.swing.JLabel jLabel_tel_emergencia;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField3_delete_busqueda;
+    private javax.swing.JTextField jTextField_1er_apellido;
+    private javax.swing.JTextField jTextField_2do_apellido;
+    private javax.swing.JTextField jTextField_direccion;
+    private javax.swing.JTextField jTextField_edad;
+    private javax.swing.JTextField jTextField_genero;
+    private javax.swing.JTextField jTextField_nombre;
+    private javax.swing.JTextField jTextField_tel_contacto;
+    private javax.swing.JTextField jTextField_tel_emergencia;
     // End of variables declaration//GEN-END:variables
 }

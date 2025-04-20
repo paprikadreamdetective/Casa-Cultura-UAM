@@ -173,7 +173,6 @@ public class ActualizarAsistente extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1100, 645));
         setResizable(false);
 
         jTable3_actualizar_asistentes.setModel(new javax.swing.table.DefaultTableModel(
