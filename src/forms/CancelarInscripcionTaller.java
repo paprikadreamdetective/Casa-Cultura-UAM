@@ -22,6 +22,15 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
     public CancelarInscripcionTaller() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jButton_baja_danza.setEnabled(false);
+        jButton_baja_teatro.setEnabled(false);
+        jButton_baja_dibujo.setEnabled(false);
+        jButton_baja_redaccion.setEnabled(false);
+        jButton_baja_lectura.setEnabled(false);
+        
+        inscripcionDAO = new InscripcionDAO();
+        alumnoDAO = new AsistenteDAO();
+        
     }
 
     /**
@@ -63,6 +72,11 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
         jButton_buscar.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jButton_buscar.setForeground(new java.awt.Color(255, 255, 255));
         jButton_buscar.setText("Buscar");
+        jButton_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_buscarActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -269,6 +283,63 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
                                   javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton_aplicarActionPerformed
 
+    private void jButton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_buscarActionPerformed
+        // TODO add your handling code here:
+        String matricula = jTextField1.getText().trim();
+        if (matricula.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, ingrese una matrícula.", 
+                                                      "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        alumnoSeleccionado = alumnoDAO.buscarAsistentePorMatricula(matricula);
+        if (alumnoSeleccionado != null && alumnoSeleccionado.getIdAlumno() > 0) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Alumno encontrado: " + alumnoSeleccionado.getNombre() + " " + 
+                                                      alumnoSeleccionado.getPrimerApellido() + " (ID: " + alumnoSeleccionado.getIdAlumno() + ")", 
+                                                      "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            // Consultar talleres inscritos
+            List<Integer> talleresInscritos = inscripcionDAO.obtenerTalleresInscritos(alumnoSeleccionado.getIdAlumno());
+
+            // Deshabilitar todos los botones por defecto
+            jButton_baja_danza.setEnabled(false);
+            jButton_baja_teatro.setEnabled(false);
+            jButton_baja_dibujo.setEnabled(false);
+            jButton_baja_redaccion.setEnabled(false);
+            jButton_baja_lectura.setEnabled(false);
+
+            // Habilitar botones de talleres inscritos
+            for (Integer idTaller : talleresInscritos) {
+                switch (idTaller) {
+                    case 1: case 2: // Danza
+                        jButton_baja_danza.setEnabled(true);
+                        break;
+                    case 3: case 4: // Lectura
+                        jButton_baja_lectura.setEnabled(true);
+                        break;
+                    case 5: case 6: // Redacción
+                        jButton_baja_redaccion.setEnabled(true);
+                        break;
+                    case 7: case 8: // Dibujo
+                        jButton_baja_dibujo.setEnabled(true);
+                        break;
+                    case 9: case 10: // Teatro
+                        jButton_baja_teatro.setEnabled(true);
+                        break;
+                }
+            }
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró un alumno con esa matrícula o el ID es inválido.", 
+                                                  "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            alumnoSeleccionado = null;
+            jButton_baja_danza.setEnabled(false);
+            jButton_baja_teatro.setEnabled(false);
+            jButton_baja_dibujo.setEnabled(false);
+            jButton_baja_redaccion.setEnabled(false);
+            jButton_baja_lectura.setEnabled(false);
+        }
+    }//GEN-LAST:event_jButton_buscarActionPerformed
+        
     /**
      * @param args the command line arguments
      */
