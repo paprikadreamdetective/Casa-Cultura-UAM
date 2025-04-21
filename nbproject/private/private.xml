@@ -6,6 +6,12 @@
             <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/persistence/UserDAO.java</file>
             <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/persistence/AsistenteDAO.java</file>
             <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/forms/EliminarAsistente.java</file>
+            <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/forms/ActualizarAsistente.java</file>
+            <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/forms/InscripcionTaller.java</file>
+            <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/model/Inscripcion.java</file>
+            <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/persistence/InscripcionDAO.java</file>
+            <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/model/Asistente.java</file>
+            <file>file:/home/p4prika/Documents/Github/Casa-Cultura-UAM/src/forms/CancelarInscripcionTaller.java</file>
         </group>
     </open-files>
 </project-private>

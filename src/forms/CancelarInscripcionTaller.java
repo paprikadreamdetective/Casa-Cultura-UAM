@@ -3,13 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package forms;
-
+import model.Asistente;
+import persistence.InscripcionDAO;
+import persistence.AsistenteDAO;
+import java.util.List;
+import java.util.ArrayList;
 /**
  *
  * @author p4prika
  */
 public class CancelarInscripcionTaller extends javax.swing.JFrame {
-
+    private Asistente alumnoSeleccionado;
+    private InscripcionDAO inscripcionDAO;
+    private AsistenteDAO alumnoDAO;
     /**
      * Creates new form CancelarInscripcionTaller
      */
@@ -29,23 +35,23 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButton_buscar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jButton_baja_teatro = new javax.swing.JButton();
+        jButton_baja_dibujo = new javax.swing.JButton();
+        jButton_baja_redaccion = new javax.swing.JButton();
+        jButton_baja_lectura = new javax.swing.JButton();
+        jButton_baja_danza = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton_cancelar = new javax.swing.JButton();
+        jButton_aplicar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -53,10 +59,10 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
 
         jLabel1.setText("Buscar asistente por matricula");
 
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Buscar");
+        jButton_buscar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_buscar.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton_buscar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_buscar.setText("Buscar");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -68,22 +74,12 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 433, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         jLabel2.setText("Talleres inscritos");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jToggleButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jToggleButton1.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("Baja de inscripcion");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("Danza");
 
@@ -95,25 +91,30 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
 
         jLabel8.setText("Lectura");
 
-        jButton4.setBackground(new java.awt.Color(255, 51, 51));
-        jButton4.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Baja de inscripcion");
+        jButton_baja_teatro.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_baja_teatro.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton_baja_teatro.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_baja_teatro.setText("Baja de inscripcion");
 
-        jButton5.setBackground(new java.awt.Color(255, 51, 51));
-        jButton5.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Baja de inscripcion");
+        jButton_baja_dibujo.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_baja_dibujo.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton_baja_dibujo.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_baja_dibujo.setText("Baja de inscripcion");
 
-        jButton6.setBackground(new java.awt.Color(255, 51, 51));
-        jButton6.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Baja de inscripcion");
+        jButton_baja_redaccion.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_baja_redaccion.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton_baja_redaccion.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_baja_redaccion.setText("Baja de inscripcion");
 
-        jButton7.setBackground(new java.awt.Color(255, 51, 51));
-        jButton7.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Baja de inscripcion");
+        jButton_baja_lectura.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_baja_lectura.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton_baja_lectura.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_baja_lectura.setText("Baja de inscripcion");
+
+        jButton_baja_danza.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_baja_danza.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton_baja_danza.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_baja_danza.setText("Baja de inscripcion");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,22 +123,18 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jToggleButton1)))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_baja_teatro, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_baja_dibujo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_baja_redaccion, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_baja_lectura, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_baja_danza, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39))
         );
         jPanel2Layout.setVerticalGroup(
@@ -145,46 +142,46 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(jButton_baja_danza))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jButton4))
+                    .addComponent(jButton_baja_teatro))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jButton5))
+                    .addComponent(jButton_baja_dibujo))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jButton6))
+                    .addComponent(jButton_baja_redaccion))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jButton7))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton_baja_lectura))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         jLabel3.setText("Informacion del asistente");
 
-        jButton3.setBackground(new java.awt.Color(255, 51, 51));
-        jButton3.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Cancelar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton_cancelar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_cancelar.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton_cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_cancelar.setText("Cancelar");
+        jButton_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton_cancelarActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 51));
-        jButton2.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Aplicar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton_aplicar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_aplicar.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton_aplicar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_aplicar.setText("Aplicar");
+        jButton_aplicar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton_aplicarActionPerformed(evt);
             }
         });
 
@@ -203,9 +200,9 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(39, 39, 39)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton_aplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(23, 23, 23)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +211,7 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton1)
+                            .addComponent(jButton_buscar)
                             .addGap(424, 424, 424))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -226,7 +223,7 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton_buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -235,17 +232,17 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_aplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelarActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
         int confirmacion = javax.swing.JOptionPane.showConfirmDialog(
@@ -263,34 +260,14 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
         } else {
             System.out.println("Operación cancelada.");
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton_cancelarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton_aplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_aplicarActionPerformed
         // TODO add your handling code here:
         javax.swing.JOptionPane.showMessageDialog(null, "¡El asistente ha sido dado de baja del taller!", 
                                   "Operacion con exito", 
                                   javax.swing.JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
-        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(
-                null,
-                "¿Estás seguro de que deseas cancelar la inscripcion a este taller?",
-                "Cancelar inscripcion",
-                javax.swing.JOptionPane.YES_NO_OPTION,
-                javax.swing.JOptionPane.QUESTION_MESSAGE
-        );
-        if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
-            System.out.println("Registro cancelado. Redirigiendo al dashboard...");
-            //new LoginForm().setVisible(true);
-            //this.dispose();
-            // Aquí puedes llamar a tu método para cerrar sesión o abrir la pantalla de login
-        } else {
-            System.out.println("Operación cancelada.");
-        }
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_jButton_aplicarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,13 +305,14 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton_aplicar;
+    private javax.swing.JButton jButton_baja_danza;
+    private javax.swing.JButton jButton_baja_dibujo;
+    private javax.swing.JButton jButton_baja_lectura;
+    private javax.swing.JButton jButton_baja_redaccion;
+    private javax.swing.JButton jButton_baja_teatro;
+    private javax.swing.JButton jButton_buscar;
+    private javax.swing.JButton jButton_cancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -346,6 +324,5 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }
