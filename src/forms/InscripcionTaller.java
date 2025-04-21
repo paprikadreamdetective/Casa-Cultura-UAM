@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package forms;
-
+import model.Inscripcion;
+import persistence.InscripcionDAO;
+import persistence.AsistenteDAO;
+import model.Asistente;
+import java.util.Date;
 /**
  *
  * @author p4prika
@@ -20,6 +24,9 @@ public class InscripcionTaller extends javax.swing.JFrame {
     private final float costoRedaccion = 350;
     private final float costoLectura = 300;
     private final float costoMaterialExtra = 100;
+    private Asistente alumnoSeleccionado; // Almacena el alumno encontrado
+    private InscripcionDAO inscripcionDAO; // DAO para inscripciones
+    private AsistenteDAO alumnoDAO; // DAO para alumnos
 
     public InscripcionTaller() {
         initComponents();
@@ -30,6 +37,9 @@ public class InscripcionTaller extends javax.swing.JFrame {
         toggleHorarios("dibujo", false);
         toggleHorarios("redaccion", false);
         toggleHorarios("lectura", false);
+        
+        inscripcionDAO = new InscripcionDAO();
+        alumnoDAO = new AsistenteDAO();
 
         javax.swing.ButtonGroup grupoDanza = new javax.swing.ButtonGroup();
         grupoDanza.add(jRadioButton4_horario1_taller_danza);
@@ -94,8 +104,6 @@ public class InscripcionTaller extends javax.swing.JFrame {
     private void actualizarCampoCosto() {
         jTextField4_costo_total.setText("$" + costoTotal);
     }
-
-
     
     private void toggleHorarios(String taller, boolean visible) {
         switch(taller) {
@@ -188,6 +196,11 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jButton4_buscar_asistente.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jButton4_buscar_asistente.setForeground(new java.awt.Color(255, 255, 255));
         jButton4_buscar_asistente.setText("Buscar");
+        jButton4_buscar_asistente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4_buscar_asistenteActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -477,13 +490,123 @@ public class InscripcionTaller extends javax.swing.JFrame {
             System.out.println("Operación cancelada.");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    private void limpiarFormulario() {
+        jTextField4_busqueda_asistente.setText("");
+        jTextField4_costo_total.setText("");
+        costoTotal = 0;
+        alumnoSeleccionado = null;
+        jRadioButton4_taller_danza.setSelected(false);
+        jRadioButton4_taller_teatro.setSelected(false);
+        jRadioButton4_taller_dibujo.setSelected(false);
+        jRadioButton4_taller_redaccion.setSelected(false);
+        jRadioButton4_taller_lectura.setSelected(false);
+        toggleHorarios("danza", false);
+        toggleHorarios("teatro", false);
+        toggleHorarios("dibujo", false);
+        toggleHorarios("redaccion", false);
+        toggleHorarios("lectura", false);
+    }
+    
     private void jButton4_confirmar_inscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_confirmar_inscripcionActionPerformed
         // TODO add your handling code here:
-        javax.swing.JOptionPane.showMessageDialog(null, "¡Asistente inscrito correctamente!", 
+        /*javax.swing.JOptionPane.showMessageDialog(null, "¡Asistente inscrito correctamente!", 
                                   "Inscripcion Exitosa", 
-                                  javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                                  javax.swing.JOptionPane.INFORMATION_MESSAGE);*/
+        if (alumnoSeleccionado == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, busque y seleccione un alumno primero.", 
+                                          "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Determinar el taller y horario seleccionados
+        int idTaller = 0;
+        boolean adquirirMaterial = false;
+        String tallerSeleccionado = "";
+        if (jRadioButton4_taller_danza.isSelected()) {
+            adquirirMaterial = jCheckBox4_material_danza.isSelected();
+            tallerSeleccionado = "Danza";
+            if (jRadioButton4_horario1_taller_danza.isSelected()) {
+                idTaller = 1; // Danza, horario 1
+            } else if (jRadioButton4_horario2_taller_danza.isSelected()) {
+                idTaller = 2; // Danza, horario 2
+            }
+        } else if (jRadioButton4_taller_teatro.isSelected()) {
+            adquirirMaterial = jCheckBox4_material_teatro.isSelected();
+            tallerSeleccionado = "Teatro";
+            if (jRadioButton4_horario1_taller_teatro.isSelected()) {
+                idTaller = 9; // Teatro, horario 1
+            } else if (jRadioButton4_horario2_taller_teatro.isSelected()) {
+                idTaller = 10; // Teatro, horario 2
+            }
+        } else if (jRadioButton4_taller_dibujo.isSelected()) {
+            adquirirMaterial = jCheckBox4_material_dibujo.isSelected();
+            tallerSeleccionado = "Dibujo";
+            if (jRadioButton4_horario1_taller_dibujo.isSelected()) {
+                idTaller = 7; // Dibujo, horario 1
+            } else if (jRadioButton4_horario2_taller_dibujo.isSelected()) {
+                idTaller = 8; // Dibujo, horario 2
+            }
+        } else if (jRadioButton4_taller_redaccion.isSelected()) {
+            adquirirMaterial = jCheckBox4_material_redaccion.isSelected();
+            tallerSeleccionado = "Redacción";
+            if (jRadioButton4_horario1_taller_redaccion.isSelected()) {
+                idTaller = 5; // Redacción, horario 1
+            } 
+        } else if (jRadioButton4_taller_lectura.isSelected()) {
+            adquirirMaterial = jCheckBox4_material_lectura.isSelected();
+            tallerSeleccionado = "Lectura";
+            if (jRadioButton4_horario1_taller_lectura.isSelected()) {
+                idTaller = 3; // Lectura, horario 1
+            }
+        }
+
+        if (idTaller == 0) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, seleccione un taller y un horario.", 
+                                          "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Crear objeto Inscripcion
+        Inscripcion inscripcion = new Inscripcion();
+        inscripcion.setIdAlumno(alumnoSeleccionado.getIdAlumno());
+        inscripcion.setIdTaller(idTaller);
+        inscripcion.setAdquirirMaterial(adquirirMaterial);
+        inscripcion.setFechaInscripcion(new Date());
+        inscripcion.setTotalAPagar(costoTotal);
+
+        // Guardar inscripción
+        if (inscripcionDAO.insertar(inscripcion)) {
+            javax.swing.JOptionPane.showMessageDialog(this, "¡Asistente inscrito correctamente en el taller de " + tallerSeleccionado + "!", 
+                                          "Inscripción Exitosa", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            limpiarFormulario();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al realizar la inscripción.", 
+                                          "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton4_confirmar_inscripcionActionPerformed
+
+    private void jButton4_buscar_asistenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_buscar_asistenteActionPerformed
+        // TODO add your handling code here:
+        String matricula = jTextField4_busqueda_asistente.getText().trim();
+        if (matricula.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, ingrese una matrícula.", 
+                                          "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        alumnoSeleccionado = alumnoDAO.buscarAsistentePorMatricula(matricula);
+        if (alumnoSeleccionado != null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Alumno encontrado: " + alumnoSeleccionado.getNombre() + " " + 
+                                          alumnoSeleccionado.getPrimerApellido() + " " + alumnoSeleccionado.getIdAlumno(), 
+                                          "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            // Mostrar datos del alumno en la interfaz si tienes campos para ello
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró un alumno con esa matrícula.", 
+                                          "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            alumnoSeleccionado = null;
+        }
+    }//GEN-LAST:event_jButton4_buscar_asistenteActionPerformed
 
     /**
      * @param args the command line arguments

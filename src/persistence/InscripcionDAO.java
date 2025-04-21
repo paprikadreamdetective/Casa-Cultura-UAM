@@ -16,7 +16,7 @@ public class InscripcionDAO {
     private final String PASSWORD = "kali"; 
 
     // Constructor que recibe la conexión a la base de datos
-    public InscripcionDAO(Connection connection) {
+    public InscripcionDAO() {
         //this.connection = connection;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
