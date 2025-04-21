@@ -36,7 +36,7 @@ public class AsistenteDAO {
             stmt.setString(1, matricula);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return new Asistente(
+                Asistente asistente_temp = new Asistente(
                     rs.getString("matricula"),
                     rs.getString("nombre"),
                     rs.getString("primer_apellido"),
@@ -47,6 +47,8 @@ public class AsistenteDAO {
                     rs.getString("telefono_contacto"),
                     rs.getString("telefono_emergencia")
                 );
+                asistente_temp.setIdAlumno(rs.getInt("id_alumno"));
+                return asistente_temp; 
             }
         } catch (SQLException e) {
             e.printStackTrace();
