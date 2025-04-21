@@ -280,9 +280,7 @@ public class EliminarAsistente extends javax.swing.JFrame {
                 asistente.getDireccion()
             });*/
         }
-
         //jTable3_actualizar_asistentes.setModel(modelo);
-
         if (!encontrado) {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró el registro.", "Búsqueda", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             //deshabilitarTextFields();
@@ -290,8 +288,7 @@ public class EliminarAsistente extends javax.swing.JFrame {
             //habilitarTextFields();
             //llenarTextFields(modelo.getDataVector().elementAt(0));
         }
-    }
-    
+    }    
     
     private void jButton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelarActionPerformed
         // TODO add your handling code here:
@@ -325,7 +322,6 @@ public class EliminarAsistente extends javax.swing.JFrame {
                 javax.swing.JOptionPane.YES_NO_OPTION,
                 javax.swing.JOptionPane.QUESTION_MESSAGE
         );
-        
         if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
             boolean eliminado = asistenteDAO.eliminar(jTextField3_delete_busqueda.getText().trim());
             if (eliminado) {
@@ -348,8 +344,6 @@ public class EliminarAsistente extends javax.swing.JFrame {
         } else {
             System.out.println("Operación cancelada.");
         }
-        
-        
     }//GEN-LAST:event_jButton_eliminarActionPerformed
 
     /**

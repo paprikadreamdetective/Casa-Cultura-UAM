@@ -145,18 +145,18 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jRadioButton4_taller_dibujo = new javax.swing.JRadioButton();
         jRadioButton4_taller_redaccion = new javax.swing.JRadioButton();
         jRadioButton4_taller_lectura = new javax.swing.JRadioButton();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel_danza_select = new javax.swing.JLabel();
         jRadioButton4_horario1_taller_danza = new javax.swing.JRadioButton();
         jRadioButton4_horario2_taller_danza = new javax.swing.JRadioButton();
         jRadioButton4_horario1_taller_teatro = new javax.swing.JRadioButton();
         jRadioButton4_horario2_taller_teatro = new javax.swing.JRadioButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel_teatro_select = new javax.swing.JLabel();
         jRadioButton4_horario1_taller_dibujo = new javax.swing.JRadioButton();
         jRadioButton4_horario2_taller_dibujo = new javax.swing.JRadioButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel_dibujo_select = new javax.swing.JLabel();
+        jLabel_redaccion_select = new javax.swing.JLabel();
         jRadioButton4_horario1_taller_redaccion = new javax.swing.JRadioButton();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel_lectura_select = new javax.swing.JLabel();
         jRadioButton4_horario1_taller_lectura = new javax.swing.JRadioButton();
         jCheckBox4_material_danza = new javax.swing.JCheckBox();
         jCheckBox4_material_teatro = new javax.swing.JCheckBox();
@@ -216,7 +216,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Seleccionar horario");
+        jLabel_danza_select.setText("Seleccionar horario");
 
         jRadioButton4_horario1_taller_danza.setText("Lunes, Miercoles y Viernes 15:30 a 17:30");
 
@@ -226,7 +226,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
 
         jRadioButton4_horario2_taller_teatro.setText("Martes y Jueves 17:30 a 19:30");
 
-        jLabel4.setText("Seleccionar horario");
+        jLabel_teatro_select.setText("Seleccionar horario");
 
         jRadioButton4_horario1_taller_dibujo.setText("Lunes, Miercoles y Viernes 15:30 a 17:30");
         jRadioButton4_horario1_taller_dibujo.addActionListener(new java.awt.event.ActionListener() {
@@ -237,13 +237,13 @@ public class InscripcionTaller extends javax.swing.JFrame {
 
         jRadioButton4_horario2_taller_dibujo.setText("Martes y Jueves 17:30 a 19:30");
 
-        jLabel5.setText("Seleccionar horario");
+        jLabel_dibujo_select.setText("Seleccionar horario");
 
-        jLabel6.setText("Seleccionar horario");
+        jLabel_redaccion_select.setText("Seleccionar horario");
 
         jRadioButton4_horario1_taller_redaccion.setText("Martes y Jueves 16:30 a 18:30");
 
-        jLabel7.setText("Seleccionar horario");
+        jLabel_lectura_select.setText("Seleccionar horario");
 
         jRadioButton4_horario1_taller_lectura.setText("Martes y Viernes 14:30 a 16:30");
 
@@ -266,11 +266,11 @@ public class InscripcionTaller extends javax.swing.JFrame {
             .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
+                    .addComponent(jLabel_lectura_select)
                     .addComponent(jRadioButton4_taller_lectura)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
+                    .addComponent(jLabel_redaccion_select)
+                    .addComponent(jLabel_dibujo_select)
+                    .addComponent(jLabel_teatro_select)
                     .addComponent(jRadioButton4_taller_redaccion)
                     .addComponent(jRadioButton4_taller_dibujo)
                     .addComponent(jRadioButton4_taller_teatro)
@@ -301,7 +301,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
                                 .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jCheckBox4_material_redaccion)
                                     .addComponent(jCheckBox4_material_lectura)))))
-                    .addComponent(jLabel3)
+                    .addComponent(jLabel_danza_select)
                     .addComponent(jRadioButton4_taller_danza)
                     .addComponent(jLabel2)
                     .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
@@ -318,7 +318,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButton4_taller_danza)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(jLabel_danza_select)
                 .addGap(9, 9, 9)
                 .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -328,7 +328,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addComponent(jRadioButton4_taller_teatro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(jLabel_teatro_select)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton4_horario1_taller_teatro)
@@ -337,7 +337,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jRadioButton4_taller_dibujo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addComponent(jLabel_dibujo_select)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -347,7 +347,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton4_taller_redaccion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addComponent(jLabel_redaccion_select)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton4_horario1_taller_redaccion)
@@ -355,7 +355,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addComponent(jRadioButton4_taller_lectura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
+                .addComponent(jLabel_lectura_select)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton4_horario1_taller_lectura)
@@ -523,12 +523,12 @@ public class InscripcionTaller extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox4_material_teatro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel_danza_select;
+    private javax.swing.JLabel jLabel_dibujo_select;
+    private javax.swing.JLabel jLabel_lectura_select;
+    private javax.swing.JLabel jLabel_redaccion_select;
+    private javax.swing.JLabel jLabel_teatro_select;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4_select_taller_y_horario;
     private javax.swing.JRadioButton jRadioButton4_horario1_taller_danza;
