@@ -112,6 +112,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
                 jRadioButton4_horario1_taller_danza.setVisible(visible);
                 jRadioButton4_horario2_taller_danza.setVisible(visible);
                 jCheckBox4_material_danza.setVisible(visible);
+                jCheckBox4_material_danza.setSelected(visible);
                 break;
             case "teatro":
                 jLabel_teatro_select.setVisible(visible);
@@ -528,7 +529,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
         String tallerSeleccionado = "";
         if (jRadioButton4_taller_danza.isSelected()) {
             adquirirMaterial = jCheckBox4_material_danza.isSelected();
-            tallerSeleccionado = "Danza";
+            tallerSeleccionado = "danza";
             if (jRadioButton4_horario1_taller_danza.isSelected()) {
                 idTaller = 1; // Danza, horario 1
             } else if (jRadioButton4_horario2_taller_danza.isSelected()) {
@@ -536,7 +537,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
             }
         } else if (jRadioButton4_taller_teatro.isSelected()) {
             adquirirMaterial = jCheckBox4_material_teatro.isSelected();
-            tallerSeleccionado = "Teatro";
+            tallerSeleccionado = "teatro";
             if (jRadioButton4_horario1_taller_teatro.isSelected()) {
                 idTaller = 9; // Teatro, horario 1
             } else if (jRadioButton4_horario2_taller_teatro.isSelected()) {
@@ -544,7 +545,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
             }
         } else if (jRadioButton4_taller_dibujo.isSelected()) {
             adquirirMaterial = jCheckBox4_material_dibujo.isSelected();
-            tallerSeleccionado = "Dibujo";
+            tallerSeleccionado = "dibujo";
             if (jRadioButton4_horario1_taller_dibujo.isSelected()) {
                 idTaller = 7; // Dibujo, horario 1
             } else if (jRadioButton4_horario2_taller_dibujo.isSelected()) {
@@ -552,13 +553,13 @@ public class InscripcionTaller extends javax.swing.JFrame {
             }
         } else if (jRadioButton4_taller_redaccion.isSelected()) {
             adquirirMaterial = jCheckBox4_material_redaccion.isSelected();
-            tallerSeleccionado = "Redacción";
+            tallerSeleccionado = "redaccion";
             if (jRadioButton4_horario1_taller_redaccion.isSelected()) {
                 idTaller = 5; // Redacción, horario 1
             } 
         } else if (jRadioButton4_taller_lectura.isSelected()) {
             adquirirMaterial = jCheckBox4_material_lectura.isSelected();
-            tallerSeleccionado = "Lectura";
+            tallerSeleccionado = "lectura";
             if (jRadioButton4_horario1_taller_lectura.isSelected()) {
                 idTaller = 3; // Lectura, horario 1
             }
@@ -573,6 +574,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
         if (talleresInscritos.contains(idTaller)) {
             javax.swing.JOptionPane.showMessageDialog(this, "El alumno ya está inscrito en el taller de " + tallerSeleccionado + ".", 
                                           "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            
             return;
         }
 
