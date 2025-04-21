@@ -109,26 +109,51 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
         jButton_baja_teatro.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jButton_baja_teatro.setForeground(new java.awt.Color(255, 255, 255));
         jButton_baja_teatro.setText("Baja de inscripcion");
+        jButton_baja_teatro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_baja_teatroActionPerformed(evt);
+            }
+        });
 
         jButton_baja_dibujo.setBackground(new java.awt.Color(255, 51, 51));
         jButton_baja_dibujo.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jButton_baja_dibujo.setForeground(new java.awt.Color(255, 255, 255));
         jButton_baja_dibujo.setText("Baja de inscripcion");
+        jButton_baja_dibujo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_baja_dibujoActionPerformed(evt);
+            }
+        });
 
         jButton_baja_redaccion.setBackground(new java.awt.Color(255, 51, 51));
         jButton_baja_redaccion.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jButton_baja_redaccion.setForeground(new java.awt.Color(255, 255, 255));
         jButton_baja_redaccion.setText("Baja de inscripcion");
+        jButton_baja_redaccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_baja_redaccionActionPerformed(evt);
+            }
+        });
 
         jButton_baja_lectura.setBackground(new java.awt.Color(255, 51, 51));
         jButton_baja_lectura.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jButton_baja_lectura.setForeground(new java.awt.Color(255, 255, 255));
         jButton_baja_lectura.setText("Baja de inscripcion");
+        jButton_baja_lectura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_baja_lecturaActionPerformed(evt);
+            }
+        });
 
         jButton_baja_danza.setBackground(new java.awt.Color(255, 51, 51));
         jButton_baja_danza.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jButton_baja_danza.setForeground(new java.awt.Color(255, 255, 255));
         jButton_baja_danza.setText("Baja de inscripcion");
+        jButton_baja_danza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_baja_danzaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -339,7 +364,65 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
             jButton_baja_lectura.setEnabled(false);
         }
     }//GEN-LAST:event_jButton_buscarActionPerformed
+
+    private void jButton_baja_danzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_danzaActionPerformed
+        // TODO add your handling code here:
         
+    }//GEN-LAST:event_jButton_baja_danzaActionPerformed
+
+    private void jButton_baja_teatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_teatroActionPerformed
+        // TODO add your handling code here:
+        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(
+                null,
+                "¿Estás seguro de que deseas cancelar la inscripcion?",
+                "Cancelar Inscripcion",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+        if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
+            System.out.println("Inscripcion cancelada. Redirigiendo al dashboard...");
+            //boolean eliminado = inscripcionDAO.eliminar(jTextField3_delete_busqueda.getText().trim());
+            boolean eliminado = false;
+            if (eliminado) {
+                javax.swing.JOptionPane.showMessageDialog(null, "¡El asistente se ha eliminado!", 
+                                      "Eliminado con exito", 
+                                      javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(null, "¡Error al eliminar asistente!", 
+                                      "Error", 
+                                      javax.swing.JOptionPane.ERROR_MESSAGE );
+            }
+            //new LoginForm().setVisible(true);
+            //this.dispose();
+            // Aquí puedes llamar a tu método para cerrar sesión o abrir la pantalla de login
+        } else {
+            System.out.println("Operación cancelada.");
+        }
+        
+        
+        //= inscripcionDAO.eliminar(ICONIFIED);
+        //if (request_delete_inscripcion) {
+            
+        //}
+        
+    }//GEN-LAST:event_jButton_baja_teatroActionPerformed
+
+    private void jButton_baja_dibujoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_dibujoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_baja_dibujoActionPerformed
+
+    private void jButton_baja_redaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_redaccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_baja_redaccionActionPerformed
+
+    private void jButton_baja_lecturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_lecturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_baja_lecturaActionPerformed
+    
+    private void darDeBajaInscripcion() {
+        
+    }
+    
     /**
      * @param args the command line arguments
      */

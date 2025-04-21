@@ -246,6 +246,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Baja de inscripcion"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_baja_teatroActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton_baja_dibujo">
           <Properties>
@@ -260,6 +263,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Baja de inscripcion"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_baja_dibujoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton_baja_redaccion">
           <Properties>
@@ -274,6 +280,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Baja de inscripcion"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_baja_redaccionActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton_baja_lectura">
           <Properties>
@@ -288,6 +297,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Baja de inscripcion"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_baja_lecturaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton_baja_danza">
           <Properties>
@@ -302,6 +314,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Baja de inscripcion"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_baja_danzaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
