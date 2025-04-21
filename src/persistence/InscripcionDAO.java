@@ -27,6 +27,10 @@ public class InscripcionDAO {
             e.printStackTrace();
         }
     }
+    
+    public Connection getConnection() {
+        return connection;
+    }
 
     public boolean insertar(Inscripcion inscripcion) {
         String sql = "INSERT INTO inscripcion (id_alumno, id_taller, adquirir_material, fecha_inscripcion, total_a_pagar) " +

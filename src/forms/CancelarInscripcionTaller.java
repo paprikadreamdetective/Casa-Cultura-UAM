@@ -303,9 +303,20 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
 
     private void jButton_aplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_aplicarActionPerformed
         // TODO add your handling code here:
-        javax.swing.JOptionPane.showMessageDialog(null, "¡El asistente ha sido dado de baja del taller!", 
-                                  "Operacion con exito", 
-                                  javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        if (alumnoSeleccionado == null || alumnoSeleccionado.getIdAlumno() <= 0) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, busque un alumno primero.", 
+                                                      "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        javax.swing.JOptionPane.showMessageDialog(this, "Bajas aplicadas correctamente.", 
+                                                  "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        jTextField1.setText("");
+        alumnoSeleccionado = null;
+        jButton_baja_danza.setEnabled(false);
+        jButton_baja_teatro.setEnabled(false);
+        jButton_baja_redaccion.setEnabled(false);
+        jButton_baja_lectura.setEnabled(false);
+        jButton_baja_dibujo.setEnabled(false);
     }//GEN-LAST:event_jButton_aplicarActionPerformed
 
     private void jButton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_buscarActionPerformed
@@ -367,60 +378,72 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
 
     private void jButton_baja_danzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_danzaActionPerformed
         // TODO add your handling code here:
+        darDeBajaTaller(alumnoSeleccionado.getIdAlumno(), 1, "Danza");
         
     }//GEN-LAST:event_jButton_baja_danzaActionPerformed
 
     private void jButton_baja_teatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_teatroActionPerformed
         // TODO add your handling code here:
-        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(
-                null,
-                "¿Estás seguro de que deseas cancelar la inscripcion?",
-                "Cancelar Inscripcion",
-                javax.swing.JOptionPane.YES_NO_OPTION,
-                javax.swing.JOptionPane.QUESTION_MESSAGE
-        );
-        if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
-            System.out.println("Inscripcion cancelada. Redirigiendo al dashboard...");
-            //boolean eliminado = inscripcionDAO.eliminar(jTextField3_delete_busqueda.getText().trim());
-            boolean eliminado = false;
-            if (eliminado) {
-                javax.swing.JOptionPane.showMessageDialog(null, "¡El asistente se ha eliminado!", 
-                                      "Eliminado con exito", 
-                                      javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(null, "¡Error al eliminar asistente!", 
-                                      "Error", 
-                                      javax.swing.JOptionPane.ERROR_MESSAGE );
-            }
-            //new LoginForm().setVisible(true);
-            //this.dispose();
-            // Aquí puedes llamar a tu método para cerrar sesión o abrir la pantalla de login
-        } else {
-            System.out.println("Operación cancelada.");
-        }
-        
-        
-        //= inscripcionDAO.eliminar(ICONIFIED);
-        //if (request_delete_inscripcion) {
-            
-        //}
-        
+        darDeBajaTaller(alumnoSeleccionado.getIdAlumno(), 9, "Teatro");        
     }//GEN-LAST:event_jButton_baja_teatroActionPerformed
 
     private void jButton_baja_dibujoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_dibujoActionPerformed
         // TODO add your handling code here:
+        darDeBajaTaller(alumnoSeleccionado.getIdAlumno(), 7, "Dibujo");
     }//GEN-LAST:event_jButton_baja_dibujoActionPerformed
 
     private void jButton_baja_redaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_redaccionActionPerformed
         // TODO add your handling code here:
+        darDeBajaTaller(alumnoSeleccionado.getIdAlumno(), 5, "Redacción");
     }//GEN-LAST:event_jButton_baja_redaccionActionPerformed
 
     private void jButton_baja_lecturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_lecturaActionPerformed
         // TODO add your handling code here:
+        darDeBajaTaller(alumnoSeleccionado.getIdAlumno(), 3, "Lectura");
     }//GEN-LAST:event_jButton_baja_lecturaActionPerformed
     
-    private void darDeBajaInscripcion() {
-        
+    private void darDeBajaTaller(int idAlumno, int idTaller, String nombreTaller) {
+        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(
+                this,
+                "¿Estás seguro de que deseas cancelar la inscripción al taller de " + nombreTaller + "?",
+                "Cancelar inscripción",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+        if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
+            // Buscar id_inscripcion
+            String sql = "SELECT id_inscripcion FROM inscripcion WHERE id_alumno = ? AND id_taller = ?";
+            try (java.sql.PreparedStatement stmt = inscripcionDAO.getConnection().prepareStatement(sql)) {
+                stmt.setInt(1, idAlumno);
+                stmt.setInt(2, idTaller);
+                java.sql.ResultSet rs = stmt.executeQuery();
+                if (rs.next()) {
+                    int idInscripcion = rs.getInt("id_inscripcion");
+                    if (inscripcionDAO.eliminar(idInscripcion)) {
+                        javax.swing.JOptionPane.showMessageDialog(this, "Inscripción al taller de " + nombreTaller + " eliminada correctamente.", 
+                                                                  "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                        // Deshabilitar el botón correspondiente
+                        switch (idTaller) {
+                            case 1: case 2: jButton_baja_danza.setEnabled(false); break;
+                            case 3: case 4: jButton_baja_lectura.setEnabled(false); break;
+                            case 5: case 6: jButton_baja_redaccion.setEnabled(false); break;
+                            case 7: case 8: jButton_baja_dibujo.setEnabled(false); break;
+                            case 9: case 10: jButton_baja_teatro.setEnabled(false); break;
+                        }
+                    } else {
+                        javax.swing.JOptionPane.showMessageDialog(this, "Error al eliminar la inscripción.", 
+                                                                  "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "No se encontró la inscripción para este taller.", 
+                                                              "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (java.sql.SQLException e) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Error en la base de datos: " + e.getMessage(), 
+                                                          "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
+        }
     }
     
     /**
