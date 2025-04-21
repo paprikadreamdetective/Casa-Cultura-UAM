@@ -5,6 +5,8 @@
 package persistence;
 import java.sql.*;
 import model.Inscripcion;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author p4prika
@@ -68,5 +70,20 @@ public class InscripcionDAO {
             e.printStackTrace();
             return false;
         }
+    }
+    
+    public List<Integer> obtenerTalleresInscritos(int idAlumno) {
+        List<Integer> talleresInscritos = new ArrayList<>();
+        String sql = "SELECT id_taller FROM inscripcion WHERE id_alumno = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, idAlumno);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                talleresInscritos.add(rs.getInt("id_taller"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return talleresInscritos;
     }
 }

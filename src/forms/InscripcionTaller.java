@@ -518,6 +518,9 @@ public class InscripcionTaller extends javax.swing.JFrame {
                                           "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
+        
+        java.util.List<Integer> talleresInscritos = inscripcionDAO.obtenerTalleresInscritos(alumnoSeleccionado.getIdAlumno());
 
         // Determinar el taller y horario seleccionados
         int idTaller = 0;
@@ -563,6 +566,12 @@ public class InscripcionTaller extends javax.swing.JFrame {
 
         if (idTaller == 0) {
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor, seleccione un taller y un horario.", 
+                                          "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (talleresInscritos.contains(idTaller)) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El alumno ya está inscrito en el taller de " + tallerSeleccionado + ".", 
                                           "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
