@@ -27,10 +27,9 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
         jButton_baja_dibujo.setEnabled(false);
         jButton_baja_redaccion.setEnabled(false);
         jButton_baja_lectura.setEnabled(false);
-        
+        //jButton_aplicar.setEnabled(false);
         inscripcionDAO = new InscripcionDAO();
         alumnoDAO = new AsistenteDAO();
-        
     }
 
     /**
@@ -308,6 +307,7 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
                                                       "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
         javax.swing.JOptionPane.showMessageDialog(this, "Bajas aplicadas correctamente.", 
                                                   "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         jTextField1.setText("");
@@ -334,17 +334,13 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
                                                       alumnoSeleccionado.getPrimerApellido() + " (ID: " + alumnoSeleccionado.getIdAlumno() + ")", 
                                                       "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
 
-            // Consultar talleres inscritos
-            List<Integer> talleresInscritos = inscripcionDAO.obtenerTalleresInscritos(alumnoSeleccionado.getIdAlumno());
-
-            // Deshabilitar todos los botones por defecto
+            List<Integer> talleresInscritos = inscripcionDAO.obtenerTalleresInscritos(alumnoSeleccionado.getIdAlumno());          
             jButton_baja_danza.setEnabled(false);
             jButton_baja_teatro.setEnabled(false);
             jButton_baja_dibujo.setEnabled(false);
             jButton_baja_redaccion.setEnabled(false);
             jButton_baja_lectura.setEnabled(false);
-
-            // Habilitar botones de talleres inscritos
+        
             for (Integer idTaller : talleresInscritos) {
                 switch (idTaller) {
                     case 1: case 2: // Danza
@@ -378,8 +374,7 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
 
     private void jButton_baja_danzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_danzaActionPerformed
         // TODO add your handling code here:
-        darDeBajaTaller(alumnoSeleccionado.getIdAlumno(), 1, "Danza");
-        
+        darDeBajaTaller(alumnoSeleccionado.getIdAlumno(), 1, "Danza");  
     }//GEN-LAST:event_jButton_baja_danzaActionPerformed
 
     private void jButton_baja_teatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_baja_teatroActionPerformed
@@ -403,7 +398,7 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_baja_lecturaActionPerformed
     
     private void darDeBajaTaller(int idAlumno, int idTaller, String nombreTaller) {
-        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(
+        int confirmacion = javax.swing.JOptionPane.showConfirmDialog( 
                 this,
                 "¿Estás seguro de que deseas cancelar la inscripción al taller de " + nombreTaller + "?",
                 "Cancelar inscripción",
@@ -445,7 +440,6 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
             }
         }
     }
-    
     /**
      * @param args the command line arguments
      */
@@ -480,7 +474,6 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_aplicar;
     private javax.swing.JButton jButton_baja_danza;
