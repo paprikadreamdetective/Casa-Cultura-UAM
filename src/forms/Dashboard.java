@@ -24,12 +24,20 @@ import forms.EliminarAsistente;
 import forms.InscripcionTaller;
 import forms.CancelarInscripcionTaller;
 
+import javax.swing.table.DefaultTableModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import model.InscripcionReporte;
+import persistence.InscripcionDAO;
+
 public class Dashboard extends javax.swing.JFrame {
 
     /**
      * Creates new form Dashboard
      */
     // default border for the menu items
+    private InscripcionDAO inscripcionDAO;
     Border default_border = BorderFactory.createMatteBorder(1, 0, 1, 0, new Color(46, 49, 49));
 
     // yellow border for the menu items
@@ -40,7 +48,19 @@ public class Dashboard extends javax.swing.JFrame {
 
     public Dashboard() {
         initComponents();
+        
+        inscripcionDAO = new InscripcionDAO();
         cargarAsistentesEnTabla();
+        jTable5_informacion_asistentes.setDefaultEditor(Object.class, null);
+        // Añadir listener para selección de renglón
+        jTable5_informacion_asistentes.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {
+                    mostrarInformacionSeleccionada();
+                }
+            }
+        });
         // center this form
         this.setLocationRelativeTo(null);
 
@@ -792,40 +812,55 @@ public class Dashboard extends javax.swing.JFrame {
     
     
     public void cargarAsistentesEnTabla() {
-    javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel();
-    modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Segundo Apellido", "Edad", "Genero", "Teléfono", "Telefono de Emergencia", "Direccion"});
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Hacer todas las celdas no editables
+            }
+        };
+        modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Taller", "Horario", "Costo"});
 
-    // Ejemplo de registros simulados
-    String[][] baseDatos = {
-    {"A001", "Juan", "Pérez", "Gómez", "21", "Masculino", "5551234", "5554321", "Av. Reforma 100"},
-    {"A002", "María", "López", "Martínez", "22", "Femenino", "5555678", "5558765", "Calle Hidalgo 45"},
-    {"A003", "Carlos", "Ramírez", "Ortiz", "20", "Masculino", "5559999", "5558888", "Av. Juárez 200"},
-    {"A004", "Ana", "Hernández", "Santos", "23", "Femenino", "5553333", "5554444", "Calle Morelos 58"},
-    {"A005", "Luis", "García", "Mendoza", "24", "Masculino", "5555555", "5556666", "Col. Centro 78"},
-    {"A006", "Lucía", "Martínez", "Núñez", "22", "Femenino", "5551212", "5553434", "Calle Zaragoza 300"},
-    {"A007", "Jorge", "Sánchez", "Vega", "25", "Masculino", "5556543", "5557654", "Av. Universidad 10"},
-    {"A008", "Elena", "Castillo", "Rojas", "21", "Femenino", "5558881", "5551888", "Calle Pino Suárez 12"},
-    {"A009", "Diego", "Flores", "Silva", "23", "Masculino", "5552345", "5553456", "Col. Roma 47"},
-    {"A010", "Patricia", "Reyes", "Morales", "22", "Femenino", "5558765", "5556543", "Av. Patriotismo 55"},
-    {"A011", "Ricardo", "Vargas", "Campos", "24", "Masculino", "5551122", "5552211", "Calle Independencia 33"},
-    {"A012", "Fernanda", "Jiménez", "Paredes", "20", "Femenino", "5555566", "5556677", "Av. Insurgentes 150"},
-    {"A013", "Miguel", "Ortega", "Luna", "23", "Masculino", "5559988", "5558877", "Calle Niños Héroes 60"},
-    {"A014", "Alejandra", "Ramos", "Hidalgo", "21", "Femenino", "5553344", "5554433", "Col. Del Valle 88"},
-    {"A015", "Roberto", "Delgado", "Fuentes", "25", "Masculino", "5556678", "5557766", "Av. Coyoacán 44"},
-    {"A016", "Sofía", "Moreno", "Zapata", "22", "Femenino", "5554455", "5555544", "Calle Miguel Ángel 3"},
-    {"A017", "Andrés", "Peña", "Navarro", "23", "Masculino", "5557788", "5558877", "Col. Doctores 90"},
-    {"A018", "Gabriela", "Luna", "Márquez", "24", "Femenino", "5551233", "5553321", "Av. Tlalpan 120"},
-    {"A019", "Eduardo", "Campos", "Vera", "21", "Masculino", "5559992", "5552929", "Col. Condesa 66"},
-    {"A020", "Valeria", "Torres", "Salinas", "20", "Femenino", "5556767", "5557676", "Calle Londres 50"}
-};
+        java.util.List<InscripcionReporte> reporte = inscripcionDAO.obtenerReporteInscripciones();
+        for (InscripcionReporte registro : reporte) {
+            modelo.addRow(new Object[]{
+                registro.getMatricula(),
+                registro.getNombre(),
+                registro.getPrimerApellido(),
+                registro.getNombreTaller() != null ? registro.getNombreTaller() : "Sin taller",
+                registro.getHorario() != null ? registro.getHorario() : "N/A",
+                registro.getTotalAPagar() != null ? String.format("%.2f", registro.getTotalAPagar()) : "0.00"
+            });
+        }
 
-
-    for (String[] asistente : baseDatos) {
-        modelo.addRow(asistente);
+        jTable5_informacion_asistentes.setModel(modelo);
     }
+    
+    private void mostrarInformacionSeleccionada() {
+        int selectedRow = jTable5_informacion_asistentes.getSelectedRow();
+        if (selectedRow >= 0) {
+            String matricula = (String) jTable5_informacion_asistentes.getValueAt(selectedRow, 0);
+            String nombre = (String) jTable5_informacion_asistentes.getValueAt(selectedRow, 1);
+            String primerApellido = (String) jTable5_informacion_asistentes.getValueAt(selectedRow, 2);
+            String taller = (String) jTable5_informacion_asistentes.getValueAt(selectedRow, 3);
+            String horario = (String) jTable5_informacion_asistentes.getValueAt(selectedRow, 4);
+            String costo = (String) jTable5_informacion_asistentes.getValueAt(selectedRow, 5);
 
-    jTable5_informacion_asistentes.setModel(modelo);
-}
+            // Opción 1: Mostrar en JOptionPane
+            String mensaje = String.format("Matrícula: %s\nNombre: %s %s\nTaller: %s\nHorario: %s\nCosto: %s",
+                                          matricula, nombre, primerApellido, taller, horario, costo);
+            javax.swing.JOptionPane.showMessageDialog(this, mensaje, "Información del Asistente", 
+                                                     javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            // Opción 2: Actualizar JTextFields (descomenta si usas JTextFields)
+            /*
+            jTextFieldMatricula.setText(matricula);
+            jTextFieldNombre.setText(nombre + " " + primerApellido);
+            jTextFieldTaller.setText(taller);
+            jTextFieldHorario.setText(horario);
+            jTextFieldCosto.setText(costo);
+            */
+        }
+    }
     
     
     // create a function to set the label background color
