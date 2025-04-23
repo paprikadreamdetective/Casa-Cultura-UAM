@@ -23,6 +23,7 @@ public class ActualizarAsistente extends javax.swing.JFrame {
     public ActualizarAsistente() {
         initComponents();
         setTitle("Casa de la Cultura – UAM Azcapotzalco:: Actualizar informacion de un asistente");
+        jButton3_update_actualizar.setEnabled(false);
         this.setLocationRelativeTo(null);
         jTable3_actualizar_asistentes.setDefaultEditor(Object.class, null);
         cargarAsistentesEnTabla();
@@ -87,9 +88,20 @@ public class ActualizarAsistente extends javax.swing.JFrame {
         if (!encontrado) {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró el registro.", "Búsqueda", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             deshabilitarTextFields();
+            jButton3_update_actualizar.setEnabled(false);
+            
+            jTextField3_update_nombre.setText("");
+            jTextField3_update_1erapellido.setText("");
+            jTextField3_update_2doapellido.setText("");
+            jTextField3_update_edad.setText("");
+            jTextField3_update_direccion.setText("");
+            jTextField3_update_telcontacto.setText("");
+            jTextField3_update_telemergencia.setText("");
+            generoButtonGroup.clearSelection();
         } else {
             habilitarTextFields();
             llenarTextFields(modelo.getDataVector().elementAt(0));
+            jButton3_update_actualizar.setEnabled(true);
         }
     }
     
@@ -438,6 +450,8 @@ public class ActualizarAsistente extends javax.swing.JFrame {
         
         
         if (actualizado) {
+            jButton3_update_actualizar.setEnabled(false);
+            jTextField3_actualizar_busqueda.setText("");
             javax.swing.JOptionPane.showMessageDialog(this, "¡Asistente actualizado correctamente!", 
                                                       "Actualización exitosa", 
                                                       javax.swing.JOptionPane.INFORMATION_MESSAGE);
