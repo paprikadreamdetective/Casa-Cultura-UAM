@@ -127,10 +127,17 @@ public class Dashboard extends javax.swing.JFrame {
         Label_menuItem6 = new javax.swing.JLabel();
         jPanel1_dashboard = new javax.swing.JPanel();
         jPanel1_danza = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel1_teatro = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel1_dibujo = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel1_readaccion = new javax.swing.JPanel();
+        jLabel_inscritos_dibujo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel1_lectura = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel2_users = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel4_inscripcion_asistentes = new javax.swing.JPanel();
@@ -263,67 +270,125 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel1_danza.setBackground(new java.awt.Color(255, 51, 51));
 
+        jLabel6.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/taller_danza_logoRedim.jpg")); // NOI18N
+
         javax.swing.GroupLayout jPanel1_danzaLayout = new javax.swing.GroupLayout(jPanel1_danza);
         jPanel1_danza.setLayout(jPanel1_danzaLayout);
         jPanel1_danzaLayout.setHorizontalGroup(
             jPanel1_danzaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 302, Short.MAX_VALUE)
+            .addGroup(jPanel1_danzaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1_danzaLayout.setVerticalGroup(
             jPanel1_danzaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 265, Short.MAX_VALUE)
+            .addGroup(jPanel1_danzaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         jPanel1_teatro.setBackground(new java.awt.Color(255, 51, 51));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/taller_redaccion_logoRedim.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1_teatroLayout = new javax.swing.GroupLayout(jPanel1_teatro);
         jPanel1_teatro.setLayout(jPanel1_teatroLayout);
         jPanel1_teatroLayout.setHorizontalGroup(
             jPanel1_teatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 484, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_teatroLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addContainerGap())
         );
         jPanel1_teatroLayout.setVerticalGroup(
             jPanel1_teatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 265, Short.MAX_VALUE)
+            .addGroup(jPanel1_teatroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1_dibujo.setBackground(new java.awt.Color(255, 51, 51));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/taller_teatro_logoRedim.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1_dibujoLayout = new javax.swing.GroupLayout(jPanel1_dibujo);
         jPanel1_dibujo.setLayout(jPanel1_dibujoLayout);
         jPanel1_dibujoLayout.setHorizontalGroup(
             jPanel1_dibujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_dibujoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap())
         );
         jPanel1_dibujoLayout.setVerticalGroup(
             jPanel1_dibujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 265, Short.MAX_VALUE)
+            .addGroup(jPanel1_dibujoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         jPanel1_readaccion.setBackground(new java.awt.Color(255, 51, 51));
+
+        jLabel_inscritos_dibujo.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_inscritos_dibujo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_inscritos_dibujo.setText("Inscritos: 17");
+
+        jLabel1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Taller de Dibujo");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/taller_dibujo_logoRedim.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1_readaccionLayout = new javax.swing.GroupLayout(jPanel1_readaccion);
         jPanel1_readaccion.setLayout(jPanel1_readaccionLayout);
         jPanel1_readaccionLayout.setHorizontalGroup(
             jPanel1_readaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 303, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_readaccionLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1_readaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_inscritos_dibujo)
+                    .addComponent(jLabel1))
+                .addGap(195, 195, 195))
+            .addGroup(jPanel1_readaccionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1_readaccionLayout.setVerticalGroup(
             jPanel1_readaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 265, Short.MAX_VALUE)
+            .addGroup(jPanel1_readaccionLayout.createSequentialGroup()
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel_inscritos_dibujo)
+                .addGap(18, 18, 18))
         );
 
         jPanel1_lectura.setBackground(new java.awt.Color(255, 51, 51));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/taller_lectura_logoRedim.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1_lecturaLayout = new javax.swing.GroupLayout(jPanel1_lectura);
         jPanel1_lectura.setLayout(jPanel1_lecturaLayout);
         jPanel1_lecturaLayout.setHorizontalGroup(
             jPanel1_lecturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGroup(jPanel1_lecturaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1_lecturaLayout.setVerticalGroup(
             jPanel1_lecturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 265, Short.MAX_VALUE)
+            .addGroup(jPanel1_lecturaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1_dashboardLayout = new javax.swing.GroupLayout(jPanel1_dashboard);
@@ -331,33 +396,33 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1_dashboardLayout.setHorizontalGroup(
             jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1_dashboardLayout.createSequentialGroup()
-                .addGap(23, 23, Short.MAX_VALUE)
-                .addGroup(jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1_dashboardLayout.createSequentialGroup()
-                        .addComponent(jPanel1_teatro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1_lectura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1_dashboardLayout.createSequentialGroup()
-                        .addComponent(jPanel1_danza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1_dibujo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1_readaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35))
+                .addGap(54, 54, 54)
+                .addComponent(jPanel1_teatro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1_lectura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_dashboardLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1_danza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1_dibujo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1_readaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1_dashboardLayout.setVerticalGroup(
             jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1_dashboardLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_dashboardLayout.createSequentialGroup()
                 .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1_dibujo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1_danza, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1_readaccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1_lectura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1_teatro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1_teatro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1_lectura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39))
         );
 
         jPanel_container.add(jPanel1_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 1020, 630));
@@ -1044,10 +1109,17 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton4_cancelar_inscripcion_taller;
     private javax.swing.JButton jButton4_inscribir_taller;
     private javax.swing.JButton jButton5_info_buscar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_appLogo;
+    private javax.swing.JLabel jLabel_inscritos_dibujo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1_danza;
     private javax.swing.JPanel jPanel1_dashboard;
