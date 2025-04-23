@@ -18,14 +18,17 @@ public class EliminarAsistente extends javax.swing.JFrame {
         initComponents();
         setTitle("Casa de la Cultura – UAM Azcapotzalco:: Eliminar un asistente");
         this.setLocationRelativeTo(null);
-        jTextField_1er_apellido.setEnabled(false);
-        jTextField_2do_apellido.setEnabled(false);
-        jTextField_direccion.setEnabled(false);
-        jTextField_edad.setEnabled(false);
-        jTextField_genero.setEnabled(false);
-        jTextField_nombre.setEnabled(false);
-        jTextField_tel_contacto.setEnabled(false);
-        jTextField_tel_emergencia.setEnabled(false);
+        
+        //jTextField_1er_apellido.setEnabled(false);
+        jTextField_1er_apellido.setEditable(false);
+        jTextField_2do_apellido.setEditable(false);
+        jTextField_direccion.setEditable(false);
+        jTextField_edad.setEditable(false);
+        jTextField_genero.setEditable(false);
+        jTextField_nombre.setEditable(false);
+        jTextField_tel_contacto.setEditable(false);
+        jTextField_tel_emergencia.setEditable(false);
+        jButton_eliminar.setEnabled(false);
     }
 
     /**
@@ -102,39 +105,41 @@ public class EliminarAsistente extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel_2do_apellido)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField_2do_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel_genero)
-                            .addComponent(jLabel_tel_contacto)
-                            .addComponent(jLabel_edad)
-                            .addComponent(jLabel_tel_emergencia))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField_tel_contacto)
-                            .addComponent(jTextField_tel_emergencia)
-                            .addComponent(jTextField_edad)
-                            .addComponent(jTextField_genero, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_1er_apellido)
-                                    .addComponent(jLabel_nombre, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel_direccion)
-                                .addGap(18, 18, 18)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_1er_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel_nombre)
+                                    .addComponent(jLabel_1er_apellido)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel_2do_apellido)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel_tel_emergencia)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextField_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField_1er_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField_2do_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(92, 92, 92)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel_genero, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel_tel_contacto, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel_edad, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField_tel_contacto, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_tel_emergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_genero, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel_direccion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -164,8 +169,8 @@ public class EliminarAsistente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel_2do_apellido)
-                        .addComponent(jTextField_2do_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField_2do_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_2do_apellido))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel_genero)
                         .addComponent(jTextField_genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -217,7 +222,7 @@ public class EliminarAsistente extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(jButton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +290,17 @@ public class EliminarAsistente extends javax.swing.JFrame {
         if (!encontrado) {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró el registro.", "Búsqueda", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             //deshabilitarTextFields();
+            jButton_eliminar.setEnabled(false);
+            jTextField_1er_apellido.setText("");
+            jTextField_2do_apellido.setText("");
+            jTextField_direccion.setText("");
+            jTextField_edad.setText("");
+            jTextField_genero.setText("");
+            jTextField_nombre.setText("");
+            jTextField_tel_contacto.setText("");
+            jTextField_tel_emergencia.setText("");
         } else {
+            jButton_eliminar.setEnabled(true);
             //habilitarTextFields();
             //llenarTextFields(modelo.getDataVector().elementAt(0));
         }
@@ -329,6 +344,7 @@ public class EliminarAsistente extends javax.swing.JFrame {
                 javax.swing.JOptionPane.showMessageDialog(null, "¡El asistente se ha eliminado!", 
                                       "Eliminado con exito", 
                                       javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                jButton_eliminar.setEnabled(false);
             } else {
                 javax.swing.JOptionPane.showMessageDialog(null, "¡Error al eliminar asistente!", 
                                       "Error", 
