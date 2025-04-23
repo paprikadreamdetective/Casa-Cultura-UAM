@@ -22,6 +22,7 @@ public class ActualizarAsistente extends javax.swing.JFrame {
     private javax.swing.ButtonGroup generoButtonGroup;
     public ActualizarAsistente() {
         initComponents();
+        setTitle("Casa de la Cultura – UAM Azcapotzalco:: Actualizar informacion de un asistente");
         this.setLocationRelativeTo(null);
         cargarAsistentesEnTabla();
         deshabilitarTextFields();

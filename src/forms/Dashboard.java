@@ -48,6 +48,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     public Dashboard() {
         initComponents();
+        this.setTitle("Casa de la Cultura – UAM Azcapotzalco: Dashboard");
         
         inscripcionDAO = new InscripcionDAO();
         cargarAsistentesEnTabla();
@@ -1104,18 +1105,30 @@ public class Dashboard extends javax.swing.JFrame {
                     public void mouseClicked(MouseEvent e) {
                         setLabelBackround(label);
                         switch (label.getText().trim()) {
-                            case "Dashboard" ->
+                            case "Dashboard" -> {
+                                setTitle("Casa de la Cultura – UAM Azcapotzalco: Dashboard");
                                 showPanel(jPanel1_dashboard);
-                            case "Usuarios" ->
+                            }
+                            case "Usuarios" -> {
+                                setTitle("Casa de la Cultura – UAM Azcapotzalco: Usuarios");
                                 showPanel(jPanel2_users);
-                            case "Gestion de asistentes" ->
+                            }
+                            case "Gestion de asistentes" -> {
+                                setTitle("Casa de la Cultura – UAM Azcapotzalco: Gestion de asistentes");
                                 showPanel(jPanel3_registro_asistentes);
-                            case "Gestion de inscripciones" ->
+                            }
+                            case "Gestion de inscripciones" -> {
+                                setTitle("Casa de la Cultura – UAM Azcapotzalco: Gestion de inscripciones");
                                 showPanel(jPanel4_inscripcion_asistentes);
-                            case "Informacion de los asistentes" ->
+                            }
+                            case "Informacion de los asistentes" -> {
+                                setTitle("Casa de la Cultura – UAM Azcapotzalco: Informacion de los asistentes");
                                 showPanel(jPanel5_info);
-                            case "Exportar" ->
+                            }
+                            case "Exportar" -> {
+                                setTitle("Casa de la Cultura – UAM Azcapotzalco: Exportar");
                                 showPanel(jPanel6_exportar);
+                            }
                         }
                     }
 

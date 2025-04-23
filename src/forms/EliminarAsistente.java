@@ -16,6 +16,7 @@ public class EliminarAsistente extends javax.swing.JFrame {
      */
     public EliminarAsistente() {
         initComponents();
+        setTitle("Casa de la Cultura – UAM Azcapotzalco:: Eliminar un asistente");
         this.setLocationRelativeTo(null);
         jTextField_1er_apellido.setEnabled(false);
         jTextField_2do_apellido.setEnabled(false);

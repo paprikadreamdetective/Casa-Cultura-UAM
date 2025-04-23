@@ -30,6 +30,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
 
     public InscripcionTaller() {
         initComponents();
+        setTitle("Casa de la Cultura – UAM Azcapotzalco:: Inscripcion a talleres");
         this.setLocationRelativeTo(null);
         jTextField4_costo_total.setEnabled(false);
         toggleHorarios("danza", false);

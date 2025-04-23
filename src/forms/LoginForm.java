@@ -20,7 +20,7 @@ public class LoginForm extends javax.swing.JFrame {
     public LoginForm() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Casa de la Cultura – UAM Azcapotzalco");
+        this.setTitle("Casa de la Cultura – UAM Azcapotzalco: Iniciar Sesion");
         
         Auth auth = new Auth();
 

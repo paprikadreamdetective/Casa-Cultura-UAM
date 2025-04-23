@@ -16,8 +16,9 @@ public class AnadirAsistente extends javax.swing.JFrame {
      */
     private javax.swing.ButtonGroup generoRadioButtonGroup;
     public AnadirAsistente() {
-        initComponents();
         
+        initComponents();
+        setTitle("Casa de la Cultura – UAM Azcapotzalco:: Registrar un asistente");
         generoRadioButtonGroup = new javax.swing.ButtonGroup();
         generoRadioButtonGroup.add(jRadioButton1);
         generoRadioButtonGroup.add(jRadioButton2);

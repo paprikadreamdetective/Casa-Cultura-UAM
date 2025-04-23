@@ -21,6 +21,7 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
      */
     public CancelarInscripcionTaller() {
         initComponents();
+        setTitle("Casa de la Cultura – UAM Azcapotzalco:: Cancelar inscripcion a talleres");
         this.setLocationRelativeTo(null);
         jButton_baja_danza.setEnabled(false);
         jButton_baja_teatro.setEnabled(false);
