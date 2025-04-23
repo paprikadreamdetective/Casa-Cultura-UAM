@@ -33,6 +33,48 @@ public class InscripcionDAO {
         return connection;
     }
     
+    public InscripcionReporte obtenerReporteInscripcionPorMatricula(String matricula) {
+        InscripcionReporte registro = null;
+        String sql = "SELECT a.id_alumno, a.nombre, a.primer_apellido, a.matricula, " +
+                    "t.id_taller, t.nombre AS nombre_taller, t.horario, i.total_a_pagar " +
+                    "FROM alumno a " +
+                    "LEFT JOIN inscripcion i ON a.id_alumno = i.id_alumno " +
+                    "LEFT JOIN taller t ON i.id_taller = t.id_taller " +
+                    "WHERE a.matricula = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, matricula);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    // Leer id_taller y verificar si es NULL
+                    Integer idTaller = rs.getInt("id_taller");
+                    if (rs.wasNull()) {
+                        idTaller = null;
+                    }
+
+                    // Leer total_a_pagar y verificar si es NULL
+                    Double totalAPagar = rs.getDouble("total_a_pagar");
+                    if (rs.wasNull()) {
+                        totalAPagar = null;
+                    }
+
+                    registro = new InscripcionReporte(
+                        rs.getInt("id_alumno"),
+                        rs.getString("nombre"),
+                        rs.getString("primer_apellido"),
+                        rs.getString("matricula"),
+                        idTaller,
+                        rs.getString("nombre_taller"),
+                        rs.getString("horario"),
+                        totalAPagar
+                    );
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return registro;
+    }
+    
     public List<InscripcionReporte> obtenerReporteInscripciones() {
         List<InscripcionReporte> reporte = new ArrayList<>();
         String sql = "SELECT a.id_alumno, a.nombre, a.primer_apellido, a.matricula, " +

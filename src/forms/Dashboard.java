@@ -150,8 +150,8 @@ public class Dashboard extends javax.swing.JFrame {
         jTable5_informacion_asistentes = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jTextField5_info_buscar = new javax.swing.JTextField();
+        jButton5_info_buscar = new javax.swing.JButton();
         jPanel6_exportar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -609,13 +609,19 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel5.setText("Introduzca la matricula del asistente a buscar");
 
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jTextField5_info_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jTextField5_info_buscarActionPerformed(evt);
+            }
+        });
+
+        jButton5_info_buscar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton5_info_buscar.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        jButton5_info_buscar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5_info_buscar.setText("Buscar");
+        jButton5_info_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5_info_buscarActionPerformed(evt);
             }
         });
 
@@ -631,9 +637,9 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(jPanel5_infoLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField5_info_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton5_info_buscar)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel5_infoLayout.setVerticalGroup(
@@ -642,8 +648,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jTextField5_info_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5_info_buscar))
                 .addGap(34, 34, 34)
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -806,10 +812,36 @@ public class Dashboard extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jButton4_inscribir_tallerActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton5_info_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5_info_buscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-    
+        // TODO add your handling code here:
+        String matricula = jTextField5_info_buscar.getText().trim();
+        if (matricula.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, ingrese una matrícula.", 
+                                         "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        InscripcionReporte registro = inscripcionDAO.obtenerReporteInscripcionPorMatricula(matricula);
+        if (registro != null) {
+            String mensaje = String.format("Matrícula: %s\nNombre: %s %s\nTaller: %s\nHorario: %s\nCosto: %s",
+                                          registro.getMatricula(),
+                                          registro.getNombre(),
+                                          registro.getPrimerApellido(),
+                                          registro.getNombreTaller() != null ? registro.getNombreTaller() : "Sin taller",
+                                          registro.getHorario() != null ? registro.getHorario() : "N/A",
+                                          registro.getTotalAPagar() != null ? String.format("%.2f", registro.getTotalAPagar()) : "0.00");
+            javax.swing.JOptionPane.showMessageDialog(this, mensaje, "Información del Asistente", 
+                                         javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró un alumno con la matrícula " + matricula, 
+                                         "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton5_info_buscarActionPerformed
+
+    private void jTextField5_info_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5_info_buscarActionPerformed
+        
+    }//GEN-LAST:event_jTextField5_info_buscarActionPerformed
     
     public void cargarAsistentesEnTabla() {
         DefaultTableModel modelo = new DefaultTableModel() {
@@ -862,42 +894,41 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }
     
-    
-    // create a function to set the label background color
-    /*private void addListeners() {
-        javax.swing.ButtonGroup group = new javax.swing.ButtonGroup();
-        group.add(jRadioButton1_registro_anadir);
-        group.add(jRadioButton1_registro_actualizar);
-        group.add(jRadioButton1_registro_eliminar);
+    public void busquedaDeAsistente(String matricula) {
+        
+        /*javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel();
+        //modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Apellido", "Teléfono", "Correo"});
+        modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Taller", "Horario", "Costo"});
+        
+        Asistente asistente = new Asistente();
+        asistente = new AsistenteDAO().buscarAsistentePorMatricula(matricula);
+        boolean encontrado = asistente != null;
 
-         java.awt.event.ActionListener radioListener = new  java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed( java.awt.event.ActionEvent e) {
-                
-                //convertTemperature();
-                updateVisibility();
-            }
-        };
-
-        jRadioButton1_registro_anadir.addActionListener(radioListener);
-        jRadioButton1_registro_actualizar.addActionListener(radioListener);
-        jRadioButton1_registro_eliminar.addActionListener(radioListener);
-
-        //spnrTemperatura.addChangeListener(e -> convertTemperature());
-    }
-    
-    private void updateVisibility() {
-        jPanel1_registro_anadir.setVisible(!jRadioButton1_registro_anadir.isSelected());
-    }*/
-
- /*public void setLabelBackround(javax.swing.JLabel label) {
-        for (javax.swing.JLabel menuItem : menuLabels) {
-            menuItem.setBackground(new Color(46,49,49));
-            menuItem.setForeground(Color.white); 
+        if (encontrado) {
+            modelo.addRow(new Object[]{
+                asistente.getMatricula(),
+                asistente.getNombre(),
+                asistente.getPrimerApellido(),
+                asistente.getSegundoApellido(),
+                asistente.getEdad(),
+                asistente.getGenero(),
+                asistente.getTelefonoContacto(),
+                asistente.getTelefonoEmergencia(),
+                asistente.getDireccion()
+            });
         }
-        label.setBackground(Color.white);
-        label.setForeground(Color.blue);
-    }*/
+
+        jTable3_actualizar_asistentes.setModel(modelo);
+
+        if (!encontrado) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró el registro.", "Búsqueda", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            deshabilitarTextFields();
+        } else {
+            habilitarTextFields();
+            llenarTextFields(modelo.getDataVector().elementAt(0));
+        }*/
+    }
+     
     public void setLabelBackround(javax.swing.JLabel label) {
         for (javax.swing.JLabel menuItem : menuLabels) {
             menuItem.setOpaque(true); // Asegurarse de que se puede pintar el fondo
@@ -939,25 +970,6 @@ public class Dashboard extends javax.swing.JFrame {
                                 showPanel(jPanel5_info);
                             case "Exportar" ->
                                 showPanel(jPanel6_exportar);
-                            /*case "Products":
-                            showPanel(jPanel_products); break;
-                            case "Settings":
-                            showPanel(jPanel_settings); break;
-                            case "Contact":
-                            showPanel(jPanel_contact); break;
-                            case "Calendar":
-                            showPanel(jPanel_calendar); break;
-                            case "Test":
-                            /*case "Products":
-                                showPanel(jPanel_products); break;
-                            case "Settings":
-                                showPanel(jPanel_settings); break;
-                            case "Contact":
-                                showPanel(jPanel_contact); break;
-                            case "Calendar":
-                                showPanel(jPanel_calendar); break;
-                            case "Test":
-                                showPanel(jPanel_test); break;*/
                         }
                     }
 
@@ -1025,13 +1037,13 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel Label_menuItem4;
     private javax.swing.JLabel Label_menuItem5;
     private javax.swing.JLabel Label_menuItem6;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_logout;
     private javax.swing.JButton jButton3_actualizar_asistente;
     private javax.swing.JButton jButton3_eliminar_asistente;
     private javax.swing.JButton jButton3_registrar_asistente;
     private javax.swing.JButton jButton4_cancelar_inscripcion_taller;
     private javax.swing.JButton jButton4_inscribir_taller;
+    private javax.swing.JButton jButton5_info_buscar;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
@@ -1058,7 +1070,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_menu;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable5_informacion_asistentes;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField5_info_buscar;
     // End of variables declaration//GEN-END:variables
 
 }
