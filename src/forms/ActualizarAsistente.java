@@ -24,6 +24,7 @@ public class ActualizarAsistente extends javax.swing.JFrame {
         initComponents();
         setTitle("Casa de la Cultura – UAM Azcapotzalco:: Actualizar informacion de un asistente");
         this.setLocationRelativeTo(null);
+        jTable3_actualizar_asistentes.setDefaultEditor(Object.class, null);
         cargarAsistentesEnTabla();
         deshabilitarTextFields();
         // Configurar el ButtonGroup para los botones de radio
@@ -443,7 +444,7 @@ public class ActualizarAsistente extends javax.swing.JFrame {
             // Refrescar la tabla
             //busquedaDeAsistente(matricula); // Volver a buscar para actualizar la tabla
             // Opcionalmente, puedes recargar toda la tabla con cargarAsistentesEnTabla();
-            jButton3_actualizar_buscar.setText("");
+            //jButton3_actualizar_buscar.setText("");
             jTextField3_update_nombre.setText("");
             jTextField3_update_1erapellido.setText("");
             jTextField3_update_2doapellido.setText("");
