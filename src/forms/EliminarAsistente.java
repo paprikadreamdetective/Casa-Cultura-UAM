@@ -149,7 +149,7 @@ public class EliminarAsistente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel_tel_contacto)
                             .addComponent(jTextField_tel_contacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))
@@ -189,7 +189,7 @@ public class EliminarAsistente extends javax.swing.JFrame {
         jButton_cancelar.setBackground(new java.awt.Color(255, 51, 51));
         jButton_cancelar.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jButton_cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_cancelar.setText("Cancelar");
+        jButton_cancelar.setText("Salir");
         jButton_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_cancelarActionPerformed(evt);

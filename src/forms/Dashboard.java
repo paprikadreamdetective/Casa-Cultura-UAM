@@ -51,7 +51,7 @@ public class Dashboard extends javax.swing.JFrame {
         this.setTitle("Casa de la Cultura – UAM Azcapotzalco: Dashboard");
         
         inscripcionDAO = new InscripcionDAO();
-        cargarAsistentesEnTabla();
+        //cargarAsistentesEnTabla();
         jTable5_informacion_asistentes.setDefaultEditor(Object.class, null);
         // Añadir listener para selección de renglón
         jTable5_informacion_asistentes.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -1122,6 +1122,7 @@ public class Dashboard extends javax.swing.JFrame {
                                 showPanel(jPanel4_inscripcion_asistentes);
                             }
                             case "Informacion de los asistentes" -> {
+                                cargarAsistentesEnTabla();
                                 setTitle("Casa de la Cultura – UAM Azcapotzalco: Informacion de los asistentes");
                                 showPanel(jPanel5_info);
                             }

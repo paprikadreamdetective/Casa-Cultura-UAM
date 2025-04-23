@@ -207,7 +207,7 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
         jButton_cancelar.setBackground(new java.awt.Color(255, 51, 51));
         jButton_cancelar.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jButton_cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_cancelar.setText("Cancelar");
+        jButton_cancelar.setText("Salir");
         jButton_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_cancelarActionPerformed(evt);
