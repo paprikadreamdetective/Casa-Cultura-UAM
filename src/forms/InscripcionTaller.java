@@ -30,9 +30,18 @@ public class InscripcionTaller extends javax.swing.JFrame {
     private InscripcionDAO inscripcionDAO; // DAO para inscripciones
     private AsistenteDAO alumnoDAO; // DAO para alumnos
 
+    private javax.swing.ButtonGroup grupoRedaccion;
+    private javax.swing.ButtonGroup grupoLectura;
+    private javax.swing.ButtonGroup grupoDibujo;
+    private javax.swing.ButtonGroup grupoTeatro;
+    private javax.swing.ButtonGroup grupoDanza;
+    
     public InscripcionTaller() {
         initComponents();
         jButton4_confirmar_inscripcion.setEnabled(false);
+        habilitarCasillasMaterial(false);
+        habilitarTalleres(false);
+        habilitarHorarios(false);
         setTitle("Casa de la Cultura – UAM Azcapotzalco:: Inscripcion a talleres");
         this.setLocationRelativeTo(null);
         
@@ -47,26 +56,26 @@ public class InscripcionTaller extends javax.swing.JFrame {
         inscripcionDAO = new InscripcionDAO();
         alumnoDAO = new AsistenteDAO();
 
-        javax.swing.ButtonGroup grupoDanza = new javax.swing.ButtonGroup();
+        grupoDanza = new javax.swing.ButtonGroup();
         grupoDanza.add(jRadioButton4_horario1_taller_danza);
         grupoDanza.add(jRadioButton4_horario2_taller_danza);
         //grupoDanza.add(jCheckBox4_material_danza);
 
-        javax.swing.ButtonGroup grupoTeatro = new javax.swing.ButtonGroup();
+        grupoTeatro = new javax.swing.ButtonGroup();
         grupoTeatro.add(jRadioButton4_horario1_taller_teatro);
         grupoTeatro.add(jRadioButton4_horario2_taller_teatro);
         //grupoTeatro.add(jCheckBox4_material_teatro);
 
-        javax.swing.ButtonGroup grupoDibujo = new javax.swing.ButtonGroup();
+        grupoDibujo = new javax.swing.ButtonGroup();
         grupoDibujo.add(jRadioButton4_horario1_taller_dibujo);
         grupoDibujo.add(jRadioButton4_horario2_taller_dibujo);
         //grupoDibujo.add(jCheckBox4_material_dibujo);
 
-        javax.swing.ButtonGroup grupoRedaccion = new javax.swing.ButtonGroup();
+        grupoRedaccion = new javax.swing.ButtonGroup();
         grupoRedaccion.add(jRadioButton4_horario1_taller_redaccion);
         //grupoRedaccion.add(jCheckBox4_material_redaccion);
 
-        javax.swing.ButtonGroup grupoLectura = new javax.swing.ButtonGroup();
+        grupoLectura = new javax.swing.ButtonGroup();
         grupoLectura.add(jRadioButton4_horario1_taller_lectura);
         //grupoLectura.add(jCheckBox4_material_lectura);
         
@@ -77,19 +86,10 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jRadioButton4_taller_lectura.addActionListener(e -> toggleHorarios("lectura", jRadioButton4_taller_lectura.isSelected()));*/
         
         jRadioButton4_taller_danza.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_danza, costoDanza));
-        jRadioButton4_taller_danza.setEnabled(false);
-        
         jRadioButton4_taller_teatro.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_teatro, costoTeatro));
-        jRadioButton4_taller_teatro.setEnabled(false);
-        
         jRadioButton4_taller_dibujo.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_dibujo, costoDibujo));
-        jRadioButton4_taller_dibujo.setEnabled(false);
-        
         jRadioButton4_taller_redaccion.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_redaccion, costoRedaccion));
-        jRadioButton4_taller_redaccion.setEnabled(false);
-        
         jRadioButton4_taller_lectura.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_lectura, costoLectura));
-        jRadioButton4_taller_lectura.setEnabled(false);
         
         jCheckBox4_material_danza.addActionListener(e -> actualizarCostoMaterial(jCheckBox4_material_danza, costoMaterialExtra));
         jCheckBox4_material_teatro.addActionListener(e -> actualizarCostoMaterial(jCheckBox4_material_teatro, costoMaterialExtra));
@@ -153,6 +153,34 @@ public class InscripcionTaller extends javax.swing.JFrame {
                 break;
         }
     }*/
+    
+    private void habilitarTalleres(boolean isEnable) {
+        jRadioButton4_taller_danza.setEnabled(isEnable);
+        jRadioButton4_taller_teatro.setEnabled(isEnable);
+        jRadioButton4_taller_dibujo.setEnabled(isEnable);
+        jRadioButton4_taller_redaccion.setEnabled(isEnable);
+        jRadioButton4_taller_lectura.setEnabled(isEnable);
+        
+    }
+    
+    private void habilitarCasillasMaterial(boolean isEnable) {
+        jCheckBox4_material_danza.setEnabled(isEnable);
+        jCheckBox4_material_teatro.setEnabled(isEnable);
+        jCheckBox4_material_dibujo.setEnabled(isEnable);
+        jCheckBox4_material_redaccion.setEnabled(isEnable);
+        jCheckBox4_material_lectura.setEnabled(isEnable);
+    }
+    
+    private void habilitarHorarios(boolean isEnable) {
+        jRadioButton4_horario1_taller_danza.setEnabled(isEnable);
+        jRadioButton4_horario2_taller_danza.setEnabled(isEnable);
+        jRadioButton4_horario1_taller_teatro.setEnabled(isEnable);
+        jRadioButton4_horario2_taller_teatro.setEnabled(isEnable);
+        jRadioButton4_horario1_taller_dibujo.setEnabled(isEnable);
+        jRadioButton4_horario2_taller_dibujo.setEnabled(isEnable);
+        jRadioButton4_horario1_taller_redaccion.setEnabled(isEnable);
+        jRadioButton4_horario1_taller_lectura.setEnabled(isEnable);
+    }
     
     private void deshabilitarTalleresInscritos(List<Integer> talleresInscritos) {
         // Deshabilitar talleres según las inscripciones del alumno
@@ -607,22 +635,29 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jRadioButton4_taller_dibujo.setSelected(false);
         jRadioButton4_taller_redaccion.setSelected(false);
         jRadioButton4_taller_lectura.setSelected(false);
-        jRadioButton4_horario1_taller_danza.setSelected(false);
+        /*jRadioButton4_horario1_taller_danza.setSelected(false);
         jRadioButton4_horario2_taller_danza.setSelected(false);
         jRadioButton4_horario1_taller_teatro.setSelected(false);
         jRadioButton4_horario2_taller_teatro.setSelected(false);
         jRadioButton4_horario1_taller_dibujo.setSelected(false);
-        jRadioButton4_horario2_taller_dibujo.setSelected(false);
-        jRadioButton4_horario1_taller_redaccion.setSelected(false);
-        jRadioButton4_horario1_taller_lectura.setSelected(false);
+        jRadioButton4_horario2_taller_dibujo.setSelected(false);*/
+        grupoDanza.clearSelection();
+        grupoTeatro.clearSelection();
+        grupoDibujo.clearSelection();
+        //jRadioButton4_horario1_taller_redaccion.setSelected(false);
+        grupoRedaccion.clearSelection();
+        grupoLectura.clearSelection();
+        //jRadioButton4_horario1_taller_lectura.setSelected(false);
         jCheckBox4_material_danza.setSelected(false);
         jCheckBox4_material_teatro.setSelected(false);
         jCheckBox4_material_dibujo.setSelected(false);
         jCheckBox4_material_redaccion.setSelected(false);
         jCheckBox4_material_lectura.setSelected(false);
         jButton4_confirmar_inscripcion.setEnabled(false);
+        
+        
         // Habilitar todos los talleres por defecto
-        deshabilitarTalleresInscritos(new java.util.ArrayList<>());
+        //deshabilitarTalleresInscritos(new java.util.ArrayList<>());
     }
     
     private void jButton4_confirmar_inscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_confirmar_inscripcionActionPerformed
@@ -702,6 +737,9 @@ public class InscripcionTaller extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "¡Asistente inscrito correctamente en el taller de " + tallerSeleccionado + "!", 
                                           "Inscripción Exitosa", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             limpiarFormulario();
+            habilitarTalleres(false);
+        habilitarHorarios(false);
+        habilitarCasillasMaterial(false);
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Error al realizar la inscripción.", 
                                           "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
