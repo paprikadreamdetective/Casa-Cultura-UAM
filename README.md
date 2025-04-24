@@ -3,8 +3,11 @@
 Este documento describe las interfaces del sistema para la gestión de talleres culturales en la Casa de la Cultura – UAM Azcapotzalco. Cada sección detalla la funcionalidad principal de las interfaces, diseñadas para administrar usuarios, asistentes e inscripciones de manera eficiente. 🚀
 ---
 ## 1. Login 🔐
----
+
 La interfaz de inicio de sesión permite a los usuarios autenticarse para acceder al sistema.
+
+![image](https://github.com/user-attachments/assets/1def7677-2367-47c2-85ce-6621b2e8a296)
+
 
 Funcionalidades:
 - 📥 Ingreso de credenciales (usuario y contraseña).
@@ -13,7 +16,7 @@ Funcionalidades:
 - 🚫 Mensaje de error para credenciales incorrectas.
 
 ## 2. Dashboard (Menú Principal) 📊
----
+
 El Dashboard es el menú principal que muestra un resumen del sistema y proporciona acceso a las demás funcionalidades.
 
 Funcionalidades:
@@ -23,7 +26,7 @@ Funcionalidades:
 - 🔄 Opción para cerrar sesión.
 
 ## 3. Gestión de Usuarios 👥
----
+
 La interfaz de Gestión de Usuarios permite administrar las cuentas de los administradores del sistema.
 
 Funcionalidades:
@@ -33,7 +36,7 @@ Funcionalidades:
 - 📋 Visualización de la lista de usuarios registrados.
 
 ## 4. Gestión de Asistentes 🧑‍🎓
----
+
 La interfaz de Gestión de Asistentes se encarga de administrar la información de los asistentes a los talleres.
 
 Funcionalidades:
@@ -44,7 +47,7 @@ Funcionalidades:
 - 📋 Visualización de la lista de asistentes.
 
 ## 5. Gestión de Inscripciones 📝
----
+
 La interfaz de Gestión de Inscripciones permite inscribir asistentes a talleres y gestionar sus registros.
 
 Funcionalidades:
@@ -55,7 +58,7 @@ Funcionalidades:
 - 📋 Lista de inscripciones activas.
 
 ## 6. Información de Asistentes ℹ️
----
+
 La interfaz de Información de Asistentes muestra los detalles completos de cada asistente y su participación en los talleres.
 
 Funcionalidades:
