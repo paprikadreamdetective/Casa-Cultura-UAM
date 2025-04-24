@@ -8,6 +8,7 @@ import persistence.InscripcionDAO;
 import persistence.AsistenteDAO;
 import model.Asistente;
 import java.util.Date;
+import java.util.List;
 /**
  *
  * @author p4prika
@@ -24,20 +25,24 @@ public class InscripcionTaller extends javax.swing.JFrame {
     private final float costoRedaccion = 350;
     private final float costoLectura = 300;
     private final float costoMaterialExtra = 100;
+    
     private Asistente alumnoSeleccionado; // Almacena el alumno encontrado
     private InscripcionDAO inscripcionDAO; // DAO para inscripciones
     private AsistenteDAO alumnoDAO; // DAO para alumnos
 
     public InscripcionTaller() {
         initComponents();
+        jButton4_confirmar_inscripcion.setEnabled(false);
         setTitle("Casa de la Cultura – UAM Azcapotzalco:: Inscripcion a talleres");
         this.setLocationRelativeTo(null);
+        
         jTextField4_costo_total.setEnabled(false);
-        toggleHorarios("danza", false);
+        
+        /*toggleHorarios("danza", false);
         toggleHorarios("teatro", false);
         toggleHorarios("dibujo", false);
         toggleHorarios("redaccion", false);
-        toggleHorarios("lectura", false);
+        toggleHorarios("lectura", false);*/
         
         inscripcionDAO = new InscripcionDAO();
         alumnoDAO = new AsistenteDAO();
@@ -65,18 +70,27 @@ public class InscripcionTaller extends javax.swing.JFrame {
         grupoLectura.add(jRadioButton4_horario1_taller_lectura);
         //grupoLectura.add(jCheckBox4_material_lectura);
         
-        jRadioButton4_taller_danza.addActionListener(e -> toggleHorarios("danza", jRadioButton4_taller_danza.isSelected()));
+        /*jRadioButton4_taller_danza.addActionListener(e -> toggleHorarios("danza", jRadioButton4_taller_danza.isSelected()));
         jRadioButton4_taller_teatro.addActionListener(e -> toggleHorarios("teatro", jRadioButton4_taller_teatro.isSelected()));
         jRadioButton4_taller_dibujo.addActionListener(e -> toggleHorarios("dibujo", jRadioButton4_taller_dibujo.isSelected()));
         jRadioButton4_taller_redaccion.addActionListener(e -> toggleHorarios("redaccion", jRadioButton4_taller_redaccion.isSelected()));
-        jRadioButton4_taller_lectura.addActionListener(e -> toggleHorarios("lectura", jRadioButton4_taller_lectura.isSelected()));
+        jRadioButton4_taller_lectura.addActionListener(e -> toggleHorarios("lectura", jRadioButton4_taller_lectura.isSelected()));*/
         
         jRadioButton4_taller_danza.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_danza, costoDanza));
+        jRadioButton4_taller_danza.setEnabled(false);
+        
         jRadioButton4_taller_teatro.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_teatro, costoTeatro));
+        jRadioButton4_taller_teatro.setEnabled(false);
+        
         jRadioButton4_taller_dibujo.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_dibujo, costoDibujo));
+        jRadioButton4_taller_dibujo.setEnabled(false);
+        
         jRadioButton4_taller_redaccion.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_redaccion, costoRedaccion));
+        jRadioButton4_taller_redaccion.setEnabled(false);
+        
         jRadioButton4_taller_lectura.addActionListener(e -> actualizarCostoTaller(jRadioButton4_taller_lectura, costoLectura));
-    
+        jRadioButton4_taller_lectura.setEnabled(false);
+        
         jCheckBox4_material_danza.addActionListener(e -> actualizarCostoMaterial(jCheckBox4_material_danza, costoMaterialExtra));
         jCheckBox4_material_teatro.addActionListener(e -> actualizarCostoMaterial(jCheckBox4_material_teatro, costoMaterialExtra));
         jCheckBox4_material_dibujo.addActionListener(e -> actualizarCostoMaterial(jCheckBox4_material_dibujo, costoMaterialExtra));
@@ -106,14 +120,14 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jTextField4_costo_total.setText("$" + costoTotal);
     }
     
-    private void toggleHorarios(String taller, boolean visible) {
+    /*private void toggleHorarios(String taller, boolean visible) {
         switch(taller) {
             case "danza":
                 jLabel_danza_select.setVisible(visible);
                 jRadioButton4_horario1_taller_danza.setVisible(visible);
                 jRadioButton4_horario2_taller_danza.setVisible(visible);
                 jCheckBox4_material_danza.setVisible(visible);
-                jCheckBox4_material_danza.setSelected(visible);
+                //jCheckBox4_material_danza.setSelected(visible);
                 break;
             case "teatro":
                 jLabel_teatro_select.setVisible(visible);
@@ -137,6 +151,65 @@ public class InscripcionTaller extends javax.swing.JFrame {
                 jRadioButton4_horario1_taller_lectura.setVisible(visible);
                 jCheckBox4_material_lectura.setVisible(visible);
                 break;
+        }
+    }*/
+    
+    private void deshabilitarTalleresInscritos(List<Integer> talleresInscritos) {
+        // Deshabilitar talleres según las inscripciones del alumno
+        if (talleresInscritos.contains(1) || talleresInscritos.contains(2)) {
+            jRadioButton4_taller_danza.setEnabled(false);
+            jRadioButton4_horario1_taller_danza.setEnabled(false);
+            jRadioButton4_horario2_taller_danza.setEnabled(false);
+            jCheckBox4_material_danza.setEnabled(false);
+        } else {
+            jRadioButton4_taller_danza.setEnabled(true);
+            jRadioButton4_horario1_taller_danza.setEnabled(true);
+            jRadioButton4_horario2_taller_danza.setEnabled(true);
+            jCheckBox4_material_danza.setEnabled(true);
+        }
+
+        if (talleresInscritos.contains(9) || talleresInscritos.contains(10)) {
+            jRadioButton4_taller_teatro.setEnabled(false);
+            jRadioButton4_horario1_taller_teatro.setEnabled(false);
+            jRadioButton4_horario2_taller_teatro.setEnabled(false);
+            jCheckBox4_material_teatro.setEnabled(false);
+        } else {
+            jRadioButton4_taller_teatro.setEnabled(true);
+            jRadioButton4_horario1_taller_teatro.setEnabled(true);
+            jRadioButton4_horario2_taller_teatro.setEnabled(true);
+            jCheckBox4_material_teatro.setEnabled(true);
+        }
+
+        if (talleresInscritos.contains(7) || talleresInscritos.contains(8)) {
+            jRadioButton4_taller_dibujo.setEnabled(false);
+            jRadioButton4_horario1_taller_dibujo.setEnabled(false);
+            jRadioButton4_horario2_taller_dibujo.setEnabled(false);
+            jCheckBox4_material_dibujo.setEnabled(false);
+        } else {
+            jRadioButton4_taller_dibujo.setEnabled(true);
+            jRadioButton4_horario1_taller_dibujo.setEnabled(true);
+            jRadioButton4_horario2_taller_dibujo.setEnabled(true);
+            jCheckBox4_material_dibujo.setEnabled(true);
+        }
+
+        if (talleresInscritos.contains(5)) {
+            jRadioButton4_taller_redaccion.setEnabled(false);
+            jRadioButton4_horario1_taller_redaccion.setEnabled(false);
+            jCheckBox4_material_redaccion.setEnabled(false);
+        } else {
+            jRadioButton4_taller_redaccion.setEnabled(true);
+            jRadioButton4_horario1_taller_redaccion.setEnabled(true);
+            jCheckBox4_material_redaccion.setEnabled(true);
+        }
+
+        if (talleresInscritos.contains(3)) {
+            jRadioButton4_taller_lectura.setEnabled(false);
+            jRadioButton4_horario1_taller_lectura.setEnabled(false);
+            jCheckBox4_material_lectura.setEnabled(false);
+        } else {
+            jRadioButton4_taller_lectura.setEnabled(true);
+            jRadioButton4_horario1_taller_lectura.setEnabled(true);
+            jCheckBox4_material_lectura.setEnabled(true);
         }
     }
     
@@ -186,7 +259,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setText("Buscar alumno a inscribir");
+        jLabel1.setText("Introduzca la matricula del alumno a inscribir");
 
         jTextField4_busqueda_asistente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,7 +283,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGap(0, 644, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,6 +335,11 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jLabel_redaccion_select.setText("Seleccionar horario");
 
         jRadioButton4_horario1_taller_redaccion.setText("Martes y Jueves 16:30 a 18:30");
+        jRadioButton4_horario1_taller_redaccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4_horario1_taller_redaccionActionPerformed(evt);
+            }
+        });
 
         jLabel_lectura_select.setText("Seleccionar horario");
 
@@ -286,108 +364,117 @@ public class InscripcionTaller extends javax.swing.JFrame {
             .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel_danza_select)
-                    .addComponent(jRadioButton4_taller_danza)
-                    .addComponent(jLabel_lectura_select)
-                    .addComponent(jRadioButton4_taller_lectura)
-                    .addComponent(jLabel_redaccion_select)
-                    .addComponent(jLabel_dibujo_select)
-                    .addComponent(jLabel_teatro_select)
-                    .addComponent(jRadioButton4_taller_redaccion)
-                    .addComponent(jRadioButton4_taller_dibujo)
-                    .addComponent(jRadioButton4_taller_teatro)
-                    .addComponent(jLabel2)
                     .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4_costo_total, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jRadioButton4_taller_danza)
+                            .addComponent(jRadioButton4_taller_dibujo))
+                        .addGap(80, 80, 80)
                         .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
-                                .addComponent(jRadioButton4_horario1_taller_danza)
-                                .addGap(78, 78, 78)
-                                .addComponent(jRadioButton4_horario2_taller_danza)
-                                .addGap(81, 81, 81)
-                                .addComponent(jCheckBox4_material_danza))
-                            .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
-                                .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jRadioButton4_horario1_taller_teatro)
-                                    .addComponent(jRadioButton4_horario1_taller_dibujo)
-                                    .addComponent(jRadioButton4_horario1_taller_lectura)
-                                    .addComponent(jRadioButton4_horario1_taller_redaccion))
-                                .addGap(78, 78, 78)
                                 .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
-                                        .addComponent(jRadioButton4_horario2_taller_teatro)
-                                        .addGap(81, 81, 81)
-                                        .addComponent(jCheckBox4_material_teatro))
-                                    .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
-                                        .addComponent(jRadioButton4_horario2_taller_dibujo)
-                                        .addGap(81, 81, 81)
-                                        .addComponent(jCheckBox4_material_dibujo))
-                                    .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
-                                        .addGap(296, 296, 296)
-                                        .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox4_material_redaccion)
-                                            .addComponent(jCheckBox4_material_lectura))))))))
-                .addContainerGap(108, Short.MAX_VALUE))
+                                    .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
+                                            .addComponent(jRadioButton4_horario2_taller_dibujo)
+                                            .addGap(68, 68, 68))
+                                        .addComponent(jRadioButton4_horario1_taller_dibujo, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jLabel_dibujo_select)
+                                    .addComponent(jRadioButton4_horario1_taller_redaccion)
+                                    .addComponent(jLabel_redaccion_select)
+                                    .addComponent(jRadioButton4_horario1_taller_lectura)
+                                    .addComponent(jLabel_lectura_select))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBox4_material_teatro)
+                                    .addComponent(jCheckBox4_material_dibujo)
+                                    .addComponent(jCheckBox4_material_danza)
+                                    .addComponent(jCheckBox4_material_redaccion)
+                                    .addComponent(jCheckBox4_material_lectura))
+                                .addGap(62, 62, 62))
+                            .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
+                                .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jRadioButton4_horario1_taller_danza, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
+                                            .addComponent(jRadioButton4_horario2_taller_danza)
+                                            .addGap(169, 169, 169)))
+                                    .addComponent(jLabel_danza_select)
+                                    .addComponent(jLabel_teatro_select)
+                                    .addComponent(jRadioButton4_horario2_taller_teatro)
+                                    .addComponent(jRadioButton4_horario1_taller_teatro))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
+                        .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton4_taller_lectura)
+                            .addComponent(jRadioButton4_taller_redaccion)
+                            .addComponent(jRadioButton4_taller_teatro)
+                            .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(34, 34, 34)
+                                .addComponent(jTextField4_costo_total, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         jPanel4_select_taller_y_horarioLayout.setVerticalGroup(
             jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(25, 25, 25)
-                .addComponent(jRadioButton4_taller_danza)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel_danza_select)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_danza_select)
+                    .addComponent(jRadioButton4_taller_danza))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton4_horario1_taller_danza)
+                    .addComponent(jCheckBox4_material_danza))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton4_horario2_taller_danza)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton4_horario2_taller_danza)
-                        .addComponent(jCheckBox4_material_danza))
-                    .addComponent(jRadioButton4_horario1_taller_danza))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton4_taller_teatro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel_teatro_select)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton4_horario1_taller_teatro)
-                    .addComponent(jRadioButton4_horario2_taller_teatro)
-                    .addComponent(jCheckBox4_material_teatro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton4_taller_dibujo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel_dibujo_select)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
+                        .addComponent(jRadioButton4_taller_teatro)
+                        .addGap(76, 76, 76)
+                        .addComponent(jRadioButton4_taller_dibujo))
+                    .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
+                        .addComponent(jLabel_teatro_select)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton4_horario1_taller_teatro)
+                            .addComponent(jCheckBox4_material_teatro))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton4_horario2_taller_teatro)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel_dibujo_select)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton4_horario1_taller_dibujo)
+                            .addComponent(jCheckBox4_material_dibujo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton4_horario2_taller_dibujo)))
+                .addGap(37, 37, 37)
                 .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton4_horario2_taller_dibujo)
-                        .addComponent(jCheckBox4_material_dibujo))
-                    .addComponent(jRadioButton4_horario1_taller_dibujo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton4_taller_redaccion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel_redaccion_select)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton4_horario1_taller_redaccion)
-                    .addComponent(jCheckBox4_material_redaccion))
-                .addGap(2, 2, 2)
-                .addComponent(jRadioButton4_taller_lectura)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel_lectura_select)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton4_horario1_taller_lectura)
-                    .addComponent(jCheckBox4_material_lectura))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField4_costo_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
+                    .addComponent(jRadioButton4_taller_redaccion)
+                    .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
+                        .addComponent(jLabel_redaccion_select)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton4_horario1_taller_redaccion)
+                            .addComponent(jCheckBox4_material_redaccion))))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
+                        .addComponent(jRadioButton4_taller_lectura)
+                        .addGap(92, 92, 92)
+                        .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addComponent(jTextField4_costo_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel4_select_taller_y_horarioLayout.createSequentialGroup()
+                        .addComponent(jLabel_lectura_select)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4_select_taller_y_horarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton4_horario1_taller_lectura)
+                            .addComponent(jCheckBox4_material_lectura))))
+                .addGap(28, 28, 28))
         );
 
         jButton4_confirmar_inscripcion.setBackground(new java.awt.Color(255, 51, 51));
@@ -415,33 +502,32 @@ public class InscripcionTaller extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField4_busqueda_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton4_buscar_asistente)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(978, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4_confirmar_inscripcion))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel4_select_taller_y_horario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField4_busqueda_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton4_buscar_asistente)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel4_select_taller_y_horario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -449,8 +535,8 @@ public class InscripcionTaller extends javax.swing.JFrame {
                     .addComponent(jButton4_buscar_asistente))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4_select_taller_y_horario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4_select_taller_y_horario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4_confirmar_inscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -493,7 +579,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     
-    private void limpiarFormulario() {
+    /*private void limpiarFormulario() {
         jTextField4_busqueda_asistente.setText("");
         jTextField4_costo_total.setText("");
         costoTotal = 0;
@@ -508,22 +594,46 @@ public class InscripcionTaller extends javax.swing.JFrame {
         toggleHorarios("dibujo", false);
         toggleHorarios("redaccion", false);
         toggleHorarios("lectura", false);
+        jButton4_confirmar_inscripcion.setEnabled(false);
+    }*/
+    
+    private void limpiarFormulario() {
+        jTextField4_busqueda_asistente.setText("");
+        jTextField4_costo_total.setText("");
+        costoTotal = 0;
+        alumnoSeleccionado = null;
+        jRadioButton4_taller_danza.setSelected(false);
+        jRadioButton4_taller_teatro.setSelected(false);
+        jRadioButton4_taller_dibujo.setSelected(false);
+        jRadioButton4_taller_redaccion.setSelected(false);
+        jRadioButton4_taller_lectura.setSelected(false);
+        jRadioButton4_horario1_taller_danza.setSelected(false);
+        jRadioButton4_horario2_taller_danza.setSelected(false);
+        jRadioButton4_horario1_taller_teatro.setSelected(false);
+        jRadioButton4_horario2_taller_teatro.setSelected(false);
+        jRadioButton4_horario1_taller_dibujo.setSelected(false);
+        jRadioButton4_horario2_taller_dibujo.setSelected(false);
+        jRadioButton4_horario1_taller_redaccion.setSelected(false);
+        jRadioButton4_horario1_taller_lectura.setSelected(false);
+        jCheckBox4_material_danza.setSelected(false);
+        jCheckBox4_material_teatro.setSelected(false);
+        jCheckBox4_material_dibujo.setSelected(false);
+        jCheckBox4_material_redaccion.setSelected(false);
+        jCheckBox4_material_lectura.setSelected(false);
+        jButton4_confirmar_inscripcion.setEnabled(false);
+        // Habilitar todos los talleres por defecto
+        deshabilitarTalleresInscritos(new java.util.ArrayList<>());
     }
     
     private void jButton4_confirmar_inscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_confirmar_inscripcionActionPerformed
         // TODO add your handling code here:
-        /*javax.swing.JOptionPane.showMessageDialog(null, "¡Asistente inscrito correctamente!", 
-                                  "Inscripcion Exitosa", 
-                                  javax.swing.JOptionPane.INFORMATION_MESSAGE);*/
         if (alumnoSeleccionado == null) {
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor, busque y seleccione un alumno primero.", 
                                           "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        
         java.util.List<Integer> talleresInscritos = inscripcionDAO.obtenerTalleresInscritos(alumnoSeleccionado.getIdAlumno());
-
+            
         // Determinar el taller y horario seleccionados
         int idTaller = 0;
         boolean adquirirMaterial = false;
@@ -613,12 +723,23 @@ public class InscripcionTaller extends javax.swing.JFrame {
                                           alumnoSeleccionado.getPrimerApellido() + " " + alumnoSeleccionado.getIdAlumno(), 
                                           "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             // Mostrar datos del alumno en la interfaz si tienes campos para ello
+            jButton4_confirmar_inscripcion.setEnabled(true);
+            // Deshabilitar talleres ya inscritos
+            List<Integer> talleresInscritos = inscripcionDAO.obtenerTalleresInscritos(alumnoSeleccionado.getIdAlumno());
+            deshabilitarTalleresInscritos(talleresInscritos);
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró un alumno con esa matrícula.", 
                                           "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             alumnoSeleccionado = null;
+            jButton4_confirmar_inscripcion.setEnabled(false);
+            // Habilitar todos los talleres si no hay alumno
+            deshabilitarTalleresInscritos(new java.util.ArrayList<>());
         }
     }//GEN-LAST:event_jButton4_buscar_asistenteActionPerformed
+
+    private void jRadioButton4_horario1_taller_redaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4_horario1_taller_redaccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4_horario1_taller_redaccionActionPerformed
 
     /**
      * @param args the command line arguments

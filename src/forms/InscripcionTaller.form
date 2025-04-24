@@ -25,33 +25,30 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jTextField4_busqueda_asistente" min="-2" pref="333" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButton4_buscar_asistente" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="978" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="167" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButton4_confirmar_inscripcion" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jPanel1" max="32767" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jPanel4_select_taller_y_horario" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTextField4_busqueda_asistente" min="-2" pref="314" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton4_buscar_asistente" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jPanel1" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jPanel4_select_taller_y_horario" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -61,7 +58,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -70,10 +67,10 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jPanel4_select_taller_y_horario" max="32767" attributes="0"/>
                   <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="jPanel4_select_taller_y_horario" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton4_confirmar_inscripcion" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
@@ -86,7 +83,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Buscar alumno a inscribir"/>
+        <Property name="text" type="java.lang.String" value="Introduzca la matricula del alumno a inscribir"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField4_busqueda_asistente">
@@ -121,7 +118,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="397" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="644" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -141,67 +138,74 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel_danza_select" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton4_taller_danza" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel_lectura_select" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton4_taller_lectura" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel_redaccion_select" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel_dibujo_select" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel_teatro_select" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton4_taller_redaccion" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton4_taller_dibujo" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton4_taller_teatro" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextField4_costo_total" min="-2" pref="171" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton4_taller_danza" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton4_taller_dibujo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jRadioButton4_horario1_taller_danza" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton4_horario2_taller_danza" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox4_material_danza" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jRadioButton4_horario1_taller_teatro" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton4_horario1_taller_dibujo" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton4_horario1_taller_lectura" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton4_horario1_taller_redaccion" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jRadioButton4_horario2_taller_teatro" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                          <Component id="jCheckBox4_material_teatro" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jRadioButton4_horario2_taller_dibujo" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="68" pref="68" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jRadioButton4_horario1_taller_dibujo" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jRadioButton4_horario2_taller_dibujo" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                          <Component id="jCheckBox4_material_dibujo" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="296" pref="296" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jCheckBox4_material_redaccion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jCheckBox4_material_lectura" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_dibujo_select" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButton4_horario1_taller_redaccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_redaccion_select" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButton4_horario1_taller_lectura" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_lectura_select" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="28" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jCheckBox4_material_teatro" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckBox4_material_dibujo" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckBox4_material_danza" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckBox4_material_redaccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckBox4_material_lectura" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Component id="jRadioButton4_horario1_taller_danza" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jRadioButton4_horario2_taller_danza" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <Component id="jLabel_danza_select" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_teatro_select" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButton4_horario2_taller_teatro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButton4_horario1_taller_teatro" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jRadioButton4_taller_lectura" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton4_taller_redaccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton4_taller_teatro" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="jTextField4_costo_total" min="-2" pref="252" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="108" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -210,64 +214,77 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="jRadioButton4_taller_danza" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jLabel_danza_select" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel_danza_select" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton4_taller_danza" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jRadioButton4_horario1_taller_danza" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBox4_material_danza" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jRadioButton4_horario2_taller_danza" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jRadioButton4_horario2_taller_danza" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox4_material_danza" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jRadioButton4_taller_teatro" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                          <Component id="jRadioButton4_taller_dibujo" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jRadioButton4_horario1_taller_danza" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel_teatro_select" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jRadioButton4_horario1_taller_teatro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBox4_material_teatro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioButton4_horario2_taller_teatro" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel_dibujo_select" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jRadioButton4_horario1_taller_dibujo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBox4_material_dibujo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioButton4_horario2_taller_dibujo" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jRadioButton4_taller_teatro" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel_teatro_select" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jRadioButton4_horario1_taller_teatro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton4_horario2_taller_teatro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox4_material_teatro" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jRadioButton4_taller_dibujo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel_dibujo_select" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jRadioButton4_horario2_taller_dibujo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox4_material_dibujo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton4_taller_redaccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel_redaccion_select" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jRadioButton4_horario1_taller_redaccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBox4_material_redaccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Component id="jRadioButton4_horario1_taller_dibujo" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jRadioButton4_taller_redaccion" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel_redaccion_select" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jRadioButton4_horario1_taller_redaccion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox4_material_redaccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jRadioButton4_taller_lectura" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField4_costo_total" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel_lectura_select" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jRadioButton4_horario1_taller_lectura" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBox4_material_lectura" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                  <Component id="jRadioButton4_taller_lectura" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel_lectura_select" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jRadioButton4_horario1_taller_lectura" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox4_material_lectura" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="43" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField4_costo_total" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -363,6 +380,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Martes y Jueves 16:30 a 18:30"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton4_horario1_taller_redaccionActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel_lectura_select">
           <Properties>
