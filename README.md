@@ -8,7 +8,6 @@ La interfaz de inicio de sesión permite a los usuarios autenticarse para accede
 
 ![image](https://github.com/user-attachments/assets/1def7677-2367-47c2-85ce-6621b2e8a296)
 
-
 Funcionalidades:
 - 📥 Ingreso de credenciales (usuario y contraseña).
 - ✅ Validación de acceso seguro.
@@ -19,8 +18,7 @@ Funcionalidades:
 
 El Dashboard es el menú principal que muestra un resumen del sistema y proporciona acceso a las demás funcionalidades.
 
-![Uploading image.png…]()
-
+![image](https://github.com/user-attachments/assets/ea8acbd4-cee5-413e-9f7f-44720f63f54f)
 
 Funcionalidades:
 - 📈 Estadísticas de inscritos por taller (e.g., Danza, Teatro, Dibujo, Redacción, Lectura).
