@@ -19,6 +19,9 @@ Funcionalidades:
 
 El Dashboard es el menú principal que muestra un resumen del sistema y proporciona acceso a las demás funcionalidades.
 
+![Uploading image.png…]()
+
+
 Funcionalidades:
 - 📈 Estadísticas de inscritos por taller (e.g., Danza, Teatro, Dibujo, Redacción, Lectura).
 - 🧭 Navegación a las secciones de Gestión de Usuarios, Gestión de Asistentes, Gestión de Inscripciones y Información de Asistentes.
