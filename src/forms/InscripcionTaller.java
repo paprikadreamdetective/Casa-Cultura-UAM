@@ -6,6 +6,7 @@ package forms;
 import model.Inscripcion;
 import persistence.InscripcionDAO;
 import persistence.AsistenteDAO;
+import model.InscripcionReporte;
 import model.Asistente;
 import java.util.Date;
 import java.util.List;
@@ -42,16 +43,13 @@ public class InscripcionTaller extends javax.swing.JFrame {
         habilitarCasillasMaterial(false);
         habilitarTalleres(false);
         habilitarHorarios(false);
+        habilitarCamposInformacion(false);
         setTitle("Casa de la Cultura – UAM Azcapotzalco:: Inscripcion a talleres");
         this.setLocationRelativeTo(null);
         
+     
         jTextField4_costo_total.setEnabled(false);
         
-        /*toggleHorarios("danza", false);
-        toggleHorarios("teatro", false);
-        toggleHorarios("dibujo", false);
-        toggleHorarios("redaccion", false);
-        toggleHorarios("lectura", false);*/
         
         inscripcionDAO = new InscripcionDAO();
         alumnoDAO = new AsistenteDAO();
@@ -182,6 +180,19 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jRadioButton4_horario1_taller_lectura.setEnabled(isEnable);
     }
     
+    private void habilitarCamposInformacion(boolean isEnable) {
+        jTextField_1er_apellido.setEnabled(isEnable); 
+        jTextField_2do_apellido.setEnabled(isEnable);
+        jTextField_costo_actual.setEnabled(isEnable);
+        jTextField_direccion.setEnabled(isEnable);
+        jTextField_edad.setEnabled(isEnable);
+        jTextField_genero.setEnabled(isEnable);
+        jTextField_nombre.setEnabled(isEnable);
+        jTextField_tel_contacto.setEnabled(isEnable);
+        jTextField_tel_emergencia.setEnabled(isEnable);
+        jTextArea_talleres_inscritos.setEnabled(isEnable);
+    }
+    
     private void deshabilitarTalleresInscritos(List<Integer> talleresInscritos) {
         // Deshabilitar talleres según las inscripciones del alumno
         if (talleresInscritos.contains(1) || talleresInscritos.contains(2)) {
@@ -274,7 +285,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea_talleres_inscritos = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField_costo_actual = new javax.swing.JTextField();
         jPanel4_select_taller_y_horario = new javax.swing.JPanel();
         jRadioButton4_taller_danza = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
@@ -395,7 +406,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(jLabel12)
                             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField1))
+                            .addComponent(jTextField_costo_actual))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -441,7 +452,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField_costo_actual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -762,19 +773,11 @@ public class InscripcionTaller extends javax.swing.JFrame {
         jRadioButton4_taller_dibujo.setSelected(false);
         jRadioButton4_taller_redaccion.setSelected(false);
         jRadioButton4_taller_lectura.setSelected(false);
-        /*jRadioButton4_horario1_taller_danza.setSelected(false);
-        jRadioButton4_horario2_taller_danza.setSelected(false);
-        jRadioButton4_horario1_taller_teatro.setSelected(false);
-        jRadioButton4_horario2_taller_teatro.setSelected(false);
-        jRadioButton4_horario1_taller_dibujo.setSelected(false);
-        jRadioButton4_horario2_taller_dibujo.setSelected(false);*/
         grupoDanza.clearSelection();
         grupoTeatro.clearSelection();
         grupoDibujo.clearSelection();
-        //jRadioButton4_horario1_taller_redaccion.setSelected(false);
         grupoRedaccion.clearSelection();
         grupoLectura.clearSelection();
-        //jRadioButton4_horario1_taller_lectura.setSelected(false);
         jCheckBox4_material_danza.setSelected(false);
         jCheckBox4_material_teatro.setSelected(false);
         jCheckBox4_material_dibujo.setSelected(false);
@@ -888,20 +891,50 @@ public class InscripcionTaller extends javax.swing.JFrame {
                                           alumnoSeleccionado.getPrimerApellido() + " " + alumnoSeleccionado.getIdAlumno(), 
                                           "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             // Mostrar datos del alumno en la interfaz si tienes campos para ello
+            llenarTextFields(alumnoSeleccionado);
             jButton4_confirmar_inscripcion.setEnabled(true);
             // Deshabilitar talleres ya inscritos
             List<Integer> talleresInscritos = inscripcionDAO.obtenerTalleresInscritos(alumnoSeleccionado.getIdAlumno());
             deshabilitarTalleresInscritos(talleresInscritos);
+            List<InscripcionReporte> talleres = inscripcionDAO.obtenerTalleresPorMatricula(alumnoSeleccionado.getMatricula());
+            String talleres_inscritos = "";
+            for (InscripcionReporte registro : talleres) {
+                System.out.println(registro.getNombreTaller());
+                talleres_inscritos += registro.getNombreTaller() + " : " + registro.getHorario() +"\n"; 
+            }
+            jTextArea_talleres_inscritos.setText(talleres_inscritos);
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró un alumno con esa matrícula.", 
                                           "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             alumnoSeleccionado = null;
+            jTextField_1er_apellido.setText("");
+            jTextField_2do_apellido.setText("");
+            jTextField_direccion.setText("");
+            jTextField_edad.setText("");
+            jTextField_genero.setText("");
+            jTextField_nombre.setText("");
+            jTextField_tel_contacto.setText("");
+            jTextField_tel_emergencia.setText("");
             jButton4_confirmar_inscripcion.setEnabled(false);
+            habilitarCasillasMaterial(false);
+            habilitarTalleres(false);
+            habilitarHorarios(false);
             // Habilitar todos los talleres si no hay alumno
-            deshabilitarTalleresInscritos(new java.util.ArrayList<>());
+            //deshabilitarTalleresInscritos(new java.util.ArrayList<>());
         }
     }//GEN-LAST:event_jButton4_buscar_asistenteActionPerformed
-
+    
+    public void llenarTextFields(Asistente asistente) {
+        jTextField_1er_apellido.setText(asistente.getPrimerApellido()); 
+        jTextField_2do_apellido.setText(asistente.getSegundoApellido());
+        jTextField_direccion.setText(asistente.getDireccion());
+        jTextField_edad.setText(Integer.toString(asistente.getEdad()));
+        jTextField_genero.setText(asistente.getGenero());
+        jTextField_nombre.setText(asistente.getNombre());
+        jTextField_tel_contacto.setText(asistente.getTelefonoContacto());
+        jTextField_tel_emergencia.setText(asistente.getTelefonoEmergencia());
+    }
+    
     private void jRadioButton4_horario1_taller_redaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4_horario1_taller_redaccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton4_horario1_taller_redaccionActionPerformed
@@ -985,11 +1018,11 @@ public class InscripcionTaller extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton4_taller_teatro;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea_talleres_inscritos;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4_busqueda_asistente;
     private javax.swing.JTextField jTextField4_costo_total;
     private javax.swing.JTextField jTextField_1er_apellido;
     private javax.swing.JTextField jTextField_2do_apellido;
+    private javax.swing.JTextField jTextField_costo_actual;
     private javax.swing.JTextField jTextField_direccion;
     private javax.swing.JTextField jTextField_edad;
     private javax.swing.JTextField jTextField_genero;
