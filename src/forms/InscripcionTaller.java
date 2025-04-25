@@ -47,6 +47,16 @@ public class InscripcionTaller extends javax.swing.JFrame {
         setTitle("Casa de la Cultura – UAM Azcapotzalco:: Inscripcion a talleres");
         this.setLocationRelativeTo(null);
         
+        jTextField_1er_apellido.setEditable(false);
+        jTextField_2do_apellido.setEditable(false);
+        jTextField_direccion.setEditable(false);
+        jTextField_edad.setEditable(false);
+        jTextField_genero.setEditable(false);
+        jTextField_nombre.setEditable(false);
+        jTextField_tel_contacto.setEditable(false);
+        jTextField_tel_emergencia.setEditable(false);
+        jTextArea_talleres_inscritos.setEditable(false);
+        jTextField_costo_actual.setEditable(false);
      
         jTextField4_costo_total.setEnabled(false);
         
@@ -868,8 +878,8 @@ public class InscripcionTaller extends javax.swing.JFrame {
                                           "Inscripción Exitosa", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             limpiarFormulario();
             habilitarTalleres(false);
-        habilitarHorarios(false);
-        habilitarCasillasMaterial(false);
+            habilitarHorarios(false);
+            habilitarCasillasMaterial(false);
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Error al realizar la inscripción.", 
                                           "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
@@ -882,6 +892,19 @@ public class InscripcionTaller extends javax.swing.JFrame {
         if (matricula.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor, ingrese una matrícula.", 
                                           "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            jTextField_1er_apellido.setText("");
+            jTextField_2do_apellido.setText("");
+            jTextField_direccion.setText("");
+            jTextField_edad.setText("");
+            jTextField_genero.setText("");
+            jTextField_nombre.setText("");
+            jTextField_tel_contacto.setText("");
+            jTextField_tel_emergencia.setText("");
+            jButton4_confirmar_inscripcion.setEnabled(false);
+            jTextArea_talleres_inscritos.setText("");
+            habilitarCasillasMaterial(false);
+            habilitarTalleres(false);
+            habilitarHorarios(false);
             return;
         }
 
@@ -891,6 +914,7 @@ public class InscripcionTaller extends javax.swing.JFrame {
                                           alumnoSeleccionado.getPrimerApellido() + " " + alumnoSeleccionado.getIdAlumno(), 
                                           "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             // Mostrar datos del alumno en la interfaz si tienes campos para ello
+            habilitarCamposInformacion(true);
             llenarTextFields(alumnoSeleccionado);
             jButton4_confirmar_inscripcion.setEnabled(true);
             // Deshabilitar talleres ya inscritos
@@ -898,11 +922,15 @@ public class InscripcionTaller extends javax.swing.JFrame {
             deshabilitarTalleresInscritos(talleresInscritos);
             List<InscripcionReporte> talleres = inscripcionDAO.obtenerTalleresPorMatricula(alumnoSeleccionado.getMatricula());
             String talleres_inscritos = "";
+            double costo_actual = 0;
             for (InscripcionReporte registro : talleres) {
                 System.out.println(registro.getNombreTaller());
-                talleres_inscritos += registro.getNombreTaller() + " : " + registro.getHorario() +"\n"; 
+                talleres_inscritos += registro.getNombreTaller() + ": " + registro.getHorario() +"\n"; 
+                costo_actual += registro.getTotalAPagar();
             }
             jTextArea_talleres_inscritos.setText(talleres_inscritos);
+            jTextField_costo_actual.setText(Double.toString(costo_actual));
+            
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró un alumno con esa matrícula.", 
                                           "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
@@ -915,12 +943,14 @@ public class InscripcionTaller extends javax.swing.JFrame {
             jTextField_nombre.setText("");
             jTextField_tel_contacto.setText("");
             jTextField_tel_emergencia.setText("");
-            jButton4_confirmar_inscripcion.setEnabled(false);
+            jTextArea_talleres_inscritos.setText("");
+            jTextField_costo_actual.setText("");
+            
             habilitarCasillasMaterial(false);
             habilitarTalleres(false);
             habilitarHorarios(false);
-            // Habilitar todos los talleres si no hay alumno
-            //deshabilitarTalleresInscritos(new java.util.ArrayList<>());
+            habilitarCamposInformacion(false);
+            jButton4_confirmar_inscripcion.setEnabled(false);
         }
     }//GEN-LAST:event_jButton4_buscar_asistenteActionPerformed
     
