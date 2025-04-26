@@ -21,6 +21,7 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
      */
     public CancelarInscripcionTaller() {
         initComponents();
+        habilitarCamposInformacion(false);
         setTitle("Casa de la Cultura – UAM Azcapotzalco:: Cancelar inscripcion a talleres");
         this.setLocationRelativeTo(null);
         jButton_baja_danza.setEnabled(false);
@@ -31,6 +32,15 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
         //jButton_aplicar.setEnabled(false);
         inscripcionDAO = new InscripcionDAO();
         alumnoDAO = new AsistenteDAO();
+        
+        jTextField_1er_apellido.setEditable(false);
+        jTextField_2do_apellido.setEditable(false);
+        jTextField_direccion.setEditable(false);
+        jTextField_edad.setEditable(false);
+        jTextField_genero.setEditable(false);
+        jTextField_nombre.setEditable(false);
+        jTextField_tel_contacto.setEditable(false);
+        jTextField_tel_emergencia.setEditable(false);
     }
 
     /**
@@ -46,6 +56,22 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton_buscar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField_nombre = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField_1er_apellido = new javax.swing.JTextField();
+        jTextField_2do_apellido = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField_edad = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField_genero = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField_tel_contacto = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField_tel_emergencia = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField_direccion = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -80,15 +106,93 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel9.setText("Nombre(s):");
+
+        jLabel10.setText("Primer apellido:");
+
+        jLabel11.setText("Segundo apellido:");
+
+        jLabel12.setText("Edad:");
+
+        jLabel13.setText("Genero:");
+
+        jLabel14.setText("Telefono de contacto:");
+
+        jLabel15.setText("Telefono de emergencia:");
+
+        jLabel16.setText("Direccion:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField_nombre)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextField_edad, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                                .addComponent(jTextField_1er_apellido)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel14)
+                            .addComponent(jTextField_tel_contacto, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField_2do_apellido)
+                            .addComponent(jTextField_genero)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel11))
+                                .addGap(0, 154, Short.MAX_VALUE))
+                            .addComponent(jTextField_tel_emergencia)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTextField_direccion))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_1er_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_2do_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_tel_contacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_tel_emergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel2.setText("Talleres inscritos");
@@ -232,27 +336,23 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(39, 39, 39)
-                                    .addComponent(jButton_aplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(23, 23, 23)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton_buscar)
-                            .addGap(424, 424, 424))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton_buscar)))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(jButton_aplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,14 +418,56 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
         jButton_baja_redaccion.setEnabled(false);
         jButton_baja_lectura.setEnabled(false);
         jButton_baja_dibujo.setEnabled(false);
+        jTextField_1er_apellido.setText("");
+        jTextField_2do_apellido.setText("");
+        jTextField_direccion.setText("");
+        jTextField_edad.setText("");
+        jTextField_genero.setText("");
+        jTextField_nombre.setText("");
+        jTextField_tel_contacto.setText("");
+        jTextField_tel_emergencia.setText("");
+        habilitarCamposInformacion(false);
     }//GEN-LAST:event_jButton_aplicarActionPerformed
-
+    
+    public void llenarTextFields(Asistente asistente) {
+        jTextField_1er_apellido.setText(asistente.getPrimerApellido()); 
+        jTextField_2do_apellido.setText(asistente.getSegundoApellido());
+        jTextField_direccion.setText(asistente.getDireccion());
+        jTextField_edad.setText(Integer.toString(asistente.getEdad()));
+        jTextField_genero.setText(asistente.getGenero());
+        jTextField_nombre.setText(asistente.getNombre());
+        jTextField_tel_contacto.setText(asistente.getTelefonoContacto());
+        jTextField_tel_emergencia.setText(asistente.getTelefonoEmergencia());
+    }
+    
+    private void habilitarCamposInformacion(boolean isEnable) {
+        jTextField_1er_apellido.setEnabled(isEnable); 
+        jTextField_2do_apellido.setEnabled(isEnable);
+        //jTextField_costo_actual.setEnabled(isEnable);
+        jTextField_direccion.setEnabled(isEnable);
+        jTextField_edad.setEnabled(isEnable);
+        jTextField_genero.setEnabled(isEnable);
+        jTextField_nombre.setEnabled(isEnable);
+        jTextField_tel_contacto.setEnabled(isEnable);
+        jTextField_tel_emergencia.setEnabled(isEnable);
+        //jTextArea_talleres_inscritos.setEnabled(isEnable);
+    }
+    
     private void jButton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_buscarActionPerformed
         // TODO add your handling code here:
         String matricula = jTextField1.getText().trim();
         if (matricula.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor, ingrese una matrícula.", 
                                                       "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            jTextField_1er_apellido.setText("");
+            jTextField_2do_apellido.setText("");
+            jTextField_direccion.setText("");
+            jTextField_edad.setText("");
+            jTextField_genero.setText("");
+            jTextField_nombre.setText("");
+            jTextField_tel_contacto.setText("");
+            jTextField_tel_emergencia.setText("");
+            habilitarCamposInformacion(false);
             return;
         }
 
@@ -334,7 +476,8 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Alumno encontrado: " + alumnoSeleccionado.getNombre() + " " + 
                                                       alumnoSeleccionado.getPrimerApellido() + " (ID: " + alumnoSeleccionado.getIdAlumno() + ")", 
                                                       "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
+            llenarTextFields(alumnoSeleccionado);
+            habilitarCamposInformacion(true);
             List<Integer> talleresInscritos = inscripcionDAO.obtenerTalleresInscritos(alumnoSeleccionado.getIdAlumno());          
             jButton_baja_danza.setEnabled(false);
             jButton_baja_teatro.setEnabled(false);
@@ -365,11 +508,22 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró un alumno con esa matrícula o el ID es inválido.", 
                                                   "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             alumnoSeleccionado = null;
+            
+            jTextField_1er_apellido.setText("");
+            jTextField_2do_apellido.setText("");
+            jTextField_direccion.setText("");
+            jTextField_edad.setText("");
+            jTextField_genero.setText("");
+            jTextField_nombre.setText("");
+            jTextField_tel_contacto.setText("");
+            jTextField_tel_emergencia.setText("");
+            
             jButton_baja_danza.setEnabled(false);
             jButton_baja_teatro.setEnabled(false);
             jButton_baja_dibujo.setEnabled(false);
             jButton_baja_redaccion.setEnabled(false);
             jButton_baja_lectura.setEnabled(false);
+            habilitarCamposInformacion(false);
         }
     }//GEN-LAST:event_jButton_buscarActionPerformed
 
@@ -426,6 +580,16 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
                             case 7: case 8: jButton_baja_dibujo.setEnabled(false); break;
                             case 9: case 10: jButton_baja_teatro.setEnabled(false); break;
                         }
+                        habilitarCamposInformacion(false);
+                        jTextField_1er_apellido.setText("");
+                        jTextField_2do_apellido.setText("");
+                        jTextField_direccion.setText("");
+                        jTextField_edad.setText("");
+                        jTextField_genero.setText("");
+                        jTextField_nombre.setText("");
+                        jTextField_tel_contacto.setText("");
+                        jTextField_tel_emergencia.setText("");
+                        
                     } else {
                         javax.swing.JOptionPane.showMessageDialog(this, "Error al eliminar la inscripción.", 
                                                                   "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
@@ -485,6 +649,13 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
     private javax.swing.JButton jButton_buscar;
     private javax.swing.JButton jButton_cancelar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -492,8 +663,17 @@ public class CancelarInscripcionTaller extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField_1er_apellido;
+    private javax.swing.JTextField jTextField_2do_apellido;
+    private javax.swing.JTextField jTextField_direccion;
+    private javax.swing.JTextField jTextField_edad;
+    private javax.swing.JTextField jTextField_genero;
+    private javax.swing.JTextField jTextField_nombre;
+    private javax.swing.JTextField jTextField_tel_contacto;
+    private javax.swing.JTextField jTextField_tel_emergencia;
     // End of variables declaration//GEN-END:variables
 }
