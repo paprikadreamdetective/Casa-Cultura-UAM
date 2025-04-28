@@ -40,6 +40,8 @@ Funcionalidades:
 
 La interfaz de Gestión de Asistentes se encarga de administrar la información de los asistentes a los talleres.
 
+![image](https://github.com/user-attachments/assets/0b575939-860c-4056-866c-c273156a8d87)
+
 Funcionalidades:
 - ➕ Registrar Asistente: Captura de datos personales (e.g., nombre, apellido, matrícula).
 - ✏️ Actualizar Asistente: Modificación de datos existentes de un asistente.
