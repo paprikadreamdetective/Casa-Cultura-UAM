@@ -56,9 +56,15 @@ Funcionalidades:
 
 La interfaz de Gestión de Inscripciones permite inscribir asistentes a talleres y gestionar sus registros.
 
+![image](https://github.com/user-attachments/assets/8a27fb8e-443f-4dfc-ac84-f273c71f4669)
+
 Funcionalidades:
 - ➕ Inscribir Asistente: Selección de taller (e.g., Danza, Teatro) y horario, con cálculo de costo total (incluye material extra opcional).
+![image](https://github.com/user-attachments/assets/46937dc7-5427-495b-8ea8-de632ff964f7)
+
 - 🗑️ Dar de Baja: Eliminación de la inscripción de un asistente a un taller específico.
+![image](https://github.com/user-attachments/assets/848e0672-53fe-42b3-adab-012affb104c8)
+
 - 🚫 Deshabilitación de talleres ya inscritos para evitar duplicados.
 - 💸 Visualización del costo total por inscripción.
 - 📋 Lista de inscripciones activas.
