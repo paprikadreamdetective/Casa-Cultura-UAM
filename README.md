@@ -73,10 +73,17 @@ Funcionalidades:
 
 La interfaz de Información de Asistentes muestra los detalles completos de cada asistente y su participación en los talleres.
 
+![image](https://github.com/user-attachments/assets/97c3b195-3668-41eb-b4e0-1d7ac704d5f7)
+
 Funcionalidades:
 - 🧑‍🎓 Visualización de datos personales (e.g., nombre, apellido, matrícula).
+![image](https://github.com/user-attachments/assets/8968b13a-722e-4b65-88bd-784bd8b04d0b)
+
 - 📋 Lista de talleres inscritos con detalles (e.g., nombre del taller, horario, material solicitado).
+![image](https://github.com/user-attachments/assets/b670628b-2bc5-44fc-8252-03e31a087d49)
+
 - 🔍 Búsqueda de asistentes por matrícula.
-- 📄 Opción para exportar o imprimir la información.
+![image](https://github.com/user-attachments/assets/be018aee-5886-4c97-9030-b151f6e1da51)
+
 
 # Nota: El sistema está diseñado con una interfaz intuitiva usando Java Swing, asegurando una experiencia fluida para los administradores. 🎉 ¡Listo para gestionar los talleres culturales con estilo!
