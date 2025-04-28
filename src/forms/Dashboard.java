@@ -127,6 +127,7 @@ public class Dashboard extends javax.swing.JFrame {
         Label_menuItem4 = new javax.swing.JLabel();
         Label_menuItem5 = new javax.swing.JLabel();
         Label_menuItem6 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         jPanel1_dashboard = new javax.swing.JPanel();
         jPanel1_danza = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -192,6 +193,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel_logoANDname.setBackground(new java.awt.Color(255, 51, 51));
 
+        jLabel_appLogo.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/uam_azcapo_logoRedim.png")); // NOI18N
         jLabel_appLogo.setText("LOGO");
 
         jButton1_logout.setText("Cerrar Sesion");
@@ -206,20 +208,20 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel_logoANDnameLayout.setHorizontalGroup(
             jPanel_logoANDnameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_logoANDnameLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel_appLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 826, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel_appLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 689, Short.MAX_VALUE)
                 .addComponent(jButton1_logout)
                 .addContainerGap())
         );
         jPanel_logoANDnameLayout.setVerticalGroup(
             jPanel_logoANDnameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_logoANDnameLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel_logoANDnameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_appLogo)
-                    .addComponent(jButton1_logout))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(jButton1_logout)
+                    .addComponent(jLabel_appLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel_container.add(jPanel_logoANDname, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1020, 60));
@@ -257,6 +259,10 @@ public class Dashboard extends javax.swing.JFrame {
         Label_menuItem6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Label_menuItem6.setText("Exportar");
 
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/casa_cultura_uamRedim.png")); // NOI18N
+        jLabel29.setText("jLabel29");
+
         javax.swing.GroupLayout jPanel_menuLayout = new javax.swing.GroupLayout(jPanel_menu);
         jPanel_menu.setLayout(jPanel_menuLayout);
         jPanel_menuLayout.setHorizontalGroup(
@@ -265,13 +271,19 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(Label_menuItem2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Label_menuItem3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Label_menuItem4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Label_menuItem5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Label_menuItem5, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
             .addComponent(Label_menuItem6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_menuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         jPanel_menuLayout.setVerticalGroup(
             jPanel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_menuLayout.createSequentialGroup()
-                .addContainerGap(230, Short.MAX_VALUE)
+                .addContainerGap(82, Short.MAX_VALUE)
+                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
                 .addComponent(Label_menuItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Label_menuItem2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1176,9 +1188,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     public void addActionToMenuLabels() {
         Component[] components = jPanel_menu.getComponents();
-
+        
         for (Component component : components) {
-            if (component instanceof javax.swing.JLabel label) {
+            if (component instanceof javax.swing.JLabel label && component != jLabel29) {
 
                 label.addMouseListener(new MouseListener() {
                     @Override
@@ -1305,6 +1317,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

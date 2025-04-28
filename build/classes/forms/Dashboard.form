@@ -68,9 +68,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jLabel_appLogo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="826" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel_appLogo" min="-2" pref="200" max="-2" attributes="0"/>
+                      <EmptySpace pref="689" max="32767" attributes="0"/>
                       <Component id="jButton1_logout" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -78,13 +78,13 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel_appLogo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton1_logout" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_appLogo" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -92,6 +92,9 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel_appLogo">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/uam_azcapo_logoRedim.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="LOGO"/>
               </Properties>
             </Component>
@@ -124,14 +127,21 @@
                   <Component id="Label_menuItem2" alignment="1" max="32767" attributes="0"/>
                   <Component id="Label_menuItem3" alignment="1" max="32767" attributes="0"/>
                   <Component id="Label_menuItem4" alignment="1" max="32767" attributes="0"/>
-                  <Component id="Label_menuItem5" max="32767" attributes="0"/>
+                  <Component id="Label_menuItem5" pref="210" max="32767" attributes="0"/>
                   <Component id="Label_menuItem6" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel29" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="230" max="32767" attributes="0"/>
+                      <EmptySpace pref="82" max="32767" attributes="0"/>
+                      <Component id="jLabel29" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="Label_menuItem1" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Label_menuItem2" min="-2" pref="50" max="-2" attributes="0"/>
@@ -220,6 +230,17 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Exportar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel29">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/casa_cultura_uamRedim.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="jLabel29"/>
               </Properties>
             </Component>
           </SubComponents>

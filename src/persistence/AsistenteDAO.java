@@ -16,10 +16,6 @@ public class AsistenteDAO {
     private final String URL = "jdbc:mysql://localhost:3306/culturadb";
     private final String USER = "root";
     private final String PASSWORD = "kali"; 
-
-    /*public AsistenteDAO(Connection conexion) {
-        this.conexion = conexion;
-    }*/
     
     public AsistenteDAO() {
         try {
