@@ -14,16 +14,14 @@ import java.util.List;
  */
 public class InscripcionDAO {
     private Connection connection;
-    private final String URL = "jdbc:mysql://localhost:3306/culturadb";
-    private final String USER = "root";
-    private final String PASSWORD = "kali"; 
-
+    
     // Constructor que recibe la conexión a la base de datos
     public InscripcionDAO() {
         //this.connection = connection;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            //connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            connection = DriverManager.getConnection(DatabaseConnector.getUrl(), DatabaseConnector.getUser(), DatabaseConnector.getPassword());
         } catch (Exception e) {
             e.printStackTrace();
         }

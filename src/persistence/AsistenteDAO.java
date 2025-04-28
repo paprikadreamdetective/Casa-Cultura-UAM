@@ -13,14 +13,12 @@ import java.util.List;
  */
 public class AsistenteDAO {
     private Connection conexion;
-    private final String URL = "jdbc:mysql://localhost:3306/culturadb";
-    private final String USER = "root";
-    private final String PASSWORD = "kali"; 
     
     public AsistenteDAO() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conexion = DriverManager.getConnection(URL, USER, PASSWORD);
+            //conexion = DriverManager.getConnection(URL, USER, PASSWORD);
+            conexion = DriverManager.getConnection(DatabaseConnector.getUrl(), DatabaseConnector.getUser(), DatabaseConnector.getPassword());
         } catch (Exception e) {
             e.printStackTrace();
         }

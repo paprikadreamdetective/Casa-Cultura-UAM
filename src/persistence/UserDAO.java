@@ -9,17 +9,16 @@ package persistence;
  * @author p4prika
  */
 import java.sql.*;
+//import persistence.DatabaseConnector;
 
 public class UserDAO {
-    private final String URL = "jdbc:mysql://localhost:3306/culturadb";
-    private final String USER = "root";
-    private final String PASSWORD = "kali"; 
     private Connection conn;
     
     public UserDAO() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            //conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            conn = DriverManager.getConnection(DatabaseConnector.getUrl(), DatabaseConnector.getUser(), DatabaseConnector.getPassword());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -41,7 +41,7 @@ public class Dashboard extends javax.swing.JFrame {
     Border default_border = BorderFactory.createMatteBorder(1, 0, 1, 0, new Color(46, 49, 49));
 
     // yellow border for the menu items
-    Border yellow_border = BorderFactory.createMatteBorder(1, 0, 1, 0, Color.YELLOW);
+    Border yellow_border = BorderFactory.createMatteBorder(1, 0, 1, 0, Color.CYAN);
 
     javax.swing.JLabel[] menuLabels;
     javax.swing.JPanel[] panels;
@@ -83,11 +83,6 @@ public class Dashboard extends javax.swing.JFrame {
         menuLabels[4] = Label_menuItem5;
         menuLabels[5] = Label_menuItem6;
 
-        /*for (JLabel label : menuLabels) {
-            if (label != null) {
-                label.setOpaque(true);
-            }
-        }*/
         panels = new javax.swing.JPanel[6];
 
         // Populate the panels array
@@ -1132,42 +1127,7 @@ public class Dashboard extends javax.swing.JFrame {
             */
         }
     }
-    
-    public void busquedaDeAsistente(String matricula) {
-        
-        /*javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel();
-        //modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Apellido", "Teléfono", "Correo"});
-        modelo.setColumnIdentifiers(new String[]{"Matrícula", "Nombre", "Primer Apellido", "Taller", "Horario", "Costo"});
-        
-        Asistente asistente = new Asistente();
-        asistente = new AsistenteDAO().buscarAsistentePorMatricula(matricula);
-        boolean encontrado = asistente != null;
-
-        if (encontrado) {
-            modelo.addRow(new Object[]{
-                asistente.getMatricula(),
-                asistente.getNombre(),
-                asistente.getPrimerApellido(),
-                asistente.getSegundoApellido(),
-                asistente.getEdad(),
-                asistente.getGenero(),
-                asistente.getTelefonoContacto(),
-                asistente.getTelefonoEmergencia(),
-                asistente.getDireccion()
-            });
-        }
-
-        jTable3_actualizar_asistentes.setModel(modelo);
-
-        if (!encontrado) {
-            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró el registro.", "Búsqueda", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            deshabilitarTextFields();
-        } else {
-            habilitarTextFields();
-            llenarTextFields(modelo.getDataVector().elementAt(0));
-        }*/
-    }
-     
+             
     public void setLabelBackround(javax.swing.JLabel label) {
         for (javax.swing.JLabel menuItem : menuLabels) {
             menuItem.setOpaque(true); // Asegurarse de que se puede pintar el fondo
@@ -1176,7 +1136,7 @@ public class Dashboard extends javax.swing.JFrame {
         }
         label.setOpaque(true);
         label.setBackground(Color.WHITE);
-        label.setForeground(Color.BLUE);  // Texto azul
+        label.setForeground(Color.BLACK);  // Texto azul
     }
 
     public void showPanel(javax.swing.JPanel panel) {
