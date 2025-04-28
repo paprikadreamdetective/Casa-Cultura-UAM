@@ -172,6 +172,25 @@ public class Dashboard extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable5_informacion_asistentes = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
+        jTextField5_nombre = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jTextField5_1er_apellido = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jTextField5_2do_apellido = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jTextField5_tel_contacto = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        jTextField5_tel_emergencia = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        jTextField5_edad = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jTextField5_genero = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        jTextField5_direccion = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea5_detalles_inscripcion = new javax.swing.JTextArea();
+        jLabel38 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextField5_info_buscar = new javax.swing.JTextField();
         jButton5_info_buscar = new javax.swing.JButton();
@@ -561,7 +580,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel22.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/inscripcion_logoRedim.png")); // NOI18N
 
-        jLabel25.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jLabel25.setText("Inscribir al taller seleccionado");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -573,7 +592,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jLabel22)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 351, Short.MAX_VALUE)
                 .addComponent(jButton4_inscribir_taller, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -602,7 +621,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel23.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/cancelar_inscripcion_logoRedim.png")); // NOI18N
 
-        jLabel24.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jLabel24.setText("Dar de baja del taller");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -669,7 +688,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel19.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/create_logoRedim.png")); // NOI18N
 
-        jLabel26.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jLabel26.setText("Registrar nuevo asistente en el sistema");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -681,7 +700,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 306, Short.MAX_VALUE)
                 .addComponent(jButton3_registrar_asistente, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -710,7 +729,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel20.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/delete_logoRedim.png")); // NOI18N
 
-        jLabel27.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jLabel27.setText("Modificar datos del asistente");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -754,7 +773,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel21.setIcon(new javax.swing.ImageIcon("/home/p4prika/Documents/Github/Casa-Cultura-UAM/assets/update_logoRedim.png")); // NOI18N
 
-        jLabel28.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jLabel28.setText("Eliminar asistente registrado");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -830,15 +849,106 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel30.setText("Nombre(s)");
+
+        jLabel31.setText("Apellido Paterno");
+
+        jLabel32.setText("Apellido Materno");
+
+        jLabel33.setText("Telefono de contacto");
+
+        jLabel34.setText("Telefono de emergencia");
+
+        jLabel35.setText("Edad");
+
+        jLabel36.setText("Genero");
+
+        jLabel37.setText("Direccion");
+
+        jTextArea5_detalles_inscripcion.setColumns(20);
+        jTextArea5_detalles_inscripcion.setRows(5);
+        jScrollPane2.setViewportView(jTextArea5_detalles_inscripcion);
+
+        jLabel38.setText("Detalles de inscripcion:");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 998, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField5_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel31)
+                            .addComponent(jTextField5_1er_apellido)
+                            .addComponent(jLabel32)
+                            .addComponent(jTextField5_2do_apellido))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField5_tel_contacto)
+                            .addComponent(jLabel34)
+                            .addComponent(jTextField5_tel_emergencia)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addComponent(jLabel35)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel36))
+                                .addComponent(jLabel33))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jTextField5_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField5_genero, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))))
+                    .addComponent(jLabel37)
+                    .addComponent(jTextField5_direccion))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel38)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 242, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel36)
+                    .addComponent(jLabel38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField5_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField5_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField5_genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel33))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField5_1er_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField5_tel_contacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel34))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField5_2do_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField5_tel_emergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel37)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField5_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jLabel5.setText("Introduzca la matricula del asistente a buscar");
@@ -865,26 +975,26 @@ public class Dashboard extends javax.swing.JFrame {
             jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5_infoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 998, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE)
                     .addGroup(jPanel5_infoLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField5_info_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5_info_buscar)))
+                        .addComponent(jButton5_info_buscar))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel5_infoLayout.setVerticalGroup(
             jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5_infoLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel5_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTextField5_info_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5_info_buscar))
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1279,6 +1389,15 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1308,8 +1427,18 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_logoANDname;
     private javax.swing.JPanel jPanel_menu;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable5_informacion_asistentes;
+    private javax.swing.JTextArea jTextArea5_detalles_inscripcion;
+    private javax.swing.JTextField jTextField5_1er_apellido;
+    private javax.swing.JTextField jTextField5_2do_apellido;
+    private javax.swing.JTextField jTextField5_direccion;
+    private javax.swing.JTextField jTextField5_edad;
+    private javax.swing.JTextField jTextField5_genero;
     private javax.swing.JTextField jTextField5_info_buscar;
+    private javax.swing.JTextField jTextField5_nombre;
+    private javax.swing.JTextField jTextField5_tel_contacto;
+    private javax.swing.JTextField jTextField5_tel_emergencia;
     // End of variables declaration//GEN-END:variables
 
 }
