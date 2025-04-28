@@ -86,4 +86,4 @@ Funcionalidades:
 ![image](https://github.com/user-attachments/assets/be018aee-5886-4c97-9030-b151f6e1da51)
 
 
-# Nota: El sistema está diseñado con una interfaz intuitiva usando Java Swing, asegurando una experiencia fluida para los administradores. 🎉 ¡Listo para gestionar los talleres culturales con estilo!
+## Nota: El sistema está diseñado con una interfaz intuitiva usando Java Swing, asegurando una experiencia fluida para los administradores. 🎉 ¡Listo para gestionar los talleres culturales con estilo!
