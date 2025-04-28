@@ -34,7 +34,7 @@ public class InscripcionDAO {
     public List<InscripcionReporte> obtenerTalleresPorMatricula(String matricula) {
         List<InscripcionReporte> talleres = new ArrayList<>();
         String sql = "SELECT a.id_alumno, a.nombre, a.primer_apellido, a.matricula, " +
-                    "t.id_taller, t.nombre, t.horario, i.total_a_pagar " +
+                    "t.id_taller, t.nombre, t.horario, i.total_a_pagar, i.fecha_inscripcion, i.adquirir_material " +
                     "FROM alumno a, inscripcion i, taller t " +
                     "WHERE a.id_alumno = i.id_alumno " +
                     "AND i.id_taller = t.id_taller " +
@@ -55,7 +55,9 @@ public class InscripcionDAO {
                         idTaller,
                         rs.getString("t.nombre"),
                         rs.getString("horario"),
-                        totalAPagar
+                        totalAPagar,
+                        rs.getString("i.fecha_inscripcion"),
+                        rs.getInt("i.adquirir_material")
                     ));
                 }
             }
@@ -68,7 +70,7 @@ public class InscripcionDAO {
     public InscripcionReporte obtenerReporteInscripcionPorMatricula(String matricula) {
         InscripcionReporte registro = null;
         String sql = "SELECT a.id_alumno, a.nombre, a.primer_apellido, a.matricula, " +
-                    "t.id_taller, t.nombre AS nombre_taller, t.horario, i.total_a_pagar " +
+                    "t.id_taller, t.nombre AS nombre_taller, t.horario, i.total_a_pagar, i.fecha_inscripcion, i.adquirir_material " +
                     "FROM alumno a " +
                     "LEFT JOIN inscripcion i ON a.id_alumno = i.id_alumno " +
                     "LEFT JOIN taller t ON i.id_taller = t.id_taller " +
@@ -97,7 +99,9 @@ public class InscripcionDAO {
                         idTaller,
                         rs.getString("nombre_taller"),
                         rs.getString("horario"),
-                        totalAPagar
+                        totalAPagar,
+                        rs.getString("i.fecha_inscripcion"),
+                        rs.getInt("i.adquirir_material")
                     );
                 }
             }
@@ -110,7 +114,7 @@ public class InscripcionDAO {
     public List<InscripcionReporte> obtenerReporteInscripciones() {
         List<InscripcionReporte> reporte = new ArrayList<>();
         String sql = "SELECT a.id_alumno, a.nombre, a.primer_apellido, a.matricula, " +
-                    "t.id_taller, t.nombre AS nombre_taller, t.horario, i.total_a_pagar " +
+                    "t.id_taller, t.nombre AS nombre_taller, t.horario, i.total_a_pagar, i.fecha_inscripcion, i.adquirir_material " +
                     "FROM alumno a " +
                     "LEFT JOIN inscripcion i ON a.id_alumno = i.id_alumno " +
                     "LEFT JOIN taller t ON i.id_taller = t.id_taller";
@@ -137,7 +141,9 @@ public class InscripcionDAO {
                     idTaller,
                     rs.getString("nombre_taller"),
                     rs.getString("horario"),
-                    totalAPagar
+                    totalAPagar,
+                    rs.getString("i.fecha_inscripcion"),
+                    rs.getInt("i.adquirir_material")
                 );
                 reporte.add(registro);
             }

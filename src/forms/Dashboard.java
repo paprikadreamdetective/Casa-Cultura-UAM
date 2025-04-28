@@ -23,12 +23,15 @@ import forms.ActualizarAsistente;
 import forms.EliminarAsistente;
 import forms.InscripcionTaller;
 import forms.CancelarInscripcionTaller;
+import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import model.Asistente;
 
 import model.InscripcionReporte;
+import persistence.AsistenteDAO;
 import persistence.InscripcionDAO;
 
 public class Dashboard extends javax.swing.JFrame {
@@ -49,6 +52,17 @@ public class Dashboard extends javax.swing.JFrame {
     public Dashboard() {
         initComponents();
         this.setTitle("Casa de la Cultura – UAM Azcapotzalco: Dashboard");
+        habilitarCamposInformacion(false);
+        jTextArea5_detalles_inscripcion.setEditable(false);
+        jTextField5_1er_apellido.setEditable(false);
+        jTextField5_2do_apellido.setEditable(false);
+        jTextField5_direccion.setEditable(false);
+        jTextField5_edad.setEditable(false);
+        jTextField5_genero.setEditable(false);
+        jTextField5_nombre.setEditable(false);
+        jTextField5_tel_contacto.setEditable(false);
+        jTextField5_tel_emergencia.setEditable(false);
+        jTextField5_costo_actual.setEditable(false);
         
         inscripcionDAO = new InscripcionDAO();
         //cargarAsistentesEnTabla();
@@ -191,6 +205,8 @@ public class Dashboard extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea5_detalles_inscripcion = new javax.swing.JTextArea();
         jLabel38 = new javax.swing.JLabel();
+        jTextField5_costo_actual = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextField5_info_buscar = new javax.swing.JTextField();
         jButton5_info_buscar = new javax.swing.JButton();
@@ -871,58 +887,69 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel38.setText("Detalles de inscripcion:");
 
+        jLabel39.setText("Costo total actual");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-                            .addComponent(jLabel30)
-                            .addComponent(jLabel31)
-                            .addComponent(jTextField5_1er_apellido)
-                            .addComponent(jLabel32)
-                            .addComponent(jTextField5_2do_apellido))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5_tel_contacto)
-                            .addComponent(jLabel34)
-                            .addComponent(jTextField5_tel_emergencia)
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField5_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                                .addComponent(jLabel31)
+                                .addComponent(jTextField5_1er_apellido)
+                                .addComponent(jLabel32)
+                                .addComponent(jTextField5_2do_apellido))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField5_tel_contacto)
+                                .addComponent(jLabel34)
+                                .addComponent(jTextField5_tel_emergencia)
+                                .addComponent(jLabel33)
                                 .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addComponent(jLabel35)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel36))
-                                .addComponent(jLabel33))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jTextField5_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField5_genero, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))))
-                    .addComponent(jLabel37)
-                    .addComponent(jTextField5_direccion))
-                .addGap(18, 18, 18)
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField5_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel35))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel36)
+                                        .addComponent(jTextField5_genero, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)))))
+                        .addComponent(jLabel37)
+                        .addComponent(jTextField5_direccion))
+                    .addComponent(jLabel30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel38)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextField5_costo_actual, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel39, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel38))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel36)
-                    .addComponent(jLabel38))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel36)
+                                .addComponent(jLabel38))
+                            .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField5_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField5_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -942,13 +969,17 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField5_2do_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5_tel_emergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel37)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField5_tel_emergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane2))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField5_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField5_costo_actual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45))
         );
 
         jLabel5.setText("Introduzca la matricula del asistente a buscar");
@@ -1036,7 +1067,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel_container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -1167,7 +1198,38 @@ public class Dashboard extends javax.swing.JFrame {
         }
 
         InscripcionReporte registro = inscripcionDAO.obtenerReporteInscripcionPorMatricula(matricula);
-        if (registro != null) {
+        Asistente asistente = new Asistente();
+        asistente = new AsistenteDAO().buscarAsistentePorMatricula(matricula);
+        if (registro != null && asistente != null) {
+            //jTextArea5_detalles_inscripcion.setText(asistente);
+            habilitarCamposInformacion(true);
+            jTextField5_1er_apellido.setText(asistente.getPrimerApellido());
+            jTextField5_2do_apellido.setText(asistente.getSegundoApellido());
+            jTextField5_direccion.setText(asistente.getDireccion());
+            jTextField5_edad.setText(Integer.toString(asistente.getEdad()));
+            jTextField5_genero.setText(asistente.getGenero());
+            jTextField5_nombre.setText(asistente.getNombre());
+            jTextField5_tel_contacto.setText(asistente.getTelefonoContacto());
+            jTextField5_tel_emergencia.setText(asistente.getTelefonoEmergencia());
+            
+            List<InscripcionReporte> talleres = inscripcionDAO.obtenerTalleresPorMatricula(asistente.getMatricula());
+            String talleres_inscritos = "";
+            double costo_actual = 0;
+            for (InscripcionReporte taller : talleres) {
+                System.out.println(taller.getNombreTaller());
+                
+                String adquirio_material = "";
+                
+                if (registro.getAdquirioMaterial() == 1) {
+                    adquirio_material = "Si";
+                } else {
+                    adquirio_material = "No";
+                }
+                talleres_inscritos += taller.getNombreTaller() + ": " + registro.getHorario() + " Fecha de inscripcion: " + registro.getFechaInscripcion() + " ¿Adquirio material?: " + adquirio_material +"\n"; 
+                costo_actual += taller.getTotalAPagar();
+            }
+            jTextArea5_detalles_inscripcion.setText(talleres_inscritos);
+            jTextField5_costo_actual.setText("$"+Double.toString(costo_actual));
             String mensaje = String.format("Matrícula: %s\nNombre: %s %s\nTaller: %s\nHorario: %s\nCosto: %s",
                                           registro.getMatricula(),
                                           registro.getNombre(),
@@ -1180,6 +1242,8 @@ public class Dashboard extends javax.swing.JFrame {
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró un alumno con la matrícula " + matricula, 
                                          "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            limpiarCamposInformacion();
+            habilitarCamposInformacion(false);
         }
     }//GEN-LAST:event_jButton5_info_buscarActionPerformed
 
@@ -1209,6 +1273,7 @@ public class Dashboard extends javax.swing.JFrame {
         }
 
         jTable5_informacion_asistentes.setModel(modelo);
+        
     }
     
     private void mostrarInformacionSeleccionada() {
@@ -1316,6 +1381,33 @@ public class Dashboard extends javax.swing.JFrame {
             }
         }
     }
+    
+    private void habilitarCamposInformacion(boolean isEnable) {
+        jTextArea5_detalles_inscripcion.setEnabled(isEnable);
+        jTextField5_1er_apellido.setEnabled(isEnable);
+        jTextField5_2do_apellido.setEnabled(isEnable);
+        jTextField5_direccion.setEnabled(isEnable);
+        jTextField5_edad.setEnabled(isEnable);
+        jTextField5_genero.setEnabled(isEnable);
+        jTextField5_nombre.setEnabled(isEnable);
+        jTextField5_tel_contacto.setEnabled(isEnable);
+        jTextField5_tel_emergencia.setEnabled(isEnable);
+        jTextField5_costo_actual.setEnabled(isEnable);
+    }
+    
+    private void limpiarCamposInformacion() {
+        jTextArea5_detalles_inscripcion.setText("");
+        jTextField5_1er_apellido.setText("");
+        jTextField5_2do_apellido.setText("");
+        jTextField5_direccion.setText("");
+        jTextField5_edad.setText("");
+        jTextField5_genero.setText("");
+        jTextField5_nombre.setText("");
+        jTextField5_tel_contacto.setText("");
+        jTextField5_tel_emergencia.setText("");
+        jTextField5_costo_actual.setText("");
+    }
+    
 
     /**
      * @param args the command line arguments
@@ -1398,6 +1490,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1432,6 +1525,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea5_detalles_inscripcion;
     private javax.swing.JTextField jTextField5_1er_apellido;
     private javax.swing.JTextField jTextField5_2do_apellido;
+    private javax.swing.JTextField jTextField5_costo_actual;
     private javax.swing.JTextField jTextField5_direccion;
     private javax.swing.JTextField jTextField5_edad;
     private javax.swing.JTextField jTextField5_genero;

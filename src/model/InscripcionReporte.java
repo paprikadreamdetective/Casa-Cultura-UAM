@@ -17,10 +17,12 @@ public class InscripcionReporte {
     private String nombreTaller;
     private String horario;
     private Double totalAPagar; // Puede ser null si no está inscrito
+    private String fechaInscripcion;
+    private int adquirioMaterial;
 
     // Constructor
     public InscripcionReporte(int idAlumno, String nombre, String primerApellido, String matricula,
-                              Integer idTaller, String nombreTaller, String horario, Double totalAPagar) {
+                              Integer idTaller, String nombreTaller, String horario, Double totalAPagar, String fechaInscripcion, int adquirioMaterial) {
         this.idAlumno = idAlumno;
         this.nombre = nombre;
         this.primerApellido = primerApellido;
@@ -29,6 +31,8 @@ public class InscripcionReporte {
         this.nombreTaller = nombreTaller;
         this.horario = horario;
         this.totalAPagar = totalAPagar;
+        this.adquirioMaterial = adquirioMaterial;
+        this.fechaInscripcion = fechaInscripcion;
     }
 
     // Getters
@@ -62,5 +66,13 @@ public class InscripcionReporte {
 
     public Double getTotalAPagar() {
         return totalAPagar;
+    }
+    
+    public String getFechaInscripcion() {
+        return fechaInscripcion;
+    }
+    
+    public int getAdquirioMaterial() {
+        return adquirioMaterial;
     }
 }
