@@ -44,7 +44,13 @@ La interfaz de Gestión de Asistentes se encarga de administrar la información 
 
 Funcionalidades:
 - ➕ Registrar Asistente: Captura de datos personales (e.g., nombre, apellido, matrícula).
+
+![image](https://github.com/user-attachments/assets/ee1928a9-7ecd-436f-9a2e-e6a2d5b9960a)
+
 - ✏️ Actualizar Asistente: Modificación de datos existentes de un asistente.
+- ![image](https://github.com/user-attachments/assets/7d9f07fb-5efa-41d7-82d5-09fbacb7a5b1)
+
+
 - 🗑️ Eliminar Asistente: Baja de un asistente del sistema.
 - 🔍 Búsqueda de asistentes por matrícula o nombre.
 - 📋 Visualización de la lista de asistentes.
